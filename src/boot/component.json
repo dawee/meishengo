@@ -1,0 +1,8 @@
+{
+  "name": "boot",
+  "dependencies": {
+    "component/jquery": "1.9.1"
+  },
+  "main": "index.js",
+  "scripts": ["index.js"]
+}

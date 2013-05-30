@@ -1,0 +1,11 @@
+{
+  "name": "meishengo",
+  "version": "0.0.1",
+  "description": "HTML5 client for the Pandanet (IGS) protocol",
+  "dependencies": {
+      "pandanet-io-proxy": "x.x.x",
+      "express": "3.x.x"
+  },
+  "author": "David Corticchiato",
+  "license": "BSD"
+}
