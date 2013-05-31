@@ -13,4 +13,4 @@ app.use('/img', express.static(path.join(__dirname, 'public', 'img')));
 app.get('/', function (req, res) {
     res.render('index', {title: 'Meishengo'});
 });
-app.listen(8888);
+server.listen(8888);

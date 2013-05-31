@@ -3,11 +3,14 @@
   "dependencies": {
     "component/view": "*",
     "component/jquery": "1.9.1",
-    "component/underscore": "*"
+    "component/underscore": "*",
+    "ivolo/socket.io-client": "*"
   },
   "scripts": [
     "index.js",
+    "form.js",
     "footer-template.js",
-    "content-template.js"
+    "content-template.js",
+    "form-template.js"
   ]
 }
