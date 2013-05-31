@@ -1,0 +1,9 @@
+{
+  "name": "router",
+  "dependencies": {
+    "component/underscore": "*",
+    "visionmedia/page.js": "*"
+  },
+  "scripts": ["index.js"],
+  "local": ["login-page"]
+}

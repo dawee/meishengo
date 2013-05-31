@@ -2,5 +2,5 @@ components
 build
 node_modules
 npm-debug.log
-public/js
+public/js/meishengo.js
 

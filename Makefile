@@ -1,5 +1,5 @@
-SRC = $(wildcard src/*/*.js)
-HTML = $(wildcard src/*/*.html)
+SRC = $(wildcard lib/*/*.js)
+HTML = $(wildcard lib/*/*.html)
 TEMPLATES = $(HTML:.html=.js)
 
 build: components $(SRC) $(TEMPLATES)
@@ -13,5 +13,8 @@ components: component.json
 
 clean:
 	rm -fr build components $(TEMPLATES)
+
+run: build
+	@node app.js
 
 .PHONY: clean

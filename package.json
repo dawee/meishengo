@@ -4,7 +4,8 @@
   "description": "HTML5 client for the Pandanet (IGS) protocol",
   "dependencies": {
       "pandanet-io-proxy": "x.x.x",
-      "express": "3.x.x"
+      "express": "3.x.x",
+      "jade": "x.x.x"
   },
   "author": "David Corticchiato",
   "license": "BSD"
