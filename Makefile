@@ -4,6 +4,7 @@ TEMPLATES = $(HTML:.html=.js)
 
 build: components $(SRC) $(TEMPLATES)
 	@component build -o ./public/js -n meishengo
+	@uglifyjs ./public/js/meishengo.js > ./public/js/meishengo.min.js
 
 components: component.json
 	@component install

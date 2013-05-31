@@ -3,4 +3,5 @@ build
 node_modules
 npm-debug.log
 public/js/meishengo.js
+public/js/meishengo.min.js
 
