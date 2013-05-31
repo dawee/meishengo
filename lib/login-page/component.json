@@ -5,5 +5,9 @@
     "component/jquery": "1.9.1",
     "component/underscore": "*"
   },
-  "scripts": ["index.js"]
+  "scripts": [
+    "index.js",
+    "footer-template.js",
+    "content-template.js"
+  ]
 }
