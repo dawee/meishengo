@@ -7,6 +7,10 @@
       "express": "3.x.x",
       "jade": "x.x.x"
   },
+  "domains": [
+    "meishengo.org",
+    "www.meishengo.org"
+  ],
   "author": "David Corticchiato",
   "license": "BSD"
 }
