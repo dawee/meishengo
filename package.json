@@ -1,16 +1,23 @@
 {
   "name": "meishengo",
-  "version": "0.0.1",
+  "version": "0.0.1-1",
   "description": "HTML5 client for the Pandanet (IGS) protocol",
   "dependencies": {
-      "pandanet-io-proxy": "x.x.x",
-      "express": "3.x.x",
-      "jade": "x.x.x"
+    "pandanet-io-proxy": "x.x.x",
+    "express": "3.x.x",
+    "jade": "x.x.x"
   },
   "domains": [
     "meishengo.org",
     "www.meishengo.org"
   ],
   "author": "David Corticchiato",
-  "license": "BSD"
+  "license": "BSD",
+  "subdomain": "meishengo",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "engines": {
+    "node": "0.8.x"
+  }
 }
