@@ -1,0 +1,11 @@
+{
+  "name": "top-menu",
+  "dependencies": {
+    "component/underscore": "*",
+    "component/jquery": "1.9.1"
+  },
+  "scripts": [
+    "index.js",
+    "template.js"
+  ]
+}

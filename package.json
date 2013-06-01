@@ -1,6 +1,6 @@
 {
   "name": "meishengo",
-  "version": "0.0.1-1",
+  "version": "0.0.1-4",
   "description": "HTML5 client for the Pandanet (IGS) protocol",
   "dependencies": {
     "pandanet-io-proxy": "x.x.x",

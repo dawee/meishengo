@@ -5,5 +5,8 @@
     "visionmedia/page.js": "*"
   },
   "scripts": ["index.js"],
-  "local": ["login-page"]
+  "local": [
+    "login-page",
+    "home-page"
+  ]
 }

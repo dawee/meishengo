@@ -4,7 +4,7 @@
     "component/view": "*",
     "component/jquery": "1.9.1",
     "component/underscore": "*",
-    "ivolo/socket.io-client": "*"
+    "visionmedia/page.js": "*"
   },
   "scripts": [
     "index.js",

@@ -1,0 +1,9 @@
+{
+  "name": "home-page",
+  "dependencies": {
+    "component/underscore": "*",
+    "component/jquery": "1.9.1"
+  },
+  "scripts": ["index.js"],
+  "local": ["top-menu"]
+}
