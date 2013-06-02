@@ -1,11 +1,11 @@
 {
   "name": "login-page",
   "dependencies": {
-    "component/view": "*",
-    "component/jquery": "1.9.1",
+   "component/jquery": "1.9.1",
     "component/underscore": "*",
     "visionmedia/page.js": "*"
   },
+  "local": ["proxy-client"],
   "scripts": [
     "index.js",
     "form.js",

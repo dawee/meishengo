@@ -1,0 +1,7 @@
+{
+  "name": "proxy-client",
+  "dependencies": {},
+  "scripts": [
+    "index.js"
+  ]
+}

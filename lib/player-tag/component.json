@@ -1,8 +1,8 @@
 {
-  "name": "top-menu",
+  "name": "player-tag",
   "dependencies": {
-    "component/underscore": "*",
     "component/jquery": "1.9.1",
+    "component/underscore": "*",
     "visionmedia/page.js": "*"
   },
   "scripts": [
