@@ -11,6 +11,6 @@ app.use('/js', express.static(path.join(__dirname, 'public', 'js')));
 app.use('/less', express.static(path.join(__dirname, 'public', 'less')));
 app.use('/img', express.static(path.join(__dirname, 'public', 'img')));
 app.get('/', function (req, res) {
-    res.render('index', {title: 'Meishengo'});
+    res.render('index', {title: 'meishengo'});
 });
 server.listen(8888);
