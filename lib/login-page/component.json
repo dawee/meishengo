@@ -3,9 +3,13 @@
   "dependencies": {
    "component/jquery": "1.9.1",
     "component/underscore": "*",
-    "visionmedia/page.js": "*"
+    "visionmedia/page.js": "*",
+    "dawicorti/Sonic": "*"
   },
-  "local": ["proxy-client"],
+  "local": [
+    "proxy-client",
+    "loader"
+  ],
   "scripts": [
     "index.js",
     "form.js",

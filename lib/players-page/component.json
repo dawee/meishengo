@@ -13,6 +13,7 @@
   "local": [
     "top-menu",
     "proxy-client",
-    "player-tag"
+    "player-tag",
+    "loader"
   ]
 }
