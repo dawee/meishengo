@@ -11721,7 +11721,8 @@ exports.start = function () {
 
 exports.stop = function () {
     $('header .sonic').remove();
-}
+};
+
 });
 require.register("login-page/index.js", function(exports, require, module){
 /*global window*/
@@ -12012,12 +12013,15 @@ var _ = require('underscore'),
     page = require('page'),
     LoginPage = require('login-page'),
     HomePage = require('home-page'),
-    PlayersPage = require('players-page');
+    PlayersPage = require('players-page'),
+    noop = function () {};
 
 function Router() {
     _.bindAll(this);
     page('#!/home', this.homePage);
     page('#!/players', this.playersPage);
+    page('#!/games', noop);
+    page('#!/profile', noop);
     page('*', this.loginPage);
 }
 
