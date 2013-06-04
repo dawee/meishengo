@@ -2,7 +2,7 @@
   "name": "top-menu",
   "dependencies": {
     "component/underscore": "*",
-    "component/jquery": "1.9.1",
+    "component/jquery": "*",
     "visionmedia/page.js": "*"
   },
   "scripts": [

@@ -1,24 +1,22 @@
 {
   "name": "login-page",
   "dependencies": {
-   "component/jquery": "1.9.1",
+   "component/jquery": "*",
     "component/underscore": "*",
     "visionmedia/page.js": "*",
     "dawicorti/Sonic": "*"
   },
   "local": [
     "proxy-client",
-    "loader"
+    "loader",
+    "login-form"
   ],
   "scripts": [
     "index.js",
-    "form.js",
     "footer-template.js",
-    "content-template.js",
-    "form-template.js"
+    "content-template.js"
   ],
   "styles": [
-    "login-form.less",
-    "footer.less"
+    "style.less"
   ]
 }

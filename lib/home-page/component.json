@@ -2,7 +2,7 @@
   "name": "home-page",
   "dependencies": {
     "component/underscore": "*",
-    "component/jquery": "1.9.1"
+    "component/jquery": "*"
   },
   "scripts": ["index.js"],
   "local": ["top-menu"]

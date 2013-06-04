@@ -1,12 +1,12 @@
 {
-  "name": "player-tag",
+  "name": "search",
   "dependencies": {
     "component/jquery": "*",
-    "component/underscore": "*",
-    "visionmedia/page.js": "*"
+    "component/underscore": "*"
   },
   "scripts": [
     "index.js",
     "template.js"
-  ]
+  ],
+  "styles": ["style.less"]
 }

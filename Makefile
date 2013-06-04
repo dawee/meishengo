@@ -16,7 +16,7 @@ components: component.json
 	@component convert $<
 
 clean:
-	rm -fr build components $(TEMPLATES)
+	rm -fr build components $(TEMPLATES) ./public/build/*
 
 run: build
 	@node app.js

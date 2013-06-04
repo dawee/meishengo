@@ -1,7 +1,7 @@
 {
   "name": "loader",
   "dependencies": {
-   "component/jquery": "1.9.1",
+   "component/jquery": "*",
     "component/underscore": "*",
     "dawicorti/Sonic": "*"
   },

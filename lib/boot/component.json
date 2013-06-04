@@ -1,7 +1,7 @@
 {
   "name": "boot",
   "dependencies": {
-    "component/jquery": "1.9.1"
+    "component/jquery": "*"
   },
   "scripts": ["index.js"],
   "local": [

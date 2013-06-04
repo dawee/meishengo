@@ -1,5 +1,5 @@
 {
-  "name": "players-page",
+  "name": "login-form",
   "dependencies": {
     "component/jquery": "*",
     "component/underscore": "*",
@@ -7,16 +7,11 @@
   },
   "scripts": [
     "index.js",
-    "footer.js",
-    "footer-template.js"
+    "template.js"
   ],
   "local": [
-    "top-menu",
-    "proxy-client",
-    "player-tag",
-    "players-list",
     "loader",
-    "search"
+    "proxy-client"
   ],
   "styles": ["style.less"]
 }
