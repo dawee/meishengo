@@ -3,8 +3,11 @@ HTML = $(wildcard lib/*/*.html)
 TEMPLATES = $(HTML:.html=.js)
 
 build: components $(SRC) $(TEMPLATES)
-	@component build -o ./public/js -n meishengo
-	@uglifyjs ./public/js/meishengo.js > ./public/js/meishengo.min.js
+	@component build -o ./public/build -n meishengo
+	@uglifyjs ./public/build/meishengo.js > ./public/build/meishengo.min.js
+	@lessc -x ./public/build/meishengo.css > ./public/build/meishengo.min.css
+	@rm ./public/build/meishengo.css
+	@rm ./public/build/meishengo.js
 
 components: component.json
 	@component install

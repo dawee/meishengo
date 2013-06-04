@@ -16,5 +16,9 @@
     "footer-template.js",
     "content-template.js",
     "form-template.js"
+  ],
+  "styles": [
+    "login-form.less",
+    "footer.less"
   ]
 }

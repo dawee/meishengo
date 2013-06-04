@@ -1,0 +1,23 @@
+header {
+
+    .top-menu {
+        position: absolute;
+        right: 4em;
+        bottom: 1em;
+
+        a.page {
+            font-family: 'Carrois Gothic SC';
+            font-size: 1.2em;
+            color: @turquoise_lighter;
+            margin-right: 2em;
+            opacity: 0;
+            text-decoration: none;
+            &:hover {border-bottom: 1px dashed @turquoise_lighter;}
+            &.current {
+                color: @silk_lighter;
+                &:hover {border-bottom: none;}
+            }
+        }
+
+    }
+}

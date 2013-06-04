@@ -15,5 +15,6 @@
     "proxy-client",
     "player-tag",
     "loader"
-  ]
+  ],
+  "styles": ["style.less"]
 }

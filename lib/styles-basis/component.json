@@ -1,0 +1,10 @@
+{
+  "name": "styles-basis",
+  "dependencies": {},
+  "styles": [
+    "fonts.less",
+    "reset.less",
+    "variables.less",
+    "sections.less"
+  ]
+}

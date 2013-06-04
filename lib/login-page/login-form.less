@@ -1,0 +1,25 @@
+header {
+
+    .login-form {
+        position: absolute;
+        right: 4em;
+        bottom: 1em;
+
+        input[type=text], input[type=password] {
+            padding: 0;
+            width: 12em;
+            font-size: 1.1em;
+            background-color: @ivory_original;
+            border: 1px solid @silk_original;
+        }
+
+        input[type=submit] {
+            width: 8em;
+            font-size: 1.1em;
+            background-color: @silk_original;
+            border: 1px solid @silk_darker;
+            &:active {background-color: @silk_darker;}
+            &.disabled {background-color: grey;}
+        }
+    }
+}

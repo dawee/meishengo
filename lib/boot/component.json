@@ -4,5 +4,8 @@
     "component/jquery": "1.9.1"
   },
   "scripts": ["index.js"],
-  "local": ["router"]
+  "local": [
+    "styles-basis",
+    "router"
+  ]
 }

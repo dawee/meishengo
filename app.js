@@ -7,10 +7,9 @@ var path = require('path'),
 
 proxy.listen(server);
 app.set('view engine', 'jade');
-app.use('/js', express.static(path.join(__dirname, 'public', 'js')));
-app.use('/less', express.static(path.join(__dirname, 'public', 'less')));
+app.use('/build', express.static(path.join(__dirname, 'public', 'build')));
 app.use('/img', express.static(path.join(__dirname, 'public', 'img')));
 app.get('/', function (req, res) {
-    res.render('index', {title: 'meishengo'});
+    res.render('index', {title: 'Meishengo'});
 });
 server.listen(8888);
