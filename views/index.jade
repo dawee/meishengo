@@ -3,9 +3,9 @@ html
   head
     title= title
     link(rel='icon', type='image/png', href='/img/logo.png')  
-    link(rel='stylesheet', type='text/css', href='/build/meishengo.min.css')
+    link(rel='stylesheet', type='text/css', href='/build/meishengo.min.css?v=#{version}')
     script(src='/socket.io/socket.io.js')
-    script(src='/build/meishengo.js')
+    script(src='/build/meishengo.min.js?v=#{version}')
     script
         require('boot');
     body

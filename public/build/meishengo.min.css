@@ -18,3 +18,7 @@ section#content .players-area.players-area-right{top:31%;left:50%;right:3%;heigh
 section#content .players-area.players-area-bottom{top:47%;left:3%;right:3%;bottom:0.5%;}
 section#content .players-area .player-tag{position:relative;display:inline-block;font-size:15px;color:#292522;margin-right:9px;width:150px;height:30px;font-family:'Carrois Gothic SC';opacity:0;}section#content .players-area .player-tag .name{border-bottom:1px solid #4d6160;margin:0;}
 section#content .players-area .player-tag .rank{display:inline-block;border-bottom:1px solid #4d6160;background-color:#4d6160;color:white;width:40px;margin:0;}
+footer .nav{position:absolute;width:100%;height:100%;-webkit-touch-callout:none;-webkit-user-select:none;-khtml-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;}footer .nav .nav-button{position:absolute;top:1em;width:5em;height:2em;color:#647d7c;font-family:'Carrois Gothic SC';background-image:url(/img/nav-button.png);background-size:2em 2em;background-repeat:no-repeat;cursor:pointer;}footer .nav .nav-button:active{color:#d6a692;background-image:url(/img/nav-button-on.png);}
+footer .nav .nav-button .label{position:absolute;top:0.25em;}
+footer .nav .nav-button.next{right:4em;background-position:top left;}footer .nav .nav-button.next .label{right:0;}
+footer .nav .nav-button.previous{left:4em;background-position:top right;}footer .nav .nav-button.previous .label{left:0;}

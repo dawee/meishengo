@@ -8,7 +8,9 @@
   "scripts": [
     "index.js",
     "list.js",
-    "list-template.js"
+    "list-template.js",
+    "footer.js",
+    "footer-template.js"
   ],
   "local": [
     "top-menu",
