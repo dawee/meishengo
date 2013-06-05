@@ -1,0 +1,12 @@
+{
+  "name": "player-menu",
+  "dependencies": {
+    "component/jquery": "*",
+    "component/underscore": "*"
+  },
+  "scripts": [
+    "index.js",
+    "template.js"
+  ],
+  "styles": ["style.less"]
+}
