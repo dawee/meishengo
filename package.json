@@ -1,6 +1,6 @@
 {
   "name": "meishengo",
-  "version": "0.0.4-4",
+  "version": "0.0.4-7",
   "description": "HTML5 client for the Pandanet (IGS) protocol",
   "dependencies": {
     "pandanet-io-proxy": "x.x.x",
@@ -8,7 +8,8 @@
     "jade": "x.x.x",
     "jshint": "~2.1.3",
     "uglify-js": "x.x.x",
-    "less": "x.x.x"
+    "less": "x.x.x",
+    "component": "x.x.x"
   },
   "domains": [
     "meishengo.org",
@@ -19,7 +20,7 @@
   "subdomain": "meishengo",
   "scripts": {
     "start": "node app.js",
-    "postinstall": "make"
+    "postinstall": "make build"
   },
   "engines": {
     "node": "0.8.x"
