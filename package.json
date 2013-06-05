@@ -6,7 +6,9 @@
     "pandanet-io-proxy": "x.x.x",
     "express": "3.x.x",
     "jade": "x.x.x",
-    "jshint": "~2.1.3"
+    "jshint": "~2.1.3",
+    "uglify-js": "x.x.x",
+    "less": "x.x.x"
   },
   "domains": [
     "meishengo.org",
@@ -16,7 +18,8 @@
   "license": "BSD",
   "subdomain": "meishengo",
   "scripts": {
-    "start": "node app.js"
+    "start": "node app.js",
+    "postinstall": "make"
   },
   "engines": {
     "node": "0.8.x"

@@ -5,8 +5,8 @@ JS = $$(find app.js lib -name "*.js")
 
 build: components $(SRC) $(TEMPLATES)
 	@component build -o ./public/build -n meishengo
-	@uglifyjs ./public/build/meishengo.js > ./public/build/meishengo.min.js
-	@lessc -x ./public/build/meishengo.css > ./public/build/meishengo.min.css
+	@./node_modules/uglify-js/bin/uglifyjs ./public/build/meishengo.js > ./public/build/meishengo.min.js
+	@./node_modules/less/bin/lessc -x ./public/build/meishengo.css > ./public/build/meishengo.min.css
 	@rm ./public/build/meishengo.css
 	@rm ./public/build/meishengo.js
 
