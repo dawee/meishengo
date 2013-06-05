@@ -5,7 +5,8 @@
   "dependencies": {
     "pandanet-io-proxy": "x.x.x",
     "express": "3.x.x",
-    "jade": "x.x.x"
+    "jade": "x.x.x",
+    "jshint": "~2.1.3"
   },
   "domains": [
     "meishengo.org",

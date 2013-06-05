@@ -1,6 +1,7 @@
 SRC = $(wildcard lib/*/*.js)
 HTML = $(wildcard lib/*/*.html)
 TEMPLATES = $(HTML:.html=.js)
+JS = $$(find app.js lib -name "*.js")
 
 build: components $(SRC) $(TEMPLATES)
 	@component build -o ./public/build -n meishengo
@@ -21,4 +22,7 @@ clean:
 run: build
 	@node app.js
 
-.PHONY: clean
+validate:
+	@./node_modules/.bin/jshint --config .jshintrc $(JS)
+
+.PHONY: clean test run
