@@ -1,0 +1,6 @@
+{
+    "nomen": "true",
+    "indent": 2,
+    "var": "true",
+    "predef": "window"
+}

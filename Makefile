@@ -2,6 +2,8 @@ SRC = $(wildcard lib/*/*.js)
 HTML = $(wildcard lib/*/*.html)
 TEMPLATES = $(HTML:.html=.js)
 JS = $$(find app.js lib -name "*.js")
+JSLINTRC=$$(cat .jslintrc)
+JSLINT_OPTIONS=$$(echo $(JSLINTRC))
 
 build: components $(SRC) $(TEMPLATES)
 	@./node_modules/component/bin/component build -o ./public/build -n meishengo
@@ -23,6 +25,6 @@ run: build
 	@node app.js
 
 validate:
-	@./node_modules/.bin/jshint --config .jshintrc $(JS)
+	@./node_modules/.bin/purelint $(JS)
 
 .PHONY: clean test run
