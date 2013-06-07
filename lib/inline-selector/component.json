@@ -1,5 +1,5 @@
 {
-  "name": "player-menu",
+  "name": "inline-selector",
   "dependencies": {
     "component/jquery": "*",
     "component/underscore": "*"
@@ -8,6 +8,5 @@
     "index.js",
     "template.js"
   ],
-  "styles": ["style.less"],
-  "local": ["inline-selector"]
+  "styles": ["style.less"]
 }
