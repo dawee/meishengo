@@ -9,5 +9,8 @@
     "template.js"
   ],
   "styles": ["style.less"],
-  "local": ["inline-selector"]
+  "local": [
+    "inline-selector",
+    "proxy-client"
+  ]
 }

@@ -3,7 +3,7 @@
   "version": "0.0.4-7",
   "description": "HTML5 client for the Pandanet (IGS) protocol",
   "dependencies": {
-    "pandanet-io-proxy": "x.x.x",
+    "pandanet-proxy": "x.x.x",
     "express": "3.x.x",
     "jade": "x.x.x",
     "purelint": "x.x.x",

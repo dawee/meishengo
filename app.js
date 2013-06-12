@@ -8,7 +8,7 @@ var express = require('express');
 var app = express();
 var http = require('http');
 var server = http.createServer(app);
-var proxy = require('pandanet-io-proxy');
+var proxy = require('pandanet-proxy');
 
 app.set('view engine', 'jade');
 app.use('/build', express.static(path.join(__dirname, 'public', 'build')));
