@@ -1,6 +1,11 @@
 {
-  "name": "styles-basis",
+  "name": "theme",
   "dependencies": {},
+  "images": [
+    "goban-bg.png",
+    "logo.png",
+    "title.png"
+  ],
   "styles": [
     "fonts.less",
     "reset.less",

@@ -19,5 +19,9 @@
     "loader",
     "search"
   ],
-  "styles": ["style.less"]
+  "styles": ["style.less"],
+  "images": [
+    "nav-button.png",
+    "nav-button-on.png"
+  ]
 }

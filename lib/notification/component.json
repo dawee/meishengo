@@ -1,0 +1,13 @@
+{
+  "name": "notification",
+  "dependencies": {
+   "component/jquery": "*",
+    "component/underscore": "*"
+  },
+  "scripts": [
+    "index.js"
+  ],
+  "styles": [
+    "style.less"
+  ]
+}

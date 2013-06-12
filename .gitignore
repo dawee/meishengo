@@ -1,6 +1,6 @@
 components
 node_modules
 npm-debug.log
-public/build
+build
 *template.js
 purelint.log

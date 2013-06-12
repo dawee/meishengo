@@ -10,9 +10,9 @@ var http = require('http');
 var server = http.createServer(app);
 var proxy = require('pandanet-proxy');
 
+app.set('views', __dirname);
 app.set('view engine', 'jade');
-app.use('/build', express.static(path.join(__dirname, 'public', 'build')));
-app.use('/img', express.static(path.join(__dirname, 'public', 'img')));
+app.use('/build', express.static(path.join(__dirname, 'build')));
 app.get('/', function (req, res) {
   res.render('index', {'version': Date.now()});
 });

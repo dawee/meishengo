@@ -5,7 +5,7 @@
   },
   "scripts": ["index.js"],
   "local": [
-    "styles-basis",
+    "theme",
     "router"
   ]
 }
