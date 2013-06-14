@@ -31,4 +31,6 @@ run: clean build
 validate:
 	@./node_modules/.bin/purelint $(JS)
 
+all: build
+
 .PHONY: clean test run

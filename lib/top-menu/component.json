@@ -9,5 +9,6 @@
     "index.js",
     "template.js"
   ],
+  "local": ["notification-menu"],
   "styles": ["style.less"]
 }
