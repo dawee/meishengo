@@ -15,8 +15,8 @@ app.get('/game/:id', function (req, res) {
   var game = Game(req.params.id, io);
   res.render('game', {
     id: req.params.id,
-    goban: game.gbn(),
-    gbn: JSON.stringify(game.gbn())
+    hasGoban: game.gbn() !== null,
+    goban: JSON.stringify(game.gbn())
   });
 });
 

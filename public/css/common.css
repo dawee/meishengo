@@ -2,8 +2,8 @@
 
 body {
   font-family: 'Carrois Gothic SC', sans-serif;
-  background: radial-gradient(ellipse at center,  rgba(236,240,241,0.1) 0%,rgba(44,62,80,0.5) 100%); /* W3C */
-  color: #2c3e50;
+  background: radial-gradient(ellipse at center,  rgba(200,200,200,0.1) 0%,rgba(214,166,146,0.5) 100%); /* W3C */
+  color: #292522;
 }
 
 select, input, textarea {
@@ -36,10 +36,10 @@ select, input, textarea {
   left: 50%;
   top: 50%;
   width: 300px;
-  background-color: #ecf0f1;
   margin: -150px 0 0 -150px;
   text-align: center;
   transition: top 1s;
+  background-color: white;
 }
 
 .popup .dialog h1 {
@@ -82,4 +82,12 @@ select, input, textarea {
 .popup .buttons button {
   display: inline-block;
   margin: 0 10px 0 10px;
+}
+
+#content {
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
 }

@@ -5,7 +5,8 @@ html
     script(src="/koban-client.js")
     link(rel="stylesheet" type="text/css" href="/css/game.css")
   body
-    if !goban
+    div(id="content")
+    if !hasGoban
       div(class="popup reduced create")
         div(class="dialog")
           h1= "Create"
@@ -18,7 +19,6 @@ html
                 option(value="9")= "9x9"
           div(class="buttons")
             button= "OK"
-
     script.
-        boot({id: "#{id}", goban: !{gbn}})
+        boot({id: "#{id}", goban: !{goban}})
 
