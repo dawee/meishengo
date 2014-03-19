@@ -26,6 +26,8 @@
 
 #goban .intersection {
   display: inline-block;
-  width: 20px;
-  height: 20px;
+  background: url(/img/intersection-normal.png) no-repeat 100% 100%;
+  background-opacity: 0;
+  width: 30px;
+  height: 30px;
 }
