@@ -3,3 +3,29 @@
 .popup.create .dialog {
   margin-top: -100px;
 }
+
+#goban {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  margin: -250px 0 0 -250px;
+  background: url(/img/Melamine-wood-001.png) repeat;
+  border: 2px solid #292522;
+}
+
+#goban .intersections {
+  margin: 50px;
+}
+
+#goban .intersections .line {
+  display: block;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+
+#goban .intersection {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+}
