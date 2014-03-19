@@ -1,5 +1,5 @@
 (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);throw new Error("Cannot find module '"+o+"'")}var f=n[o]={exports:{}};t[o][0].call(f.exports,function(e){var n=t[o][1][e];return s(n?n:e)},f,f.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
-var http = require('http');
+var hyperquest = require('hyperquest');
 var async = require('async');
 
 // exports boot
@@ -8,18 +8,17 @@ window.boot = function (opts) {
 
   if (!opts.goban) {
     var button = document.querySelector('.popup.create button');
+    document.querySelector('.popup.create').setAttribute('class', 'popup create')
 
     button.addEventListener('click', function () {
-      http.request({path: '/game/' + opts.id + '/goban', method: 'POST'}, function (res) {
-
-        console.log(res.code);
-
+      hyperquest.post('http://localhost:8000/game/' + opts.id + '/goban', function (res) {
+        document.querySelector('.popup.create').setAttribute('class', 'popup create reduced');
       }).end();
     });
   }
 
 };
-},{"async":2,"http":7}],2:[function(require,module,exports){
+},{"async":2,"hyperquest":29}],2:[function(require,module,exports){
 (function (process){
 /*global setImmediate: false, setTimeout: false, console: false */
 (function () {
@@ -981,7 +980,7 @@ window.boot = function (opts) {
 }());
 
 }).call(this,require("/home/dawi/projects/koban/node_modules/browserify/node_modules/insert-module-globals/node_modules/process/browser.js"))
-},{"/home/dawi/projects/koban/node_modules/browserify/node_modules/insert-module-globals/node_modules/process/browser.js":12}],3:[function(require,module,exports){
+},{"/home/dawi/projects/koban/node_modules/browserify/node_modules/insert-module-globals/node_modules/process/browser.js":13}],3:[function(require,module,exports){
 /**
  * The buffer module from node.js, for the browser.
  *
@@ -2743,7 +2742,7 @@ http.STATUS_CODES = {
     510 : 'Not Extended',               // RFC 2774
     511 : 'Network Authentication Required' // RFC 6585
 };
-},{"./lib/request":8,"events":6,"url":25}],8:[function(require,module,exports){
+},{"./lib/request":8,"events":6,"url":26}],8:[function(require,module,exports){
 var Stream = require('stream');
 var Response = require('./response');
 var Base64 = require('Base64');
@@ -2934,7 +2933,7 @@ var indexOf = function (xs, x) {
     return -1;
 };
 
-},{"./response":9,"Base64":10,"inherits":11,"stream":18}],9:[function(require,module,exports){
+},{"./response":9,"Base64":10,"inherits":12,"stream":19}],9:[function(require,module,exports){
 var Stream = require('stream');
 var util = require('util');
 
@@ -3056,7 +3055,7 @@ var isArray = Array.isArray || function (xs) {
     return Object.prototype.toString.call(xs) === '[object Array]';
 };
 
-},{"stream":18,"util":27}],10:[function(require,module,exports){
+},{"stream":19,"util":28}],10:[function(require,module,exports){
 ;(function () {
 
   var object = typeof exports != 'undefined' ? exports : this; // #8: web workers
@@ -3119,6 +3118,21 @@ var isArray = Array.isArray || function (xs) {
 }());
 
 },{}],11:[function(require,module,exports){
+var http = require('http');
+
+var https = module.exports;
+
+for (var key in http) {
+    if (http.hasOwnProperty(key)) https[key] = http[key];
+};
+
+https.request = function (params, cb) {
+    if (!params) params = {};
+    params.scheme = 'https';
+    return http.request.call(this, params, cb);
+}
+
+},{"http":7}],12:[function(require,module,exports){
 if (typeof Object.create === 'function') {
   // implementation from standard node.js 'util' module
   module.exports = function inherits(ctor, superCtor) {
@@ -3143,7 +3157,7 @@ if (typeof Object.create === 'function') {
   }
 }
 
-},{}],12:[function(require,module,exports){
+},{}],13:[function(require,module,exports){
 // shim for using process in browser
 
 var process = module.exports = {};
@@ -3198,7 +3212,7 @@ process.chdir = function (dir) {
     throw new Error('process.chdir is not supported');
 };
 
-},{}],13:[function(require,module,exports){
+},{}],14:[function(require,module,exports){
 (function (global){
 /*! http://mths.be/punycode v1.2.4 by @mathias */
 ;(function(root) {
@@ -3709,7 +3723,7 @@ process.chdir = function (dir) {
 }(this));
 
 }).call(this,typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{}],14:[function(require,module,exports){
+},{}],15:[function(require,module,exports){
 // Copyright Joyent, Inc. and other Node contributors.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a
@@ -3795,7 +3809,7 @@ var isArray = Array.isArray || function (xs) {
   return Object.prototype.toString.call(xs) === '[object Array]';
 };
 
-},{}],15:[function(require,module,exports){
+},{}],16:[function(require,module,exports){
 // Copyright Joyent, Inc. and other Node contributors.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a
@@ -3882,13 +3896,13 @@ var objectKeys = Object.keys || function (obj) {
   return res;
 };
 
-},{}],16:[function(require,module,exports){
+},{}],17:[function(require,module,exports){
 'use strict';
 
 exports.decode = exports.parse = require('./decode');
 exports.encode = exports.stringify = require('./encode');
 
-},{"./decode":14,"./encode":15}],17:[function(require,module,exports){
+},{"./decode":15,"./encode":16}],18:[function(require,module,exports){
 // Copyright Joyent, Inc. and other Node contributors.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a
@@ -3962,7 +3976,7 @@ function onend() {
   });
 }
 
-},{"./readable.js":21,"./writable.js":23,"inherits":11,"process/browser.js":19}],18:[function(require,module,exports){
+},{"./readable.js":22,"./writable.js":24,"inherits":12,"process/browser.js":20}],19:[function(require,module,exports){
 // Copyright Joyent, Inc. and other Node contributors.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a
@@ -4091,9 +4105,9 @@ Stream.prototype.pipe = function(dest, options) {
   return dest;
 };
 
-},{"./duplex.js":17,"./passthrough.js":20,"./readable.js":21,"./transform.js":22,"./writable.js":23,"events":6,"inherits":11}],19:[function(require,module,exports){
-module.exports=require(12)
-},{}],20:[function(require,module,exports){
+},{"./duplex.js":18,"./passthrough.js":21,"./readable.js":22,"./transform.js":23,"./writable.js":24,"events":6,"inherits":12}],20:[function(require,module,exports){
+module.exports=require(13)
+},{}],21:[function(require,module,exports){
 // Copyright Joyent, Inc. and other Node contributors.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a
@@ -4136,7 +4150,7 @@ PassThrough.prototype._transform = function(chunk, encoding, cb) {
   cb(null, chunk);
 };
 
-},{"./transform.js":22,"inherits":11}],21:[function(require,module,exports){
+},{"./transform.js":23,"inherits":12}],22:[function(require,module,exports){
 (function (process){
 // Copyright Joyent, Inc. and other Node contributors.
 //
@@ -5073,7 +5087,7 @@ function indexOf (xs, x) {
 }
 
 }).call(this,require("/home/dawi/projects/koban/node_modules/browserify/node_modules/insert-module-globals/node_modules/process/browser.js"))
-},{"./index.js":18,"/home/dawi/projects/koban/node_modules/browserify/node_modules/insert-module-globals/node_modules/process/browser.js":12,"buffer":3,"events":6,"inherits":11,"process/browser.js":19,"string_decoder":24}],22:[function(require,module,exports){
+},{"./index.js":19,"/home/dawi/projects/koban/node_modules/browserify/node_modules/insert-module-globals/node_modules/process/browser.js":13,"buffer":3,"events":6,"inherits":12,"process/browser.js":20,"string_decoder":25}],23:[function(require,module,exports){
 // Copyright Joyent, Inc. and other Node contributors.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a
@@ -5279,7 +5293,7 @@ function done(stream, er) {
   return stream.push(null);
 }
 
-},{"./duplex.js":17,"inherits":11}],23:[function(require,module,exports){
+},{"./duplex.js":18,"inherits":12}],24:[function(require,module,exports){
 // Copyright Joyent, Inc. and other Node contributors.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a
@@ -5667,7 +5681,7 @@ function endWritable(stream, state, cb) {
   state.ended = true;
 }
 
-},{"./index.js":18,"buffer":3,"inherits":11,"process/browser.js":19}],24:[function(require,module,exports){
+},{"./index.js":19,"buffer":3,"inherits":12,"process/browser.js":20}],25:[function(require,module,exports){
 // Copyright Joyent, Inc. and other Node contributors.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a
@@ -5860,7 +5874,7 @@ function base64DetectIncompleteChar(buffer) {
   return incomplete;
 }
 
-},{"buffer":3}],25:[function(require,module,exports){
+},{"buffer":3}],26:[function(require,module,exports){
 /*jshint strict:true node:true es5:true onevar:true laxcomma:true laxbreak:true eqeqeq:true immed:true latedef:true*/
 (function () {
   "use strict";
@@ -6493,14 +6507,14 @@ function parseHost(host) {
 
 }());
 
-},{"punycode":13,"querystring":16}],26:[function(require,module,exports){
+},{"punycode":14,"querystring":17}],27:[function(require,module,exports){
 module.exports = function isBuffer(arg) {
   return arg && typeof arg === 'object'
     && typeof arg.copy === 'function'
     && typeof arg.fill === 'function'
     && typeof arg.readUInt8 === 'function';
 }
-},{}],27:[function(require,module,exports){
+},{}],28:[function(require,module,exports){
 (function (process,global){
 // Copyright Joyent, Inc. and other Node contributors.
 //
@@ -7090,4 +7104,355 @@ function hasOwnProperty(obj, prop) {
 }
 
 }).call(this,require("/home/dawi/projects/koban/node_modules/browserify/node_modules/insert-module-globals/node_modules/process/browser.js"),typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{"./support/isBuffer":26,"/home/dawi/projects/koban/node_modules/browserify/node_modules/insert-module-globals/node_modules/process/browser.js":12,"inherits":11}]},{},[1])
+},{"./support/isBuffer":27,"/home/dawi/projects/koban/node_modules/browserify/node_modules/insert-module-globals/node_modules/process/browser.js":13,"inherits":12}],29:[function(require,module,exports){
+(function (process,Buffer){
+var url = require('url');
+var http = require('http');
+var https = require('https');
+var through = require('through');
+var duplexer = require('duplexer');
+
+module.exports = hyperquest;
+
+function bind (obj, fn) {
+  var args = Array.prototype.slice.call(arguments, 2);
+  return function () {
+    var argv = args.concat(Array.prototype.slice.call(arguments));
+    return fn.apply(obj, argv);
+  }
+}
+
+function hyperquest (uri, opts, cb, extra) {
+    if (typeof uri === 'object') {
+        cb = opts;
+        opts = uri;
+        uri = undefined;
+    }
+    if (typeof opts === 'function') {
+      cb = opts;
+      opts = undefined;
+    }
+    if (!opts) opts = {};
+    if (uri !== undefined) opts.uri = uri;
+    if (extra) opts.method = extra.method;
+    
+    var req = new Req(opts);
+    var ws = req.duplex && through();
+    if (ws) ws.pause();
+    var rs = through();
+    
+    var dup = req.duplex ? duplexer(ws, rs) : rs;
+    if (!req.duplex) {
+        rs.writable = false;
+    }
+    dup.request = req;
+    dup.setHeader = bind(req, req.setHeader);
+    dup.setLocation = bind(req, req.setLocation);
+    
+    var closed = false;
+    dup.on('close', function () { closed = true });
+    
+    process.nextTick(function () {
+        if (closed) return;
+        dup.on('close', function () { r.destroy() });
+        
+        var r = req._send();
+        r.on('error', bind(dup, dup.emit, 'error'));
+        
+        r.on('response', function (res) {
+            dup.response = res;
+            dup.emit('response', res);
+            if (req.duplex) res.pipe(rs)
+            else {
+                res.on('data', function (buf) { rs.queue(buf) });
+                res.on('end', function () { rs.queue(null) });
+            }
+        });
+        
+        if (req.duplex) {
+            ws.pipe(r);
+            ws.resume();
+        }
+        else r.end();
+    });
+    
+    if (cb) {
+        dup.on('error', cb);
+        dup.on('response', bind(dup, cb, null));
+    }
+    return dup;
+}
+
+hyperquest.get = hyperquest;
+
+hyperquest.post = function (uri, opts, cb) {
+    return hyperquest(uri, opts, cb, { method: 'POST' });
+};
+
+hyperquest.put = function (uri, opts, cb) {
+    return hyperquest(uri, opts, cb, { method: 'PUT' });
+};
+
+hyperquest['delete'] = function (uri, opts, cb) {
+    return hyperquest(uri, opts, cb, { method: 'DELETE' });
+};
+
+function Req (opts) {
+    this.headers = opts.headers || {};
+    
+    var method = (opts.method || 'GET').toUpperCase();
+    this.method = method;
+    this.duplex = !(method === 'GET' || method === 'DELETE'
+        || method === 'HEAD');
+    this.auth = opts.auth;
+    
+    this.options = opts;
+    
+    if (opts.uri) this.setLocation(opts.uri);
+}
+
+Req.prototype._send = function () {
+    this._sent = true;
+    
+    var headers = this.headers || {};
+    var u = url.parse(this.uri);
+    var au = u.auth || this.auth;
+    if (au) {
+        headers.authorization = 'Basic ' + Buffer(au).toString('base64');
+    }
+    
+    var protocol = u.protocol || '';
+    var iface = protocol === 'https:' ? https : http;
+    var opts = {
+        scheme: protocol.replace(/:$/, ''),
+        method: this.method,
+        host: u.hostname,
+        port: Number(u.port) || (protocol === 'https:' ? 443 : 80),
+        path: u.path,
+        agent: false,
+        headers: headers
+    };
+    if (protocol === 'https:') {
+        opts.pfx = this.options.pfx;
+        opts.key = this.options.key;
+        opts.cert = this.options.cert;
+        opts.ca = this.options.ca;
+        opts.ciphers = this.options.ciphers;
+        opts.rejectUnauthorized = this.options.rejectUnauthorized;
+        opts.secureProtocol = this.options.secureProtocol;
+    }
+    var req = iface.request(opts);
+    
+    if (req.setTimeout) req.setTimeout(Math.pow(2, 32) * 1000);
+    return req;
+};
+
+Req.prototype.setHeader = function (key, value) {
+    if (this._sent) throw new Error('request already sent');
+    this.headers[key] = value;
+    return this;
+};
+
+Req.prototype.setLocation = function (uri) {
+    this.uri = uri;
+    return this;
+};
+
+}).call(this,require("/home/dawi/projects/koban/node_modules/browserify/node_modules/insert-module-globals/node_modules/process/browser.js"),require("buffer").Buffer)
+},{"/home/dawi/projects/koban/node_modules/browserify/node_modules/insert-module-globals/node_modules/process/browser.js":13,"buffer":3,"duplexer":30,"http":7,"https":11,"through":31,"url":26}],30:[function(require,module,exports){
+var Stream = require("stream")
+var writeMethods = ["write", "end", "destroy"]
+var readMethods = ["resume", "pause"]
+var readEvents = ["data", "close"]
+var slice = Array.prototype.slice
+
+module.exports = duplex
+
+function forEach (arr, fn) {
+    if (arr.forEach) {
+        return arr.forEach(fn)
+    }
+
+    for (var i = 0; i < arr.length; i++) {
+        fn(arr[i], i)
+    }
+}
+
+function duplex(writer, reader) {
+    var stream = new Stream()
+    var ended = false
+
+    forEach(writeMethods, proxyWriter)
+
+    forEach(readMethods, proxyReader)
+
+    forEach(readEvents, proxyStream)
+
+    reader.on("end", handleEnd)
+
+    writer.on("drain", function() {
+      stream.emit("drain")
+    })
+
+    writer.on("error", reemit)
+    reader.on("error", reemit)
+
+    stream.writable = writer.writable
+    stream.readable = reader.readable
+
+    return stream
+
+    function proxyWriter(methodName) {
+        stream[methodName] = method
+
+        function method() {
+            return writer[methodName].apply(writer, arguments)
+        }
+    }
+
+    function proxyReader(methodName) {
+        stream[methodName] = method
+
+        function method() {
+            stream.emit(methodName)
+            var func = reader[methodName]
+            if (func) {
+                return func.apply(reader, arguments)
+            }
+            reader.emit(methodName)
+        }
+    }
+
+    function proxyStream(methodName) {
+        reader.on(methodName, reemit)
+
+        function reemit() {
+            var args = slice.call(arguments)
+            args.unshift(methodName)
+            stream.emit.apply(stream, args)
+        }
+    }
+
+    function handleEnd() {
+        if (ended) {
+            return
+        }
+        ended = true
+        var args = slice.call(arguments)
+        args.unshift("end")
+        stream.emit.apply(stream, args)
+    }
+
+    function reemit(err) {
+        stream.emit("error", err)
+    }
+}
+
+},{"stream":19}],31:[function(require,module,exports){
+(function (process){
+var Stream = require('stream')
+
+// through
+//
+// a stream that does nothing but re-emit the input.
+// useful for aggregating a series of changing but not ending streams into one stream)
+
+
+
+exports = module.exports = through
+through.through = through
+
+//create a readable writable stream.
+
+function through (write, end) {
+  write = write || function (data) { this.queue(data) }
+  end = end || function () { this.queue(null) }
+
+  var ended = false, destroyed = false, buffer = []
+  var stream = new Stream()
+  stream.readable = stream.writable = true
+  stream.paused = false
+
+  stream.write = function (data) {
+    write.call(this, data)
+    return !stream.paused
+  }
+
+  function drain() {
+    while(buffer.length && !stream.paused) {
+      var data = buffer.shift()
+      if(null === data)
+        return stream.emit('end')
+      else
+        stream.emit('data', data)
+    }
+  }
+
+  stream.queue = stream.push = function (data) {
+    buffer.push(data)
+    drain()
+    return stream
+  }
+
+  //this will be registered as the first 'end' listener
+  //must call destroy next tick, to make sure we're after any
+  //stream piped from here.
+  //this is only a problem if end is not emitted synchronously.
+  //a nicer way to do this is to make sure this is the last listener for 'end'
+
+  stream.on('end', function () {
+    stream.readable = false
+    if(!stream.writable)
+      process.nextTick(function () {
+        stream.destroy()
+      })
+  })
+
+  function _end () {
+    stream.writable = false
+    end.call(stream)
+    if(!stream.readable)
+      stream.destroy()
+  }
+
+  stream.end = function (data) {
+    if(ended) return
+    ended = true
+    if(arguments.length) stream.write(data)
+    _end() // will emit or queue
+    return stream
+  }
+
+  stream.destroy = function () {
+    if(destroyed) return
+    destroyed = true
+    ended = true
+    buffer.length = 0
+    stream.writable = stream.readable = false
+    stream.emit('close')
+    return stream
+  }
+
+  stream.pause = function () {
+    if(stream.paused) return
+    stream.paused = true
+    stream.emit('pause')
+    return stream
+  }
+  stream.resume = function () {
+    if(stream.paused) {
+      stream.paused = false
+    }
+    drain()
+    //may have become paused again,
+    //as drain emits 'data'.
+    if(!stream.paused)
+      stream.emit('drain')
+    return stream
+  }
+  return stream
+}
+
+
+}).call(this,require("/home/dawi/projects/koban/node_modules/browserify/node_modules/insert-module-globals/node_modules/process/browser.js"))
+},{"/home/dawi/projects/koban/node_modules/browserify/node_modules/insert-module-globals/node_modules/process/browser.js":13,"stream":19}]},{},[1])

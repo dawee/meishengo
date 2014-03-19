@@ -17,7 +17,8 @@
     "socket.io": "^0.9.16",
     "crypto": "0.0.3",
     "request": "~2.34.0",
-    "async": "~0.2.10"
+    "async": "~0.2.10",
+    "hyperquest": "~0.2.0"
   },
   "devDependencies": {
     "nodemon": "~1.0.15",
