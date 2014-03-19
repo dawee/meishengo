@@ -1,0 +1,5 @@
+@import url(/css/common.css);
+
+.popup.create .dialog {
+  margin-top: -100px;
+}

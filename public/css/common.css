@@ -1,0 +1,74 @@
+@import url(http://fonts.googleapis.com/css?family=Carrois+Gothic+SC);
+
+body {
+  font-family: 'Carrois Gothic SC', sans-serif;
+  background: radial-gradient(ellipse at center,  rgba(236,240,241,0.1) 0%,rgba(44,62,80,0.5) 100%); /* W3C */
+  color: #2c3e50;
+}
+
+select, input, textarea {
+  background: none;
+  border: none;
+}
+
+.popup {
+  position: absolute;
+  z-index: 2;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0,0,0,0.25);
+}
+
+.popup .dialog {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 300px;
+  background-color: #ecf0f1;
+  margin: -150px 0 0 -150px;
+  text-align: center;
+}
+
+.popup .dialog h1 {
+  font-size: 20px;
+  text-transform: uppercase;
+  width: 100%;
+  height: 30px;
+}
+
+.popup .content {
+  width: 60%;
+  margin: 15px 0 15px 20%;
+  text-align: left;
+}
+
+.popup .content p {
+  position: relative;
+  width: 100%;
+  height: 20px;
+  margin: 0 10px 0 10px;
+}
+
+.popup .content label {
+  float: left;
+  text-align: left;
+}
+
+.popup .content select, .popup .content input {
+  float:  right;
+  text-align: right;
+}
+
+.popup .buttons {
+  position: relative;
+  width: 100%;
+  height: 30px;
+  text-align: center;
+}
+
+.popup .buttons button {
+  display: inline-block;
+  margin: 0 10px 0 10px;
+}

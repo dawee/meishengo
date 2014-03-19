@@ -12,16 +12,24 @@ app.set('views', __dirname + '/view');
 app.set('view engine', 'jade');
 
 app.get('/game/:id', function (req, res) {
-  Game(req.params.id, io);
-  res.render('index', {id: req.params.id});
+  var game = Game(req.params.id, io);
+  res.render('game', {
+    id: req.params.id,
+    goban: game.gbn(),
+    gbn: JSON.stringify(game.gbn())
+  });
+});
+
+app.post('/game/:id/goban', function (req, res) {
+  var game = Game(req.params.id, io);
+  var data = game.createGoban();
+  res.json(data.code, data);
 });
 
 app.get('/game/:id/join/:color', function (req, res) {
   var game = Game(req.params.id, io);
   var data = game.joinRequest(req.params.color);
-  res.writeHead(data.code, {'Content-Type': 'application/json'});
-  res.write(JSON.stringify(data));
-  res.end();
+  res.json(data.code, data);
 });
 
 io.sockets.on('connection', Game.listen);
