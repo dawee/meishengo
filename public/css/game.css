@@ -14,7 +14,7 @@
 }
 
 #goban .intersections {
-  margin: 50px;
+  margin: 15px;
 }
 
 #goban .intersections .line {
@@ -30,4 +30,46 @@
   background-opacity: 0;
   width: 30px;
   height: 30px;
+}
+
+/* Goban Walls */
+
+#goban .intersection.top {
+  background: url(/img/intersection-top.png) no-repeat 100% 100%;
+}
+
+#goban .intersection.right {
+  background: url(/img/intersection-right.png) no-repeat 100% 100%;
+}
+
+#goban .intersection.bottom {
+  background: url(/img/intersection-bottom.png) no-repeat 100% 100%;
+}
+
+#goban .intersection.left {
+  background: url(/img/intersection-left.png) no-repeat 100% 100%;
+}
+
+/* Goban Corners */
+
+#goban .intersection.top.left {
+  background: url(/img/intersection-top-left.png) no-repeat 100% 100%;
+}
+
+#goban .intersection.top.right {
+  background: url(/img/intersection-top-right.png) no-repeat 100% 100%;
+}
+
+#goban .intersection.bottom.right {
+  background: url(/img/intersection-bottom-right.png) no-repeat 100% 100%;
+}
+
+#goban .intersection.bottom.left {
+  background: url(/img/intersection-bottom-left.png) no-repeat 100% 100%;
+}
+
+/* Goban Hoshi */
+
+#goban .intersection.hoshi {
+  background: url(/img/intersection-hoshi.png) no-repeat 100% 100%;
 }
