@@ -12,6 +12,7 @@ select, input, textarea {
 }
 
 .popup {
+  display: block;
   position: absolute;
   z-index: 2;
   top: 0;
@@ -25,6 +26,10 @@ select, input, textarea {
 
 .popup.reduced {
   opacity: 0;
+}
+
+.popup.hidden {
+  z-index: -1; 
 }
 
 .popup.reduced .dialog {

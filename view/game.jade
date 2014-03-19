@@ -6,7 +6,13 @@ html
     link(rel="stylesheet" type="text/css" href="/css/game.css")
   body
     div(id="content")
-    if !hasGoban
+      div(class="popup reduced join")
+        div(class="dialog")
+          h1= "Join"
+          div(class="choices")
+            div(class="choice black")
+            div(class="choice white")
+
       div(class="popup reduced create")
         div(class="dialog")
           h1= "Create"
