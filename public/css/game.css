@@ -86,11 +86,13 @@
   opacity: 1;
 }
 
-#goban.black .intersection .stone {
+#goban.black .intersection .stone,
+#goban.white .intersection .stone.opponent {
   background: url(/img/black-stone.png) no-repeat 100% 100%;
 }
 
-#goban.white .intersection .stone {
+#goban.white .intersection .stone,
+#goban.black .intersection .stone.opponent {
   background: url(/img/white-stone.png) no-repeat 100% 100%;
 }
 

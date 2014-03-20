@@ -33,6 +33,13 @@ app.post('/game/:id/player', function (req, res) {
   res.json(data.code, data);
 });
 
+app.post('/game/:id/stone', function (req, res) {
+  var game = Game(req.params.id, io);
+  var data = game.putStone(req.body);
+  res.json(data.code, data);
+});
+
+
 io.sockets.on('connection', Game.listen);
 
 server.listen(8000);
