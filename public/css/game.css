@@ -42,6 +42,15 @@
   margin: -250px 0 0 -250px;
   background: url(/img/Melamine-wood-001.png) repeat;
   border: 2px solid #292522;
+  transition: transform 2s ease-in-out;
+  -ms-transition: -ms-transform 2s ease-in-out;
+  -webkit-transition: -webkit-transform 2s ease-in-out;
+}
+
+#goban.white {
+  transform:rotate(180deg);
+  -ms-transform:rotate(180deg);
+  -webkit-transform:rotate(180deg);
 }
 
 #goban .intersections {
