@@ -27,9 +27,9 @@ app.post('/game/:id/goban', function (req, res) {
   res.json(data.code, data);
 });
 
-app.post('/game/:id/player/:color', function (req, res) {
+app.post('/game/:id/player', function (req, res) {
   var game = Game(req.params.id, io);
-  var data = game.joinRequest(req.params.color);
+  var data = game.joinRequest(req.body.color);
   res.json(data.code, data);
 });
 
