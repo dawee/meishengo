@@ -1,0 +1,137 @@
+@import url(/css/common.css);
+
+.popup.create .dialog {
+  margin-top: -100px;
+}
+
+.popup.join .choices {
+  position: relative;
+  width: 100%;
+  height: 80px;
+  margin: 10px 0 20px 0;
+  text-align: center;
+}
+
+.popup.join .choices .choice {
+  display: inline-block;
+  z-index: 5;
+  margin: 0 20px 0 20px;
+  width: 80px;
+  height: 80px;
+  opacity: 0.4;
+  transition: opacity 1s;
+}
+
+.popup.join .choices .choice:hover {
+  opacity: 1;
+}
+
+.popup.join .choices .choice.black {
+  background: url(/img/bowl-black.png) no-repeat;
+}
+
+.popup.join .choices .choice.white {
+  background: url(/img/bowl-white.png) no-repeat;
+}
+
+
+#goban {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  margin: -250px 0 0 -250px;
+  background: url(/img/Melamine-wood-001.png) repeat;
+  border: 2px solid #292522;
+  transition: transform 2s ease-in-out;
+  -ms-transition: -ms-transform 2s ease-in-out;
+  -webkit-transition: -webkit-transform 2s ease-in-out;
+}
+
+#goban.white {
+  transform:rotate(180deg);
+  -ms-transform:rotate(180deg);
+  -webkit-transform:rotate(180deg);
+}
+
+#goban .intersections {
+  margin: 15px;
+}
+
+#goban .intersections .line {
+  display: block;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+
+#goban .intersection {
+  display: inline-block;
+  background: url(/img/intersection-normal.png) no-repeat 100% 100%;
+  background-opacity: 0;
+  width: 30px;
+  height: 30px;
+}
+
+#goban .intersection .stone {
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+}
+
+#goban  .intersection .stone:hover {
+  opacity: 0.5;
+}
+
+#goban .intersection .stone.put, #goban .intersection .stone.put:hover {
+  opacity: 1;
+}
+
+#goban.black .intersection .stone {
+  background: url(/img/black-stone.png) no-repeat 100% 100%;
+}
+
+#goban.white .intersection .stone {
+  background: url(/img/white-stone.png) no-repeat 100% 100%;
+}
+
+/* Goban Walls */
+
+#goban .intersection.top {
+  background: url(/img/intersection-top.png) no-repeat 100% 100%;
+}
+
+#goban .intersection.right {
+  background: url(/img/intersection-right.png) no-repeat 100% 100%;
+}
+
+#goban .intersection.bottom {
+  background: url(/img/intersection-bottom.png) no-repeat 100% 100%;
+}
+
+#goban .intersection.left {
+  background: url(/img/intersection-left.png) no-repeat 100% 100%;
+}
+
+/* Goban Corners */
+
+#goban .intersection.top.left {
+  background: url(/img/intersection-top-left.png) no-repeat 100% 100%;
+}
+
+#goban .intersection.top.right {
+  background: url(/img/intersection-top-right.png) no-repeat 100% 100%;
+}
+
+#goban .intersection.bottom.right {
+  background: url(/img/intersection-bottom-right.png) no-repeat 100% 100%;
+}
+
+#goban .intersection.bottom.left {
+  background: url(/img/intersection-bottom-left.png) no-repeat 100% 100%;
+}
+
+/* Goban Hoshi */
+
+#goban .intersection.hoshi {
+  background: url(/img/intersection-hoshi.png) no-repeat 100% 100%;
+}

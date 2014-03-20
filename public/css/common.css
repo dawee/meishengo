@@ -1,0 +1,98 @@
+@import url(http://fonts.googleapis.com/css?family=Carrois+Gothic+SC);
+
+body {
+  font-family: 'Carrois Gothic SC', sans-serif;
+  background: radial-gradient(ellipse at center,  rgba(200,200,200,0.1) 0%,rgba(214,166,146,0.5) 100%);
+  color: #292522;
+}
+
+select, input, textarea {
+  background: none;
+  border: none;
+}
+
+.popup {
+  display: block;
+  position: absolute;
+  z-index: 2;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  opacity: 1;
+  background-color: rgba(0,0,0,0.25);
+  transition: opacity 0.5s;
+}
+
+.popup.reduced {
+  opacity: 0;
+}
+
+.popup.hidden {
+  z-index: -1; 
+}
+
+.popup.reduced .dialog {
+  top: -50%;
+}
+
+.popup .dialog {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 300px;
+  margin: -150px 0 0 -150px;
+  text-align: center;
+  transition: top 1s;
+  background-color: white;
+}
+
+.popup .dialog h1 {
+  font-size: 20px;
+  text-transform: uppercase;
+  width: 100%;
+  height: 30px;
+}
+
+.popup .content {
+  width: 60%;
+  margin: 15px 0 15px 20%;
+  text-align: left;
+}
+
+.popup .content p {
+  position: relative;
+  width: 100%;
+  height: 20px;
+  margin: 0 10px 0 10px;
+}
+
+.popup .content label {
+  float: left;
+  text-align: left;
+}
+
+.popup .content select, .popup .content input {
+  float:  right;
+  text-align: right;
+}
+
+.popup .buttons {
+  position: relative;
+  width: 100%;
+  height: 30px;
+  text-align: center;
+}
+
+.popup .buttons button {
+  display: inline-block;
+  margin: 0 10px 0 10px;
+}
+
+#content {
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+}

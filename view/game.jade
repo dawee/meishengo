@@ -1,0 +1,31 @@
+html
+  head
+    title= "Koban v0.0.0"
+    script(src="/lib/vendor/oboe-browser.min.js")
+    script(src="/socket.io/socket.io.js")
+    script(src="/koban-client.js")
+    link(rel="stylesheet" type="text/css" href="/css/game.css")
+  body
+    div(id="content")
+      div(class="popup reduced join")
+        div(class="dialog")
+          h1= "Join"
+          div(class="choices")
+            div(class="choice black")
+            div(class="choice white")
+
+      div(class="popup reduced create")
+        div(class="dialog")
+          h1= "Create"
+          div(class="content")
+            p
+              label= "Goban:"
+              select
+                option(value="19")= "19x19"
+                option(value="13")= "13x13"
+                option(value="9")= "9x9"
+          div(class="buttons")
+            button= "OK"
+    script.
+        boot({id: "#{id}", goban: !{goban}})
+

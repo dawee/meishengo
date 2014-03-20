@@ -1,6 +1,2 @@
-components
 node_modules
-npm-debug.log
-build
-*template.js
-purelint.log
+public/*.js

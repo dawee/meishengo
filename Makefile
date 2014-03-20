@@ -1,36 +1,8 @@
-SRC = $(wildcard lib/*/*.js)
-HTML = $(wildcard lib/*/*.html)
-TEMPLATES = $(HTML:.html=.js)
-JS = $$(find app.js lib -name "*.js")
-JSLINTRC=$$(cat .jslintrc)
-JSLINT_OPTIONS=$$(echo $(JSLINTRC))
+client_src := $(wildcard lib/client/*.js)
 
+client:
+	@./node_modules/.bin/browserify -o public/koban-client.js ${client_src}
 
-build: components $(SRC) $(TEMPLATES)
-	@./node_modules/component/bin/component build -n meishengo
-	@./node_modules/uglify-js/bin/uglifyjs ./build/meishengo.js > ./build/meishengo.min.js
-	@./node_modules/less/bin/lessc -x ./build/meishengo.css > ./build/meishengo.min.css
-	@rm ./build/meishengo.css
-	@rm ./build/meishengo.js
-
-components: component.json
-	@./node_modules/component/bin/component install
-
-%.js: %.html
-	@./node_modules/component/bin/component convert $<
-
-distclean: clean
-	@rm -rf components
-
-clean:
-	@rm -fr build $(TEMPLATES) ./build/*
-
-run: clean build
-	@node app.js
-
-validate:
-	@./node_modules/.bin/purelint $(JS)
-
-all: build
-
-.PHONY: clean test run
+run:
+	@./node_modules/.bin/watchify -o public/koban-client.js ${client_src} &
+	@./node_modules/.bin/nodemon --ignore lib/client app.js &

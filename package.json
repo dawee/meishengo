@@ -1,28 +1,30 @@
 {
   "name": "meishengo",
-  "version": "0.0.5-1",
-  "description": "HTML5 client for the Pandanet (IGS) protocol",
-  "dependencies": {
-    "pandanet-proxy": "x.x.x",
-    "express": "3.x.x",
-    "jade": "x.x.x",
-    "purelint": "x.x.x",
-    "uglify-js": "x.x.x",
-    "less": "x.x.x",
-    "component": "x.x.x"
-  },
+  "version": "0.0.6",
+  "description": "HTML5 Go game client",
   "domains": [
     "meishengo.org",
     "www.meishengo.org"
   ],
   "author": "David Corticchiato",
   "license": "BSD",
+  "dependencies": {
+    "express": "^3.4.8",
+    "browserify": "^3.32.1",
+    "jade": "^1.3.0",
+    "underscore": "^1.6.0",
+    "sockjs-client": "^0.1.3",
+    "socket.io": "^0.9.16",
+    "crypto": "0.0.3",
+    "request": "~2.34.0",
+    "async": "~0.2.10"
+  },
   "subdomain": "meishengo",
   "scripts": {
     "start": "node app.js",
-    "postinstall": "make build"
+    "postinstall": "make client"
   },
   "engines": {
-    "node": "0.8.x"
+    "node": "0.10.x"
   }
 }
