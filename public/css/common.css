@@ -2,7 +2,7 @@
 
 body {
   font-family: 'Carrois Gothic SC', sans-serif;
-  background: radial-gradient(ellipse at center,  rgba(200,200,200,0.1) 0%,rgba(214,166,146,0.5) 100%);
+  background: radial-gradient(ellipse at center,  rgba(200,200,200,0.1) 0%,#A39081 100%);
   color: #292522;
 }
 
