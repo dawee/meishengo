@@ -78,7 +78,7 @@
   opacity: 0;
 }
 
-#goban  .intersection .stone:hover {
+#goban.unlocked .intersection .stone:hover {
   opacity: 0.5;
 }
 
