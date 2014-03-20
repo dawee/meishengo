@@ -8,6 +8,7 @@ var server = http.createServer(app)
 var io = sio.listen(server);
 
 app.use(express.static(__dirname + '/public'));
+app.use(express.bodyParser());
 app.set('views', __dirname + '/view');
 app.set('view engine', 'jade');
 
@@ -22,7 +23,7 @@ app.get('/game/:id', function (req, res) {
 
 app.post('/game/:id/goban', function (req, res) {
   var game = Game(req.params.id, io);
-  var data = game.createGoban();
+  var data = game.createGoban(req.body);
   res.json(data.code, data);
 });
 
