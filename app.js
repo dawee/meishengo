@@ -26,7 +26,7 @@ app.post('/game/:id/goban', function (req, res) {
   res.json(data.code, data);
 });
 
-app.get('/game/:id/join/:color', function (req, res) {
+app.post('/game/:id/player/:color', function (req, res) {
   var game = Game(req.params.id, io);
   var data = game.joinRequest(req.params.color);
   res.json(data.code, data);
