@@ -1,7 +1,0 @@
-{
-  "name": "meishengo",
-  "repo": "dawicorti/meishengo",
-  "description": "HTML5 client for Pandanet (IGS)",
-  "paths": ["lib"],
-  "local": ["boot"]
-}
