@@ -37,11 +37,9 @@
 
 #game {
   position: absolute;
-  width: 1000px;
-  height: 500px;
-  left: 50%;
-  top: 50%;
-  margin: -250px 0 0 -500px;
+  width: 180vh;
+  height: 90vh;
+  top: 5vh;
 }
 
 #goban {
