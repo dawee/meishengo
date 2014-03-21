@@ -1,6 +1,6 @@
 {
   "name": "meishengo",
-  "version": "0.0.8-1",
+  "version": "0.0.9",
   "description": "HTML5 Go game client",
   "domains": [
     "meishengo.org",
@@ -17,18 +17,18 @@
     "socket.io": "^0.9.16",
     "crypto": "0.0.3",
     "request": "~2.34.0",
-    "async": "~0.2.10"
+    "async": "~0.2.10",
+    "express-less": "0.0.2",
+    "browserify-express": "~0.1.4"
   },
   "subdomain": "meishengo",
   "scripts": {
-    "start": "node app.js",
-    "postinstall": "make client"
+    "start": "node app.js"
   },
   "engines": {
     "node": "0.10.x"
   },
   "devDependencies": {
-    "watchify": "~0.6.2",
     "nodemon": "~1.0.16"
   }
 }
