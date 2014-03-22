@@ -1,39 +1,45 @@
 @import 'common';
 
-.popup.create .dialog {
-  margin-top: -100px;
+.popup {
+  
+  &.create {
+
+    .dialog {
+      margin-top: -100px;
+    }
+
+  }
+
+  &.join {
+
+    .choices {
+      position: relative;
+      width: 100%;
+      height: 80px;
+      margin: 10px 0 20px 0;
+      text-align: center;
+
+      .choice {
+        display: inline-block;
+        z-index: 5;
+        background-size: 100% 100%;
+        margin: 0 20px 0 20px;
+        width: 80px;
+        height: 80px;
+        opacity: 0.4;
+        transition: opacity 1s;
+
+        &:hover { opacity: 1; }
+        &.black { background-image: url(/img/bowl-black.png); }
+        &.white { background-image: url(/img/bowl-white.png); }
+      }
+
+    }
+
+  }
+
 }
 
-.popup.join .choices {
-  position: relative;
-  width: 100%;
-  height: 80px;
-  margin: 10px 0 20px 0;
-  text-align: center;
-}
-
-.popup.join .choices .choice {
-  display: inline-block;
-  z-index: 5;
-  background-size: 100% 100%;
-  margin: 0 20px 0 20px;
-  width: 80px;
-  height: 80px;
-  opacity: 0.4;
-  transition: opacity 1s;
-}
-
-.popup.join .choices .choice:hover {
-  opacity: 1;
-}
-
-.popup.join .choices .choice.black {
-  background-image: url(/img/bowl-black.png);
-}
-
-.popup.join .choices .choice.white {
-  background-image: url(/img/bowl-white.png);
-}
 
 #game {
   position: absolute;
@@ -65,69 +71,71 @@
   height: 90%;
 
   background: url(/img/Melamine-wood-retro.png) repeat;
-  transition: transform 2s ease-in-out;
-  -ms-transition: -ms-transform 2s ease-in-out;
-  -webkit-transition: -webkit-transform 2s ease-in-out;
-  -webkit-box-shadow: 6px 7px 8px 3px rgba(42,24,17,1);
-  -moz-box-shadow: 6px 7px 8px 3px rgba(42,24,17,1);
-  box-shadow: 6px 7px 8px 3px rgba(42,24,17,1);
-}
+  .transition(1.5s, ease-in-out);
+  .bordered(darken(@wood, 20%), lighten(@wood, 20%), lighten(@wood, 20%), darken(@wood, 20%));
+  .box-shadow(6px 7px 8px 3px darken(@wood, 20%));
 
-#goban.white {
-  transform:rotate(180deg);
-  -ms-transform:rotate(180deg);
-  -webkit-transform:rotate(180deg);
-}
+  &.white {
+    .rotation(180deg);
+    .bordered(lighten(@wood, 20%), darken(@wood, 20%), darken(@wood, 20%), lighten(@wood, 20%));
+    .box-shadow(-6px -7px 8px 3px darken(@wood, 20%));
+  }
 
-#goban .intersections {
-  margin: 5% 0 0 5%;
-  width: 90%;
-  height: 90%;
-}
+  .intersections {
+    margin: 5% 0 0 5%;
+    width: 90%;
+    height: 90%;
 
-#goban .intersections .line {
-  display: block;
-  margin: 0;
-  padding: 0;
-  width: 100%;
-}
+    .line {
+      display: block;
+      margin: 0;
+      padding: 0;
+      width: 100%;
 
-#goban .intersection {
-  display: inline-block;
-  background-image: url(/img/intersection-normal.png);
-  background-size: 100% 100%;
-  background-opacity: 0;
-}
+      .intersection {
+        display: inline-block;
+        background-image: url(/img/intersection-normal.png);
+        background-size: 100% 100%;
+        background-opacity: 0;
 
-#goban.size-19 .intersection {
-  width: 5.26%;
-  height: 5.26%;
-}
+        /* Goban Walls */
 
-#goban.size-13 .intersection {
-  width: 7.69%;
-  height: 7.69%;
-}
+        &.top { background-image: url(/img/intersection-top.png); }
+        &.right { background-image: url(/img/intersection-right.png); }
+        &.bottom { background-image: url(/img/intersection-bottom.png); }
+        &.left { background-image: url(/img/intersection-left.png); }
 
-#goban.size-9 .intersection {
-  width: 11.11%;
-  height: 11.11%;
-}
+        /* Goban Corners */
 
+        &.top.left { background-image: url(/img/intersection-top-left.png); }
+        &.top.right { background-image: url(/img/intersection-top-right.png); }
+        &.bottom.right { background-image: url(/img/intersection-bottom-right.png); }
+        &.bottom.left { background-image: url(/img/intersection-bottom-left.png); }
 
-#goban .intersection .stone {
-  width: 100%;
-  height: 100%;
-  opacity: 0;
-  background-size: 100% 100%;
-}
+        /* Goban Hoshi */
 
-#goban.unlocked .intersection .stone:hover {
-  opacity: 0.5;
-}
+        &.hoshi { background-image: url(/img/intersection-hoshi.png); }
 
-#goban .intersection .stone.put, #goban .intersection .stone.put:hover {
-  opacity: 1;
+        .stone {
+          width: 100%;
+          height: 100%;
+          opacity: 0;
+          background-size: 100% 100%;
+       
+          &.put, .put:hover { opacity: 1; }
+        }
+
+      }
+
+    }
+
+  }
+
+  &.size-19 .intersection { width: 5.26%; height: 5.26%; }
+  &.size-13 .intersection { width: 7.69%; height: 7.69%; }
+  &.size-9 .intersection { width: 11.11%; height: 11.11%; }
+
+  &.unlocked .intersection .stone:hover { opacity: 0.5; }
 }
 
 #goban.black .intersection .stone,
@@ -140,44 +148,3 @@
   background-image: url(/img/white-stone.png);
 }
 
-/* Goban Walls */
-
-#goban .intersection.top {
-  background-image: url(/img/intersection-top.png);
-}
-
-#goban .intersection.right {
-  background-image: url(/img/intersection-right.png);
-}
-
-#goban .intersection.bottom {
-  background-image: url(/img/intersection-bottom.png);
-}
-
-#goban .intersection.left {
-  background-image: url(/img/intersection-left.png);
-}
-
-/* Goban Corners */
-
-#goban .intersection.top.left {
-  background-image: url(/img/intersection-top-left.png);
-}
-
-#goban .intersection.top.right {
-  background-image: url(/img/intersection-top-right.png);
-}
-
-#goban .intersection.bottom.right {
-  background-image: url(/img/intersection-bottom-right.png);
-}
-
-#goban .intersection.bottom.left {
-  background-image: url(/img/intersection-bottom-left.png);
-}
-
-/* Goban Hoshi */
-
-#goban .intersection.hoshi {
-  background-image: url(/img/intersection-hoshi.png);
-}
