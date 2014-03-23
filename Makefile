@@ -1,2 +1,4 @@
-run:
-	@./node_modules/.bin/nodemon --ignore lib/client app.js
+test:
+	./node_modules/.bin/mocha
+
+.PHONY: test
