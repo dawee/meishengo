@@ -27,7 +27,7 @@
         width: 80px;
         height: 80px;
         opacity: 0.4;
-        transition: opacity 1s;
+        .transition(1s, ease-in-out);
 
         &:hover { opacity: 1; }
         &.black { background-image: url(/img/bowl-black.png); }
@@ -124,6 +124,9 @@
           background-size: 100% 100%;
        
           &.put, .put:hover { opacity: 1; }
+          &.black { background-image: url(/img/black-stone.png); }
+          &.white { background-image: url(/img/white-stone.png); }
+
         }
 
       }
@@ -139,13 +142,5 @@
   &.unlocked .intersection .stone:hover { opacity: 0.5; }
 }
 
-#goban.black .intersection .stone,
-#goban.white .intersection .stone.opponent {
-  background-image: url(/img/black-stone.png);
-}
 
-#goban.white .intersection .stone,
-#goban.black .intersection .stone.opponent {
-  background-image: url(/img/white-stone.png);
-}
 
