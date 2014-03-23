@@ -1,4 +1,5 @@
 var assert = require('assert');
+var _ = require('underscore');
 var StoneGroup = require('../lib/common/stonegroup');
 var Stone = require('../lib/common/stone');
 
@@ -63,6 +64,14 @@ describe('StoneGroup', function () {
       assert.equal(true, group.attach(stone4));
     });
 
+    it('should not accept a replacing', function () {
+      var stone1 = new Stone({col: 1, row: 1, color: 'black'});
+      var stone2 = new Stone({col: 1, row: 2, color: 'black'});
+      var group = new StoneGroup(stone1, stone2);
+
+      assert.equal(false, group.attach(stone1));
+    });
+
   });
 
   describe('eat()', function () {
@@ -82,6 +91,68 @@ describe('StoneGroup', function () {
 
       group1.eat(group2);
       assert.equal(0, group2.size());
+    });
+
+  });
+
+  describe('copy', function () {
+
+    it('should generate the same group', function () {
+      var stone1 = new Stone({col: 1, row: 1, color: 'black'});
+      var group = new StoneGroup(
+        stone1,
+        {col: 1, row: 2, color: 'black'},
+        {col: 1, row: 4, color: 'black'}
+      );
+
+      var copy = group.copy();
+      assert.equal(true, copy.contains(stone1));
+    });
+
+  });
+
+  describe('liberties()', function () {
+
+    it('should returns 8 if in center and no stones near', function () {
+      var group = new StoneGroup(
+        {row: 8, col: 8, color: 'black'},
+        {row: 8, col: 9, color: 'black'},
+        {row: 8, col: 10, color: 'black'}
+      );
+
+      assert.equal(8, _.size(group.liberties([], 19)));
+    });
+
+
+    it('should returns 13 in the one-eye square case', function () {
+      var group = new StoneGroup(
+        {row: 8, col: 8, color: 'black'},
+        {row: 8, col: 9, color: 'black'},
+        {row: 8, col: 10, color: 'black'},
+        {row: 9, col: 10, color: 'black'},
+        {row: 10, col: 10, color: 'black'},
+        {row: 10, col: 9, color: 'black'},
+        {row: 10, col: 8, color: 'black'},
+        {row: 9, col: 8, color: 'black'}
+      );
+
+      assert.equal(13, _.size(group.liberties([], 19)));
+    });
+
+
+    it('should returns 12 in the one-eye square case with a stone in the middle', function () {
+      var group = new StoneGroup(
+        {row: 8, col: 8, color: 'black'},
+        {row: 8, col: 9, color: 'black'},
+        {row: 8, col: 10, color: 'black'},
+        {row: 9, col: 10, color: 'black'},
+        {row: 10, col: 10, color: 'black'},
+        {row: 10, col: 9, color: 'black'},
+        {row: 10, col: 8, color: 'black'},
+        {row: 9, col: 8, color: 'black'}
+      );
+
+      assert.equal(12, _.size(group.liberties([{row: 9, col: 9, color: 'white'}], 19)));
     });
 
   });

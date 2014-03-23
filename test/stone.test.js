@@ -1,4 +1,5 @@
 var assert = require('assert');
+var _ = require('underscore');
 var Stone = require('../lib/common/stone');
 
 describe('stone', function () {
@@ -92,5 +93,33 @@ describe('stone', function () {
 
   });
 
+  describe('liberties()', function () {
+
+    it('should count 4 liberties if in center and no stone is near', function () {
+      var stone = new Stone({row: 8, col: 8, color: 'black'});
+
+      assert.equal(4, _.size(stone.liberties([], 19)));
+    });
+
+    it('should count 3 liberties if on a wall and no stone is near', function () {
+      var stone = new Stone({row: 8, col: 18, color: 'black'});
+
+      assert.equal(3, _.size(stone.liberties([], 19)));
+    });
+
+    it('should count 2 liberties if on a corner and no stone is near', function () {
+      var stone = new Stone({row: 0, col: 0, color: 'black'});
+
+      assert.equal(2, _.size(stone.liberties([], 19)));
+    });
+
+
+    it('should count 3 liberties if in center and one stone near', function () {
+      var stone = new Stone({row: 8, col: 8, color: 'black'});
+
+      assert.equal(3, _.size(stone.liberties([{row: 9, col: 8, color: 'white'}], 19)));
+    });
+
+  });
 
 });
