@@ -38,14 +38,19 @@ app.use(browserifyExpress({
     minify: true
 }));
 
-app.get('/game/:id', function (req, res) {
+app.gameRequest = function (req, res) {
   var game = Game(req.params.id, io);
   res.render('game', {
     id: req.params.id,
     hasGoban: game.gbn() !== null,
-    goban: JSON.stringify(game.gbn())
+    goban: JSON.stringify(game.gbn()),
+    isBlackFree: !game.hasPlayer('black'),
+    isWhiteFree: !game.hasPlayer('white')
   });
-});
+};
+
+app.get('/game/:id', app.gameRequest);
+app.get('/g/:id', app.gameRequest);
 
 app.post('/game/:id/goban', function (req, res) {
   var game = Game(req.params.id, io);
