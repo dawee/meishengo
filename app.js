@@ -33,7 +33,7 @@ app.set('view engine', 'jade');
 app.use('/less', expressLess(__dirname + '/lib/client/style', {compress: true}));
 app.use(browserifyExpress({
     entry: __dirname + '/lib/client/boot.js',
-    watch: __dirname + '/lib/client',
+    watch: __dirname + '/lib/client/',
     mount: '/js/meishengo-client.js',
     minify: true
 }));
