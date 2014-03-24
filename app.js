@@ -35,7 +35,7 @@ app.use(browserifyExpress({
     entry: __dirname + '/lib/client/boot.js',
     watch: __dirname + '/lib/client/',
     mount: '/js/meishengo-client.js',
-    minify: true
+    //minify: true
 }));
 
 app.gameRequest = function (req, res) {

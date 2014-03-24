@@ -14,16 +14,13 @@ html
       div#game
       div(class="popup reduced join")
         div(class="dialog")
-          if isWhiteFree || isBlackFree
-            h1= "Join"
+          h1= "Join"
           div(class="choices")
             if isBlackFree
               div(class="choice black")
             if isWhiteFree
               div(class="choice white")
-            if !isWhiteFree && !isBlackFree
-              p= "Sorry !"
-              p= "There is no more room in that game."
+            div(class="choice observer")
 
       div(class="popup reduced create")
         div(class="dialog")
