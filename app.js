@@ -5,6 +5,15 @@ var sio = require('socket.io');
 var expressLess = require('express-less');
 var browserifyExpress = require('browserify-express');
 var _ = require('underscore');
+var nconf = require('nconf');
+
+nconf.env().argv();
+nconf.file(__dirname + '/config.json');
+nconf.defaults({
+  port: 8000,
+  minify: false,
+  repreive: 30000
+});
 
 var app = express();
 var server = http.createServer(app)
@@ -35,7 +44,7 @@ app.use(browserifyExpress({
     entry: __dirname + '/lib/client/boot.js',
     watch: __dirname + '/lib/client/',
     mount: '/js/meishengo-client.js',
-    //minify: true
+    minify: nconf.get('minify')
 }));
 
 app.gameRequest = function (req, res) {
@@ -77,4 +86,4 @@ app.use(function(req, res) {
 
 io.sockets.on('connection', Game.listen);
 
-server.listen(8000);
+server.listen(nconf.get('port'));

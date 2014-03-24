@@ -19,7 +19,8 @@
     "request": "~2.34.0",
     "async": "~0.2.10",
     "express-less": "0.0.2",
-    "browserify-express": "~0.1.4"
+    "browserify-express": "~0.1.4",
+    "nconf": "^0.6.9"
   },
   "subdomain": "meishengo",
   "scripts": {
