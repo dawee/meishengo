@@ -17,7 +17,7 @@ nconf.defaults({
 
 var app = express();
 var server = http.createServer(app)
-var io = sio.listen(server);
+var io = sio.listen(server, { log: false });
 var proverbs = [
   'Never attempt to take a move back without proper thought.',
   'The first line is the route to many life-and-death problems you\'ll never want to solve twice or meet in a game.',
@@ -86,4 +86,5 @@ app.use(function(req, res) {
 
 io.sockets.on('connection', Game.listen);
 
+console.log('Meishengo started on port ' + nconf.get('port'));
 server.listen(nconf.get('port'));
