@@ -42,22 +42,19 @@
   position: absolute;
   width: 180vh;
   height: 90vh;
-  top: 50%;
-  left: 50%;
-  margin: -45vh 0 0 -90vh;
-
-  .bowl {
-    display: inline-block;
-    width: 15%;
-    height: 100%;
-  }
+  bottom: 10px;
+  left: 10vh;
+  margin: -45vh 0 0 0;
 
   .goban {
+    position: absolute;
     display: inline-block;
+
+    top:0;
+    left: 0;
 
     width: 50%;
     height: 100%;
-    margin: 0 5% 0 5%;
 
     background: url(/img/Melamine-wood-retro.png) repeat;
     .transition(1.5s, ease-in-out);
@@ -72,18 +69,22 @@
     }
 
     .intersections {
+      position: relative;
       margin: 5% 0 0 5%;
       width: 90%;
       height: 90%;
 
       .line {
-        display: block;
+        position: relative;
         margin: 0;
         padding: 0;
         width: 100%;
 
         .intersection {
+          position: relative;
           display: inline-block;
+          padding: 0;
+          margin: 0;
           background-image: url(/img/intersection-normal.png);
           background-size: 100% 100%;
           background-opacity: 0;
