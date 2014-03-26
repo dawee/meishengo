@@ -5,8 +5,8 @@
   &.join {
 
     .dialog {
-      width: 600px;
-      margin: 0 0 0 -300px;
+      width: 300px;
+      margin: 0 0 0 -150px;
     }
 
     .choices {
@@ -20,10 +20,10 @@
         z-index: 5;
         background-size: 100% 100%;
         margin: 0 20px 0 20px;
-        width: 160px;
-        height: 160px;
+        width: 80px;
+        height: 80px;
         opacity: 0.4;
-        .transition(1s, ease-in-out);
+        .transition-duration(0.8s);
 
         &:hover { opacity: 1; }
         &.black { background-image: url(/img/bowl-black.png); }
@@ -49,6 +49,7 @@
   .goban {
     position: absolute;
     display: inline-block;
+    overflow: hidden;
 
     top:0;
     left: 0;
@@ -58,13 +59,13 @@
 
     background: url(/img/Melamine-wood-retro.png) repeat;
     .transition(1.5s, ease-in-out);
-    .bordered(darken(@wood, 20%), lighten(@wood, 20%), lighten(@wood, 20%), darken(@wood, 20%));
-    .box-shadow(6px 7px 8px 3px darken(@wood, 20%));
+    .bordered(lighten(@wood, 20%), darken(@wood, 10%), darken(@wood, 10%), lighten(@wood, 20%));
+    .box-shadow(6px 7px 8px 3px fadeout(darken(@wood, 20%), 50%));
 
     &.white {
       .rotation(180deg);
-      .bordered(lighten(@wood, 20%), darken(@wood, 20%), darken(@wood, 20%), lighten(@wood, 20%));
       .box-shadow(none);
+      .bordered(darken(@wood, 10%), lighten(@wood, 20%), lighten(@wood, 20%), darken(@wood, 10%));
       .box-shadow(-6px -7px 8px 3px darken(@wood, 20%));
     }
 
@@ -125,8 +126,15 @@
 
     }
 
-    &.size-19 .intersection { width: 5.26%; height: 5.26%; }
-    &.size-13 .intersection { width: 7.69%; height: 7.69%; }
+    &.size-19 .intersections {
+      padding: 0.5% 0 0 0.5%;
+      .intersection { width: 5.26%; height: 5.26%; }
+    }
+    &.size-13 .intersections {
+      padding: 0.15% 0 0 0.15%;
+      .intersection { width: 7.69%; height: 7.69%; }
+    }
+
     &.size-9 .intersection { width: 11.11%; height: 11.11%; }
 
     &.unlocked .intersection .stone:hover { opacity: 0.5; }
