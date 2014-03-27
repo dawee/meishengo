@@ -46,11 +46,78 @@
   left: 10vh;
   margin: -45vh 0 0 0;
 
+  .seat {
+    position: absolute;
+    width: 8%;
+    height: 40%;
+    left: 52%;
+    .transition(1.5s, ease-in-out);
+
+    opacity: 1;
+
+    &.free { opacity: 0.2; }
+
+    .label {
+      position: absolute;
+      text-align: center;
+      width: 4.8em;
+      left: 0;
+      height: 1.6em;
+      padding-top: 0.3em;
+      margin: 0.3em 0 0 0;
+      font-size: 0.8em;
+      text-transform: uppercase;
+      .transition(1.5s, ease-in-out);
+    }
+
+    @whiteLabelColor: lighten(@house, 10%);
+    @blackLabelColor: @wood;
+
+    &.white {
+      top: 0;
+
+
+      .label {
+        margin: 0.3em 0 0 0;
+        background-color: @whiteLabelColor;
+        color: @blackLabelColor;
+        top: 0;
+      }
+
+      &.player { 
+        top: 60%;
+        .label {
+          margin: 0 0 0.3em 0;
+          top: 90%;
+        }
+      }
+    }
+
+    &.black {
+      top: 60%;
+
+      .label {
+        margin: 0 0 0.3em 0;
+
+        background-color: @blackLabelColor;
+        color: @whiteLabelColor;
+        top: 90%;
+      }
+
+      &.opponent { 
+        top: 0;
+        .label {
+          margin: 0.3em 0 0 0;
+          top: 0;
+        }
+      }
+    }
+
+  }
+
   .goban {
     position: absolute;
-    display: inline-block;
     overflow: hidden;
-
     top:0;
     left: 0;
 
