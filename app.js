@@ -10,14 +10,14 @@ var nconf = require('nconf');
 nconf.env().argv();
 nconf.file(__dirname + '/config.json');
 nconf.defaults({
+  debug: false,
   port: 8000,
-  minify: false,
   repreive: 30000
 });
 
 var app = express();
 var server = http.createServer(app)
-var io = sio.listen(server, { log: false });
+var io = sio.listen(server, { log: nconf.get('debug') });
 var proverbs = [
   'Never attempt to take a move back without proper thought.',
   'The first line is the route to many life-and-death problems you\'ll never want to solve twice or meet in a game.',
@@ -39,12 +39,12 @@ app.use(express.static(__dirname + '/public'));
 app.use(express.bodyParser());
 app.set('views', __dirname + '/view');
 app.set('view engine', 'jade');
-app.use('/less', expressLess(__dirname + '/lib/client/style', {compress: true}));
+app.use('/less', expressLess(__dirname + '/lib/client/style', {compress: !nconf.get('debug')}));
 app.use(browserifyExpress({
     entry: __dirname + '/lib/client/boot.js',
     watch: __dirname + '/lib/client/',
     mount: '/js/meishengo-client.js',
-    minify: nconf.get('minify')
+    minify: !nconf.get('debug')
 }));
 
 app.gameRequest = function (req, res) {
