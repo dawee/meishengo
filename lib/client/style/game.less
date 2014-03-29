@@ -46,11 +46,15 @@
   left: 10vh;
   margin: -45vh 0 0 0;
 
+  @seatInfoHeight: 1.6em;
+  @seatInfoPadding: 0.4em;
+
   .seat {
     position: absolute;
-    width: 8%;
-    height: 40%;
+    width: 4.8em;
+    height: 30%;
     left: 50%;
+    font-size: 0.8em;
     margin: 0 0 0 15px;
     .transition(1.5s, ease-in-out);
 
@@ -58,60 +62,69 @@
 
     &.free { opacity: 0.2; }
 
+
     .label {
-      position: absolute;
+      display: block;
       text-align: center;
-      width: 4.8em;
+      width: 100%;
       left: 0;
-      height: 1.6em;
-      padding-top: 0.3em;
-      margin: 0.3em 0 0 0;
-      font-size: 0.8em;
+      height: @seatInfoHeight;
+      padding-top: @seatInfoPadding;
+      margin: @seatInfoPadding 0 0 0;
       text-transform: uppercase;
+      margin: @seatInfoPadding 0 0 0;
+      top: 0;
+
       .transition(1.5s, ease-in-out);
+    }
+
+    .prisoners {
+      display: block;
+      text-align: left;
+      margin-top: @seatInfoPadding; 
+      padding: @seatInfoPadding 0 0 50%;
+      width: 100%;
+      color: @wood;
+      top: @seatInfoHeight;
+      height: @seatInfoHeight;
+      background-size: auto 100%;    
+      background-position: 0 0;
+      background-repeat: no-repeat;
     }
 
     @whiteLabelColor: lighten(@house, 10%);
     @blackLabelColor: darken(@wood, 20%);
 
+    .opponentSeat { top: 0; }
+
+    .playerSeat { top: 70%; }
+
     &.white {
-      top: 0;
-
-
+      // Default Opponent seat
+      .opponentSeat();
+      
       .label {
-        margin: 0.3em 0 0 0;
         background-color: @whiteLabelColor;
         color: @blackLabelColor;
-        top: 0;
       }
 
-      &.player { 
-        top: 60%;
-        .label {
-          margin: 0 0 0.3em 0;
-          top: 90%;
-        }
-      }
+      .prisoners { background-image: url(/img/black-stone.png); }
+
+      &.player { .playerSeat(); }
     }
 
     &.black {
-      top: 60%;
-
+      // Default Player seat
+      .playerSeat();
+      
       .label {
-        margin: 0 0 0.3em 0;
-
         background-color: @blackLabelColor;
         color: @whiteLabelColor;
-        top: 90%;
       }
 
-      &.opponent { 
-        top: 0;
-        .label {
-          margin: 0.3em 0 0 0;
-          top: 0;
-        }
-      }
+      .prisoners { background-image: url(/img/white-stone.png); }
+
+      &.opponent { .opponentSeat(); }
     }
 
   }
