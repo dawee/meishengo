@@ -37,7 +37,6 @@
 
 }
 
-
 #game {
   position: absolute;
   width: 180vh;
@@ -189,6 +188,8 @@
 
           &.hoshi { background-image: url(/img/intersection-hoshi.png); }
 
+          overflow: hidden;
+
           .stone {
             width: 100%;
             height: 100%;
@@ -198,6 +199,14 @@
             &.put, .put:hover { opacity: 1; }
             &.black { background-image: url(/img/black-stone.png); }
             &.white { background-image: url(/img/white-stone.png); }
+
+          }
+
+          &.latest {
+
+            .stone.black { background-image: url(/img/black-stone-latest.png); }
+            .stone.white { background-image: url(/img/white-stone-latest.png); }
+            
 
           }
 
