@@ -31,5 +31,6 @@
   },
   "devDependencies": {
     "mocha": "^1.18.2"
-  }
+  },
+  "main": "app.js"
 }
