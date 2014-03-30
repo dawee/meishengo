@@ -12,7 +12,8 @@ nconf.file(__dirname + '/config.json');
 nconf.defaults({
   debug: false,
   port: 8000,
-  repreive: 30000
+  repreive: 30000,
+  host: 'localhost'
 });
 
 var app = express();
@@ -54,7 +55,8 @@ app.gameRequest = function (req, res) {
     hasGoban: game.gbn() !== null,
     goban: JSON.stringify(game.gbn()),
     isBlackFree: !game.hasPlayer('black'),
-    isWhiteFree: !game.hasPlayer('white')
+    isWhiteFree: !game.hasPlayer('white'),
+    socket: 'http://' + nconf.get('host') + ':' + nconf.get('port')
   });
 };
 
@@ -76,6 +78,12 @@ app.post('/game/:id/player', function (req, res) {
 app.post('/game/:id/stone', function (req, res) {
   var game = Game(req.params.id, io);
   var data = game.putStone(req.body);
+  res.json(data.code, data);
+});
+
+app.post('/game/:id/nop', function (req, res) {
+  var game = Game(req.params.id, io);
+  var data = game.pass(req.body);
   res.json(data.code, data);
 });
 
