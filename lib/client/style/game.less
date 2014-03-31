@@ -83,7 +83,7 @@
       margin-top: @seatInfoPadding; 
       padding: @seatInfoPadding 0 0 50%;
       width: 100%;
-      color: @wood;
+      color: @retroMemories;
       top: @seatInfoHeight;
       height: @seatInfoHeight;
       background-size: auto 100%;    
@@ -95,6 +95,8 @@
       display: block;
       margin-left: -100%;
       width: 100%;
+      opacity: 0;
+      margin-top: @seatInfoPadding;
 
       .transition(1s, ease-in-out);
 
@@ -102,14 +104,26 @@
         display: block;
         height: @seatInfoHeight;
         width: 100%;
+        text-select: none;
+        cursor:default;
+        text-align: center;
+        padding-top: @seatInfoPadding;
+        margin-top: @seatInfoPadding;
+        background-color: @theTurquoise;
+        color: white;
+        border-radius: 2px;
+
+        &:active {
+          background-color: lighten(@theTurquoise, 30%);
+        }
       }
     }
 
-    &.active .menu { margin-left: 0; }
+    &.active .menu { margin-left: 0; opacity: 1;}
 
 
-    @whiteLabelColor: lighten(@house, 10%);
-    @blackLabelColor: darken(@wood, 20%);
+    @whiteLabelColor: @houseIGrewUpIn;
+    @blackLabelColor: @hardGuys;
 
     .opponentSeat { top: 0; }
 
@@ -157,14 +171,14 @@
 
     background: url(/img/Melamine-wood-retro.png) repeat;
     .transition(1.5s, ease-in-out);
-    .bordered(lighten(@wood, 20%), darken(@wood, 10%), darken(@wood, 10%), lighten(@wood, 20%));
-    .box-shadow(6px 7px 8px 3px fadeout(darken(@wood, 20%), 50%));
+    .bordered(lighten(@retroMemories, 20%), darken(@retroMemories, 10%), darken(@retroMemories, 10%), lighten(@retroMemories, 20%));
+    .box-shadow(6px 7px 8px 3px fadeout(darken(@retroMemories, 20%), 50%));
 
     &.white {
       .rotation(180deg);
       .box-shadow(none);
-      .bordered(darken(@wood, 10%), lighten(@wood, 20%), lighten(@wood, 20%), darken(@wood, 10%));
-      .box-shadow(-6px -7px 8px 3px darken(@wood, 20%));
+      .bordered(darken(@retroMemories, 10%), lighten(@retroMemories, 20%), lighten(@retroMemories, 20%), darken(@retroMemories, 10%));
+      .box-shadow(-6px -7px 8px 3px darken(@retroMemories, 20%));
     }
 
     .intersections {
