@@ -91,6 +91,23 @@
       background-repeat: no-repeat;
     }
 
+    .menu {
+      display: block;
+      margin-left: -100%;
+      width: 100%;
+
+      .transition(1s, ease-in-out);
+
+      .action {
+        display: block;
+        height: @seatInfoHeight;
+        width: 100%;
+      }
+    }
+
+    &.active .menu { margin-left: 0; }
+
+
     @whiteLabelColor: lighten(@house, 10%);
     @blackLabelColor: darken(@wood, 20%);
 
@@ -125,6 +142,7 @@
 
       &.opponent { .opponentSeat(); }
     }
+
 
   }
 
