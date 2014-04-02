@@ -66,6 +66,8 @@ app.get('/g/:id', app.gameRequest);
 app.post('/game/:id/goban', function (req, res) {
   var game = Game(req.params.id, io);
   var data = game.createGoban(req.body);
+
+  game.goban.verbose = nconf.get('debug');
   res.json(data.code, data);
 });
 

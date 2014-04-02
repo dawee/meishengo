@@ -202,6 +202,23 @@
           background-size: 100% 100%;
           background-opacity: 0;
 
+          &.territory.black { 
+            .stone {
+              opacity: 1;
+              background-size: 50% 50%;
+              background-position: center center;
+              background-image: url(/img/black-stone.png);
+            }
+          }
+          &.territory.white { 
+            .stone {
+              opacity: 1;
+              background-size: 50% 50%;
+              background-position: center center;
+              background-image: url(/img/white-stone.png);
+            }
+          }
+
           /* Goban Walls */
 
           &.top { background-image: url(/img/intersection-top.png); }
@@ -227,6 +244,7 @@
             height: 100%;
             opacity: 0;
             background-size: 100% 100%;
+            background-repeat: no-repeat;
          
             &.put, .put:hover { opacity: 1; }
             &.black { background-image: url(/img/black-stone.png); }
