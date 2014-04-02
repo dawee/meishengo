@@ -16,6 +16,8 @@ describe('Referee', function () {
         ]
       ], 19);
 
+      referee.verbose = true;
+
       referee.countTerritories(function (territories) {
         assert.equal(territories.length, 1);
         assert.equal(territories[0].intersections.length, 358);
@@ -34,6 +36,8 @@ describe('Referee', function () {
           {row: 8, col: 10, color: 'white'},
         ]
       ], 19);
+
+      referee.verbose = true;
 
       referee.countTerritories(function (territories) {
         assert.equal(territories.length, 1);
@@ -55,6 +59,8 @@ describe('Referee', function () {
           {row: 0, col: 0, color: 'white'},
         ]
       ], 19);
+
+      referee.verbose = true;
 
       referee.countTerritories(function (territories) {
         assert.equal(territories.length, 2);
