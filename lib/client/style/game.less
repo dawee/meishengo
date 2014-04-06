@@ -246,10 +246,12 @@
             background-size: 100% 100%;
             background-repeat: no-repeat;
          
-            &.put, .put:hover { opacity: 1; }
+            &.put, .put:hover { 
+              opacity: 1;
+              &.dead { opacity: 0.5; }
+            }
             &.black { background-image: url(/img/black-stone.png); }
             &.white { background-image: url(/img/white-stone.png); }
-
           }
 
           &.latest {
