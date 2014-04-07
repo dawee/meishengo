@@ -89,10 +89,21 @@ app.post('/game/:id/nop', function (req, res) {
   res.json(data.code, data);
 });
 
+app.post('/game/:id/markup', function (req, res) {
+  var game = Game(req.params.id, io);
+  var data = game.addMarkup(req.body);
+  res.json(data.code, data);
+});
+
+app.delete('/game/:id/markup', function (req, res) {
+  var game = Game(req.params.id, io);
+  var data = game.rmMarkup(req.body);
+  res.json(data.code, data);
+});
+
 app.use(function(req, res) {
   res.render('404', {sentence: _.sample(proverbs)});
 });
-
 
 io.sockets.on('connection', Game.listen);
 
