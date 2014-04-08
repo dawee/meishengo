@@ -81,4 +81,48 @@ describe('Goban', function () {
 
   });
 
+  describe('canPutStone()', function () {
+
+    it('should return true', function () {
+      var goban = new Goban();
+
+      assert.equal(true, goban.canPutStone(0, 0, 'black'));
+    });
+
+  });
+
+  describe('canPutStone()', function () {
+
+    it('should return false', function () {
+      var goban = new Goban();
+
+      assert.equal(false, goban.canPutStone(0, 0, 'white'));
+    });
+
+  });
+
+  describe('canPutStone()', function () {
+
+    it('should return false', function () {
+      var goban = new Goban({groups: [
+        [{row: 0, col: 0, color: 'black'}]
+      ]});
+
+      assert.equal(false, goban.canPutStone(0, 0, 'black'));
+    });
+
+  });
+
+  describe('canPutStone()', function () {
+
+    it('should return false', function () {
+      var goban = new Goban({groups: [
+        [{row: 0, col: 0, color: 'black'}]
+      ]});
+
+      assert.equal(false, goban.canPutStone(0, 0, 'white'));
+    });
+
+  });
+
 });
