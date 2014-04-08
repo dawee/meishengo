@@ -202,20 +202,22 @@
           background-size: 100% 100%;
           background-opacity: 0;
 
-          &.territory.black { 
-            .stone {
+          .territory {
+            opacity: 0;
+
+            &.set {
+              position: absolute;
+              top: 0;
+              left: 0;
+              right: 0;
+              bottom: 0;
               opacity: 1;
               background-size: 50% 50%;
               background-position: center center;
-              background-image: url(/img/black-stone.png);
-            }
-          }
-          &.territory.white { 
-            .stone {
-              opacity: 1;
-              background-size: 50% 50%;
-              background-position: center center;
-              background-image: url(/img/white-stone.png);
+              background-repeat: no-repeat;
+              
+              &.black { background-image: url(/img/black-stone.png); }
+              &.white { background-image: url(/img/white-stone.png); }
             }
           }
 
