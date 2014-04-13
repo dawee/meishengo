@@ -48,6 +48,13 @@
   @seatInfoHeight: 1.6em;
   @seatInfoPadding: 0.4em;
 
+  &.ending {
+    .seat {
+      .menu { height: 0; }
+      .territories {opacity: 1}
+    }
+  }
+
   .seat {
     position: absolute;
     width: 4.8em;
@@ -77,7 +84,7 @@
       .transition(1.5s, ease-in-out);
     }
 
-    .prisoners {
+    .prisoners, .territories {
       display: block;
       text-align: left;
       margin-top: @seatInfoPadding; 
@@ -89,6 +96,12 @@
       background-size: auto 100%;    
       background-position: 0 0;
       background-repeat: no-repeat;
+    }
+
+    .territories { 
+      opacity: 0;
+      background-image: url(/img/intersection-hoshi.png);
+      .transition(3s, ease-in-out);
     }
 
     .menu {
