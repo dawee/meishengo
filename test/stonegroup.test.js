@@ -9,11 +9,11 @@ describe('StoneGroup', function () {
 
     it('should recognize a stone it owns', function () {
       var stone1 = new Stone({col: 1, row: 1, color: 'black'});
-      var group = new StoneGroup([
+      var group = new StoneGroup({stones: [
         stone1,
         {col: 1, row: 2, color: 'black'},
         {col: 1, row: 4, color: 'black'}
-      ]);
+      ]});
 
       assert.equal(true, group.contains(stone1));
     });
@@ -78,8 +78,8 @@ describe('StoneGroup', function () {
   describe('eat()', function () {
    
     it('should copy every other stones', function () {
-      var group1 = new StoneGroup([{col: 1, row: 1, color: 'black'}])
-      var group2 = new StoneGroup([{col: 2, row: 1, color: 'black'}, {col: 3, row: 1, color: 'black'}])
+      var group1 = new StoneGroup({stones: [{col: 1, row: 1, color: 'black'}]});
+      var group2 = new StoneGroup({stones: [{col: 2, row: 1, color: 'black'}, {col: 3, row: 1, color: 'black'}]});
 
       group1.eat(group2);
       assert.equal(3, group1.size());
