@@ -1,0 +1,10 @@
+{
+  "name": "meishengo",
+  "version": "0.0.0",
+  "homepage": "https://github.com/dawicorti/meishengo",
+  "license": "MIT",
+  "private": true,
+  "dependencies": {
+    "zepto": "~1.1.3"
+  }
+}

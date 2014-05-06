@@ -21,7 +21,7 @@ html, body {
 
 body {
   font-family: 'Carrois Gothic SC', sans-serif;
-  background: radial-gradient(ellipse at center, lighten(@retroMemories, 50%) 0%, lighten(@retroMemories, 30%) 100%);
+  background: radial-gradient(ellipse at center, mix(@hardGuys, white, 10%) 0%, mix(@hardGuys, white, 15%) 100%);
   color: #292522;
 }
 
@@ -30,89 +30,22 @@ select, input, textarea {
   border: none;
 }
 
-.popup {
-  display: block;
-  position: absolute;
-  z-index: 2;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  opacity: 1;
-  background-color: rgba(0,0,0,0.25);
-  .transition(0.5s, ease-in-out);
-}
+mei-layout-sandwich {
+  @bandSize: 48px;
 
-.popup.reduced {
-  opacity: 0;
-}
+  > * {
+    position: absolute;
+    left: 0;
+    right: 0;
+  }
 
-.popup.hidden {
-  z-index: -1; 
-}
+  mei-header, mei-footer { 
+    height: @bandSize;
+    background-color: @hardGuys;
+  }
 
-.popup.reduced .dialog {
-  top: -50%;
-}
+  mei-header { top: 0; }
+  mei-content { top: @bandSize; top: @bandSize; }
+  mei-footer { bottom: 0; }
 
-.popup .dialog {
-  position: absolute;
-  left: 50%;
-  top: 10%;
-  width: 300px;
-  margin: 0 0 0 -150px;
-  text-align: center;
-  .transition(1s, ease-in-out);
-  background-color: white;
-}
-
-.popup .dialog h1 {
-  display: block;
-  font-size: 20px;
-  text-transform: uppercase;
-  width: 100%;
-  height: 30px;
-}
-
-.popup .content {
-  width: 60%;
-  margin: 15px 0 15px 20%;
-  text-align: left;
-}
-
-.popup .content p {
-  position: relative;
-  width: 100%;
-  height: 20px;
-  margin: 0 10px 0 10px;
-}
-
-.popup .content label {
-  float: left;
-  text-align: left;
-}
-
-.popup .content select, .popup .content input {
-  float:  right;
-  text-align: right;
-}
-
-.popup .buttons {
-  position: relative;
-  width: 100%;
-  height: 30px;
-  text-align: center;
-}
-
-.popup .buttons button {
-  display: inline-block;
-  margin: 0 10px 0 10px;
-}
-
-#content {
-  position: absolute;
-  left: 0;
-  top: 0;
-  right: 0;
-  bottom: 0;
 }

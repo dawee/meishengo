@@ -1,6 +1,7 @@
-var assert = require('assert');
 var _ = require('underscore');
-var Stone = require('../lib/common/stone');
+var assert = require('assert');
+var Stone = require('../lib/model/stone');
+
 
 describe('stone', function () {
 
@@ -17,10 +18,10 @@ describe('stone', function () {
 
     it('should returns the top stone', function () {
       var stone = new Stone({row: 1, col: 2, color: 'black'});
-      assert.equal(0, stone.topStone().row);
-      assert.equal(2, stone.topStone().col);
-      assert.equal('black', stone.topStone().color);
-      assert.equal('white', stone.topStone('white').color);
+      assert.equal(0, stone.topStone().row());
+      assert.equal(2, stone.topStone().col());
+      assert.equal('black', stone.topStone().color());
+      assert.equal('white', stone.topStone('white').color());
     });
 
   });
@@ -29,10 +30,10 @@ describe('stone', function () {
 
     it('should returns the right stone', function () {
       var stone = new Stone({row: 1, col: 2, color: 'black'});
-      assert.equal(1, stone.rightStone().row);
-      assert.equal(3, stone.rightStone().col);
-      assert.equal('black', stone.rightStone().color);
-      assert.equal('white', stone.rightStone('white').color);
+      assert.equal(1, stone.rightStone().row());
+      assert.equal(3, stone.rightStone().col());
+      assert.equal('black', stone.rightStone().color());
+      assert.equal('white', stone.rightStone('white').color());
     });
 
   });
@@ -41,10 +42,10 @@ describe('stone', function () {
 
     it('should returns the bottom stone', function () {
       var stone = new Stone({row: 1, col: 2, color: 'black'});
-      assert.equal(2, stone.bottomStone().row);
-      assert.equal(2, stone.bottomStone().col);
-      assert.equal('black', stone.bottomStone().color);
-      assert.equal('white', stone.bottomStone('white').color);
+      assert.equal(2, stone.bottomStone().row());
+      assert.equal(2, stone.bottomStone().col());
+      assert.equal('black', stone.bottomStone().color());
+      assert.equal('white', stone.bottomStone('white').color());
     });
 
   });
@@ -53,17 +54,17 @@ describe('stone', function () {
 
     it('should returns the left stone', function () {
       var stone = new Stone({row: 1, col: 2, color: 'black'});
-      assert.equal(1, stone.leftStone().row);
-      assert.equal(1, stone.leftStone().col);
-      assert.equal('black', stone.leftStone().color);
-      assert.equal('white', stone.leftStone('white').color);
+      assert.equal(1, stone.leftStone().row());
+      assert.equal(1, stone.leftStone().col());
+      assert.equal('black', stone.leftStone().color());
+      assert.equal('white', stone.leftStone('white').color());
     });
 
   });
 
   describe('equals()', function () {
 
-    it('should recognize to similar stones', function () {
+    it('should recognize similar stones', function () {
       var stone1 = new Stone({row: 1, col: 2, color: 'black'});
       var stone2 = new Stone({row: 1, col: 2, color: 'black'});
 

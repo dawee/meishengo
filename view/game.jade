@@ -4,36 +4,15 @@ html
     meta(content='go, go game, shuban, goban', name='keywords')
     meta(content='Meishengo is an HTML5 go game app', name='description')
     link(rel='icon', type='image/png', href='/img/logo.png') 
-    script(src="/lib/vendor/oboe-browser.min.js")
     script(src="/socket.io/socket.io.js")
+    script(src="/components/zepto/zepto.min.js")
     script(src="/js/meishengo-client.js")
     link(rel="stylesheet" type="text/css" href="/less/game.css")
   body
-    div#content
-      div#title
-      div#game
-      div(class="popup reduced join")
-        div(class="dialog")
-          h1= "Join"
-          div(class="choices")
-            if isBlackFree
-              div(class="choice black")
-            if isWhiteFree
-              div(class="choice white")
-            div(class="choice observer")
-
-      div(class="popup reduced create")
-        div(class="dialog")
-          h1= "Create"
-          div(class="content")
-            p
-              label= "Goban:"
-              select
-                option(value="19")= "19x19"
-                option(value="13")= "13x13"
-                option(value="9")= "9x9"
-          div(class="buttons")
-            button= "OK"
+    mei-layout-sandwich
+      mei-header
+      mei-content
+      mei-footer
     script.
-        boot({id: "#{id}", goban: !{goban}, socket: "#{socket}"})
+        boot();
 
