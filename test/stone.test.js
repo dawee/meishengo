@@ -18,10 +18,10 @@ describe('stone', function () {
 
     it('should returns the top stone', function () {
       var stone = new Stone({row: 1, col: 2, color: 'black'});
-      assert.equal(0, stone.topStone().row());
-      assert.equal(2, stone.topStone().col());
-      assert.equal('black', stone.topStone().color());
-      assert.equal('white', stone.topStone('white').color());
+      assert.equal(0, stone.topStone().get('row'));
+      assert.equal(2, stone.topStone().get('col'));
+      assert.equal('black', stone.topStone().get('color'));
+      assert.equal('white', stone.topStone('white').get('color'));
     });
 
   });
@@ -30,10 +30,10 @@ describe('stone', function () {
 
     it('should returns the right stone', function () {
       var stone = new Stone({row: 1, col: 2, color: 'black'});
-      assert.equal(1, stone.rightStone().row());
-      assert.equal(3, stone.rightStone().col());
-      assert.equal('black', stone.rightStone().color());
-      assert.equal('white', stone.rightStone('white').color());
+      assert.equal(1, stone.rightStone().get('row'));
+      assert.equal(3, stone.rightStone().get('col'));
+      assert.equal('black', stone.rightStone().get('color'));
+      assert.equal('white', stone.rightStone('white').get('color'));
     });
 
   });
@@ -42,10 +42,10 @@ describe('stone', function () {
 
     it('should returns the bottom stone', function () {
       var stone = new Stone({row: 1, col: 2, color: 'black'});
-      assert.equal(2, stone.bottomStone().row());
-      assert.equal(2, stone.bottomStone().col());
-      assert.equal('black', stone.bottomStone().color());
-      assert.equal('white', stone.bottomStone('white').color());
+      assert.equal(2, stone.bottomStone().get('row'));
+      assert.equal(2, stone.bottomStone().get('col'));
+      assert.equal('black', stone.bottomStone().get('color'));
+      assert.equal('white', stone.bottomStone('white').get('color'));
     });
 
   });
@@ -54,10 +54,10 @@ describe('stone', function () {
 
     it('should returns the left stone', function () {
       var stone = new Stone({row: 1, col: 2, color: 'black'});
-      assert.equal(1, stone.leftStone().row());
-      assert.equal(1, stone.leftStone().col());
-      assert.equal('black', stone.leftStone().color());
-      assert.equal('white', stone.leftStone('white').color());
+      assert.equal(1, stone.leftStone().get('row'));
+      assert.equal(1, stone.leftStone().get('col'));
+      assert.equal('black', stone.leftStone().get('color'));
+      assert.equal('white', stone.leftStone('white').get('color'));
     });
 
   });
