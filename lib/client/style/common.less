@@ -22,7 +22,7 @@ html, body {
 body {
   font-family: 'Carrois Gothic SC', sans-serif;
   background: radial-gradient(ellipse at center, mix(@hardGuys, white, 10%) 0%, mix(@hardGuys, white, 15%) 100%);
-  color: #292522;
+  color: @hardGuys;
 }
 
 select, input, textarea {
@@ -31,7 +31,7 @@ select, input, textarea {
 }
 
 mei-layout-sandwich {
-  @bandSize: 48px;
+  @bandSize: 24px;
 
   > * {
     position: absolute;
@@ -42,11 +42,20 @@ mei-layout-sandwich {
   mei-header, mei-footer { 
     height: @bandSize;
     background-color: @hardGuys;
+    z-index: 2;
   }
 
-  mei-header { top: 0; }
-  mei-content { top: @bandSize; bottom: @bandSize; }
-  mei-footer { bottom: 0; }
+  mei-header { top: 0; border-bottom: 1px solid @houseIGrewUpIn; }
+  mei-content { 
+    top: @bandSize;
+    bottom: @bandSize;
+    h1 {
+      position: absolute;
+      bottom: 0.5em;
+      right: 0.25em;
+    }
+  }
+  mei-footer { bottom: 0; border-top: 1px solid @houseIGrewUpIn; }
 }
 
 .skew(@x, @y) {
@@ -55,3 +64,13 @@ mei-layout-sandwich {
   transform: skew(@x, @y);  
 }
 
+h1 {
+  margin: 0;
+  padding: 0;
+  font-size: 2.5em;
+  line-height: 0;
+
+  .go {
+    color: @theTurquoise;
+  }
+}
