@@ -45,7 +45,13 @@ mei-layout-sandwich {
   }
 
   mei-header { top: 0; }
-  mei-content { top: @bandSize; top: @bandSize; }
+  mei-content { top: @bandSize; bottom: @bandSize; }
   mei-footer { bottom: 0; }
-
 }
+
+.skew(@x, @y) {
+  -ms-transform: skew(@x, @y);
+  -webkit-transform: skew(@x, @y);
+  transform: skew(@x, @y);  
+}
+

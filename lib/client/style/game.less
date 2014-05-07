@@ -1,1 +1,121 @@
 @import 'common';
+
+mei-goban {
+  position: absolute;
+
+  @boardSize: 98%;
+  @margin: 5%;
+
+  mei-board {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: @boardSize;
+    height: @boardSize;
+    background-color: lighten(@houseIGrewUpIn, 5%);
+  }
+
+  mei-board-top-edge {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: @boardSize;
+    height: 1px;
+    background-color: lighten(@houseIGrewUpIn, 6%);
+  }
+
+  mei-board-left-edge {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 1px;
+    height: @boardSize;
+    background-color: lighten(@houseIGrewUpIn, 10%);
+  }
+
+  mei-board-right-edge {
+    position: absolute;
+    right: 0;
+    top: (100% - @boardSize) / 2;
+    width: 100% - @boardSize;
+    height: @boardSize;
+    background-color: darken(@houseIGrewUpIn, 70%);
+    .skew(0deg, 45deg);
+  }
+
+  mei-board-bottom-edge {
+    position: absolute;
+    bottom: 0;
+    left: (100% - @boardSize) / 2;
+    height: 100% - @boardSize;
+    width: @boardSize;
+    background-color: darken(@houseIGrewUpIn, 60%);
+    .skew(45deg, 0deg);
+  }
+
+  .sized-goban (@size) {
+
+    mei-intersections {
+      display: block;
+      margin: @margin 0 0 @margin;
+      width: 100% - (@margin * 2);
+      height: 100% - (@margin * 2);
+
+      mei-row {
+        display: block;
+        height: 100% / @size;
+        width: 100%;
+
+        mei-intersection {
+          position: relative;
+          display: inline-block;
+          width: 100% / 19;
+          height: 100%;
+
+          .draw {
+            background-color: black;
+            opacity: 0.8;
+          }
+
+          mei-vertical-line {
+            position: absolute;
+            width: 1px;
+            height: 100%;
+            left: 50%;
+            top: 0;
+          }
+
+          mei-horizontal-line {
+            position: absolute;
+            height: 1px;
+            width: 100%;
+            top: 50%;
+            left: 0;
+          }
+
+          // Walls
+
+          &.top { mei-vertical-line { top: 50%; } }
+          &.bottom {mei-vertical-line { height: 50%; }}
+          &.left { mei-horizontal-line { left: 50%; } }
+          &.right { mei-horizontal-line { width: 50%; } }
+
+          mei-hoshi {
+            position: absolute;
+            top: 35%;
+            right: 35%;
+            bottom: 35%;
+            left: 35%;
+            border-radius: 50%;
+          }
+        }
+      }
+
+    }
+
+  }
+
+  &.size-19 { .sized-goban(19); }
+  &.size-13 { .sized-goban(13); }
+  &.size-9 { .sized-goban(9); }
+}
