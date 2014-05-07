@@ -5,6 +5,7 @@ mei-goban {
 
   @boardSize: 98%;
   @margin: 5%;
+  @color: lighten(@justHadToBreathe, 10%);
 
   mei-board {
     position: absolute;
@@ -12,7 +13,7 @@ mei-goban {
     left: 0;
     width: @boardSize;
     height: @boardSize;
-    background-color: lighten(@houseIGrewUpIn, 5%);
+    background-color: lighten(@color, 5%);
   }
 
   mei-board-top-edge {
@@ -21,7 +22,7 @@ mei-goban {
     left: 0;
     width: @boardSize;
     height: 1px;
-    background-color: lighten(@houseIGrewUpIn, 6%);
+    background-color: lighten(@color, 6%);
   }
 
   mei-board-left-edge {
@@ -30,7 +31,7 @@ mei-goban {
     left: 0;
     width: 1px;
     height: @boardSize;
-    background-color: lighten(@houseIGrewUpIn, 10%);
+    background-color: lighten(@color, 10%);
   }
 
   mei-board-right-edge {
@@ -39,7 +40,7 @@ mei-goban {
     top: (100% - @boardSize) / 2;
     width: 100% - @boardSize;
     height: @boardSize;
-    background-color: darken(@houseIGrewUpIn, 70%);
+    background-color: darken(@color, 70%);
     .skew(0deg, 45deg);
   }
 
@@ -49,7 +50,7 @@ mei-goban {
     left: (100% - @boardSize) / 2;
     height: 100% - @boardSize;
     width: @boardSize;
-    background-color: darken(@houseIGrewUpIn, 60%);
+    background-color: darken(@color, 60%);
     .skew(45deg, 0deg);
   }
 
@@ -69,7 +70,7 @@ mei-goban {
         mei-intersection {
           position: relative;
           display: inline-block;
-          width: 100% / 19;
+          width: 100% / @size;
           height: 100%;
 
           .draw {
