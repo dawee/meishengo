@@ -6,6 +6,8 @@ mei-goban {
   @boardSize: 98%;
   @margin: 5%;
   @color: lighten(@justHadToBreathe, 10%);
+  @blackAlike: darken(@color, 70%);
+  @whiteAlike: lighten(@color, 10%);
 
   mei-board {
     position: absolute;
@@ -31,7 +33,7 @@ mei-goban {
     left: 0;
     width: 1px;
     height: @boardSize;
-    background-color: lighten(@color, 10%);
+    background-color: @whiteAlike;
   }
 
   mei-board-right-edge {
@@ -40,7 +42,7 @@ mei-goban {
     top: (100% - @boardSize) / 2;
     width: 100% - @boardSize;
     height: @boardSize;
-    background-color: darken(@color, 70%);
+    background-color: @blackAlike;
     .skew(0deg, 45deg);
   }
 
@@ -74,7 +76,7 @@ mei-goban {
           height: 100%;
 
           .draw {
-            background-color: fadeOut(darken(@color, 70%), 30%);
+            background-color: fadeOut(@blackAlike, 30%);
           }
 
           mei-vertical-line {
@@ -110,6 +112,19 @@ mei-goban {
             height: 8px;
             margin: -4px 0 0 -4px; 
             border-radius: 50%;
+          }
+
+          mei-stone {
+            position: absolute;
+            width: 98%;
+            height: 98%;
+            left: 1%;
+            top: 1%;
+
+            border-radius: 50%;
+
+            &.black {background-color: @blackAlike;}
+            &.white {background-color: @whiteAlike;}
           }
         }
       }

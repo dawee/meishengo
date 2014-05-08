@@ -44,5 +44,18 @@ describe('Goban', function () {
       assert.equal(true, goban.putStone({row: 0, col: 0, color: 'black'}));
       assert.equal(1, goban.get('groups').size());
     });
+
+    it('should not create the second group', function () {
+      var goban = new Goban({
+        size: 19,
+        groups: [
+          [{row: 0, col: 0, color: 'black'}]
+        ]
+      });
+
+      assert.equal(true, goban.putStone({row: 0, col: 1, color: 'white'}));
+      assert.equal(false, goban.putStone({row: 0, col: 1, color: 'white'}));
+
+    });
   });
 });
