@@ -18,7 +18,7 @@ var app = express();
 var server = http.createServer(app)
 var io = sio.listen(server, { log: nconf.get('debug') });
 
-app.use('/assets', express.static(__dirname + '/lib/assets'));
+app.use('/assets', express.static(__dirname + '/lib/asset'));
 app.use('/components', express.static(__dirname + '/bower_components'));
 app.use(express.bodyParser());
 app.set('views', __dirname + '/lib/page');
