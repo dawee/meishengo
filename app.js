@@ -11,7 +11,6 @@ nconf.file(__dirname + '/config.json');
 nconf.defaults({
   debug: false,
   port: 8000,
-  repreive: 30000,
   host: 'localhost'
 });
 
@@ -24,11 +23,11 @@ app.use('/components', express.static(__dirname + '/bower_components'));
 app.use(express.bodyParser());
 app.set('views', __dirname + '/lib/page');
 app.set('view engine', 'jade');
-app.use('/less', expressLess(__dirname + '/lib/client/style', {compress: !nconf.get('debug')}));
+app.use('/less', expressLess(__dirname + '/lib/style', {compress: !nconf.get('debug')}));
 app.use(browserifyExpress({
-    entry: __dirname + '/lib/client/boot.js',
-    watch: __dirname + '/lib/client/',
-    mount: '/js/meishengo-client.js',
+    entry: __dirname + '/lib/boot/game.js',
+    watch: __dirname + '/lib',
+    mount: '/boot.game.js',
     minify: !nconf.get('debug')
 }));
 
