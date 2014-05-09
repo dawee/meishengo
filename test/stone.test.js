@@ -3,7 +3,7 @@ var assert = require('assert');
 var Stone = require('../lib/model/stone');
 
 
-describe('stone', function () {
+describe('Stone', function () {
 
   describe('toString()', function () {
 
