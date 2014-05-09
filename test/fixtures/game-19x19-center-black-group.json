@@ -1,0 +1,19 @@
+{
+  "goban": {
+    "size": 19,
+    "groups": [
+      {
+        "stones": [
+          {"row": 8, "col": 8, "color": "black"},
+          {"row": 8, "col": 9, "color": "black"},
+          {"row": 8, "col": 10, "color": "black"},
+          {"row": 9, "col": 8, "color": "black"},
+          {"row": 9, "col": 10, "color": "black"},
+          {"row": 10, "col": 8, "color": "black"},
+          {"row": 10, "col": 9, "color": "black"},
+          {"row": 10, "col": 10, "color": "black"}
+        ]
+      }
+    ]
+  }
+}

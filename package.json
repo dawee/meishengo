@@ -11,6 +11,7 @@
   "dependencies": {
     "async": "~0.2.10",
     "backbone": "^1.1.2",
+    "backbone.schema": "^0.4.8",
     "browserify": "^3.32.1",
     "browserify-express": "~0.1.4",
     "crypto": "0.0.3",
