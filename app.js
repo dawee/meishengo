@@ -22,7 +22,7 @@ var io = sio.listen(server, { log: nconf.get('debug') });
 app.use('/assets', express.static(__dirname + '/lib/assets'));
 app.use('/components', express.static(__dirname + '/bower_components'));
 app.use(express.bodyParser());
-app.set('views', __dirname + '/view');
+app.set('views', __dirname + '/lib/page');
 app.set('view engine', 'jade');
 app.use('/less', expressLess(__dirname + '/lib/client/style', {compress: !nconf.get('debug')}));
 app.use(browserifyExpress({
