@@ -1,4 +1,5 @@
-![alt text](https://raw.github.com/dawicorti/meishengo/master/lib/asset/title.png "meishengo")
+MEISHENGO
+=========
 
-  HTML5 Go game client
-
+HTML5 Go game server.
+URL: [meishengo.org](http://meishengo.org)
