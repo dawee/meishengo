@@ -1,35 +1,45 @@
+/*
+ * Module dependencies
+ */
+
 var express = require('express');
+var app = express();
 var http = require('http');
 var sio = require('socket.io');
 var expressLess = require('express-less');
 var browserifyExpress = require('browserify-express');
 var _ = require('underscore');
-var nconf = require('nconf');
+var conf = require('./lib/conf');
+var server = http.createServer(app);
+var io = require('./lib/io/server')(server);
 
-nconf.env().argv();
-nconf.file(__dirname + '/config.json');
-nconf.defaults({
-  debug: false,
-  port: 8000,
-  host: 'localhost'
-});
 
-var app = express();
-var server = http.createServer(app)
-var io = sio.listen(server, { log: nconf.get('debug') });
+/*
+ * Specialize express
+ */
+
+app.set('views', __dirname + '/lib/page');
+app.set('view engine', 'jade');
+
+
+/*
+ * Register middlewares
+ */
 
 app.use('/assets', express.static(__dirname + '/lib/asset'));
 app.use('/components', express.static(__dirname + '/bower_components'));
-app.use(express.bodyParser());
-app.set('views', __dirname + '/lib/page');
-app.set('view engine', 'jade');
-app.use('/less', expressLess(__dirname + '/lib/style', {compress: !nconf.get('debug')}));
+app.use('/less', expressLess(__dirname + '/lib/style', {compress: !conf.get('debug')}));
 app.use(browserifyExpress({
     entry: __dirname + '/lib/boot/game.js',
     watch: __dirname + '/lib',
     mount: '/boot.game.js',
-    minify: !nconf.get('debug')
+    minify: !conf.get('debug')
 }));
+
+
+/*
+ * Register routes
+ */
 
 app.gameRequest = function (req, res) {
   res.render('game');
@@ -38,9 +48,15 @@ app.gameRequest = function (req, res) {
 app.get('/game/:id', app.gameRequest);
 app.get('/g/:id', app.gameRequest);
 
+/* 404 fallback */
+
 app.use(function(req, res) {
   res.render('404', {sentence: _.sample(proverbs)});
 });
 
-console.log('Meishengo started on port ' + nconf.get('port'));
-server.listen(nconf.get('port'));
+/*
+ * Start server
+ */
+
+console.log('Meishengo started on port ' + conf.get('port'));
+server.listen(conf.get('port'));
