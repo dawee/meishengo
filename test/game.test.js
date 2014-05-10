@@ -1,5 +1,6 @@
 var assert = require('assert');
 var _ = require('underscore');
+var unflatten = require('flat').unflatten;
 var Game = require('../lib/model/game');
 var fixtures = {
   's19bCenter': require('./fixtures/game-19x19-center-black-group')
@@ -54,7 +55,23 @@ describe('Game', function () {
       assert.equal(8, game2.gbn().get('groups').at(0).get('stones').size());
     });
 
-
   });
 
+  describe('flatten()', function () {
+
+    it('should have stones in first depth', function () {
+      var game = new Game(fixtures.s19bCenter);
+      assert.equal('black', game.flatten()['goban.groups.0.stones.0.color']);
+    });
+
+    it('should be usable for reset', function () {
+      var game1 = new Game(fixtures.s19bCenter);
+      var game2 = new Game();
+
+      game2.set(unflatten(game1.flatten()));
+
+      assert.equal(8, game2.gbn().get('groups').at(0).get('stones').size());
+    });
+
+  });
 });
