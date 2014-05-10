@@ -55,7 +55,6 @@ describe('Goban', function () {
 
       assert.equal(true, goban.putStone({row: 0, col: 1, color: 'white'}));
       assert.equal(false, goban.putStone({row: 0, col: 1, color: 'white'}));
-
     });
   });
 });
