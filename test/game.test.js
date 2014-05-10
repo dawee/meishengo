@@ -2,6 +2,7 @@ var assert = require('assert');
 var _ = require('underscore');
 var unflatten = require('flat').unflatten;
 var Game = require('../lib/model/game');
+var syncRedis = require('../lib/sync/redis');
 var fixtures = {
   's19bCenter': require('./fixtures/game-19x19-center-black-group')
 };
@@ -74,4 +75,24 @@ describe('Game', function () {
     });
 
   });
+
+  describe('sync.redis', function () {
+
+    it('should save flatten data on Redis', function (done) {
+      var game = new Game(_.extend({
+        id: 'my-game'
+      }, fixtures.s19bCenter));
+      game.sync = syncRedis;
+      game.save(null, {
+        success: function () {
+          done();
+        },
+        error: function (model, err) {
+          throw err;
+        }
+      });
+    });
+
+  });
+
 });
