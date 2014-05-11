@@ -7,88 +7,6 @@
 @whiteAlike: lighten(@boardColor, 15%);
 
 
-mei-board-creation {
-  position: absolute;
-  display: block;
-  text-align: center;
-  z-index: 2;
-  top: 0;
-  left: 0;
-  width: 400px;
-  bottom: 0;
-  border-right: 6px solid @theTurquoise;
-  background-color: lighten(@hardGuys, 5%);
-
-  h2 {
-    position: relative;
-
-    .title(lighten(@theTurquoise, 10%), 0.8);
-    margin-top: 48px;
-  }
-
-  h3 {
-    position: relative;
-
-    .title(lighten(@theTurquoise, 10%), 0.6);
-    margin-top: 48px;
-  }
-
-  mei-goban-choice {
-    display: block;
-    overflow: hidden;
-    margin: 15% 0 25% 0;
-    height: 130px;
-
-    mei-goban {
-      position: relative;
-      display: inline-block;
-      opacity: 0.5;
-      .transition-duration(0.3s);
-      width: 130px;
-      height: 130px;
-      margin-right: 2px;
-      &:last-child {
-        margin-right: 0; 
-      }
-
-      &.selected {opacity: 1;}
-    }
-
-  }
-
-  mei-stone-choice {
-    display: block;
-    overflow: hidden;
-    margin-top: 5%;
-    height: 60px;
-
-    mei-stone {
-      position: relative;
-      &.black, &.white {
-        display: inline-block;
-      }
-      width: 50px;
-      height: 50px;
-      margin-right: 10px;
-      &:last-child {
-        margin-right: 0; 
-      }
-    }
-  }
-
-  button {
-    position: absolute;
-    bottom: 15px;
-    right: 15px;
-    background-color: @theTurquoise;
-    .title(@whiteAlike, 0.5);
-    height: 50px;
-    width: 100px;
-    border: none;
-  }
-
-}
-
 
 mei-goban {
   position: absolute;
@@ -159,24 +77,26 @@ mei-goban {
           height: 100%;
 
           .draw {
-            background-color: fadeOut(@blackAlike, 30%);
+            background-color: @blackAlike;
           }
 
           mei-vertical-line {
             position: absolute;
-            width: 2px;
+            width: 2%;
+            min-width: 1px;
             height: 100%;
             left: 50%;
-            margin-left: -1px;
+            margin-left: -1%;
             top: 0;
           }
 
           mei-horizontal-line {
             position: absolute;
-            height: 2px;
-            margin-top: -1px;
+            height: 2%;
+            min-height: 1px;
+            margin-top: -1%;
             width: 100%;
-            top: 50%;
+            top: 49%;
             left: 0;
           }
 
@@ -189,11 +109,11 @@ mei-goban {
 
           mei-hoshi {
             position: absolute;
-            top: 50%;
-            left: 50%;
-            width: 8px;
-            height: 8px;
-            margin: -4px 0 0 -4px; 
+            display: block;
+            top: 35%;
+            left: 35%;
+            width: 30%;
+            height: 30%;
             border-radius: 50%;
           }
           
@@ -266,4 +186,95 @@ mei-stone {
 
   }
   &.white {.stone(@whiteAlike, 0.3, 0.4);}
+}
+
+
+mei-board-creation {
+  position: absolute;
+  display: block;
+  text-align: center;
+  z-index: 2;
+  top: 0;
+  left: 0;
+  width: 400px;
+  bottom: 0;
+  border-right: 6px solid @theTurquoise;
+  background-color: lighten(@hardGuys, 5%);
+
+  h2 {
+    position: relative;
+
+    .title(lighten(@theTurquoise, 10%), 0.8);
+    margin-top: 48px;
+  }
+
+  h3 {
+    position: relative;
+
+    .title(lighten(@theTurquoise, 10%), 0.6);
+    margin-top: 48px;
+  }
+
+  mei-goban-choice {
+    display: block;
+    overflow: hidden;
+    margin: 15% 0 25% 0;
+    height: 130px;
+
+    mei-goban {
+      position: relative;
+      display: inline-block;
+      opacity: 0.5;
+      .transition-duration(0.3s);
+      width: 130px;
+      height: 130px;
+      margin-right: 2px;
+      &:last-child {
+        margin-right: 0; 
+      }
+
+      &.selected {opacity: 1;}
+    }
+
+  }
+
+  mei-hoshi {
+    width: 4px !important;
+    height: 4px !important;
+    top: 50% !important;
+    left: 50% !important;
+    margin: -2px 0 0 -2px;
+  }
+
+  mei-stone-choice {
+    display: block;
+    overflow: hidden;
+    margin-top: 5%;
+    height: 60px;
+
+    mei-stone {
+      position: relative;
+      &.black, &.white {
+        display: inline-block;
+      }
+      width: 50px;
+      height: 50px;
+      margin-right: 10px;
+      &:last-child {
+        margin-right: 0; 
+      }
+    }
+  }
+
+  button {
+    position: absolute;
+    bottom: 15px;
+    right: 15px;
+    background-color: @theTurquoise;
+    .title(@whiteAlike, 0.5);
+    height: 50px;
+    width: 100px;
+    border: none;
+  }
+
 }
