@@ -53,15 +53,10 @@ app.use(browserifyExpress({
 app.get('/:path(game|g)/:id', function (req, res) {
   GameStore.fetch(req.params.id, function (err, game) {
     res.render('game', {
+      id: req.params.id,
       game: JSON.stringify(!!game ? game.serialize() : null)
     });
   });
-});
-
-/* 404 fallback */
-
-app.use(function(req, res) {
-  res.render('404', {sentence: _.sample(proverbs)});
 });
 
 /*

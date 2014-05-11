@@ -200,6 +200,11 @@ mei-board-creation {
   bottom: 0;
   border-right: 6px solid @theTurquoise;
   background-color: lighten(@hardGuys, 5%);
+  .transition(1s, ease-out);
+
+  &.closed {
+    left: -500px;
+  }
 
   h2 {
     position: absolute;
