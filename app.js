@@ -42,6 +42,14 @@ app.use(browserifyExpress({
  * Register routes
  */
 
+
+/*
+ * Game
+ *
+ * /game/:id
+ * /g/:id
+ */
+
 app.get('/:path(game|g)/:id', function (req, res) {
   GameStore.fetch(req.params.id, function (err, game) {
     res.render('game', {

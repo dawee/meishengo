@@ -43,6 +43,7 @@ mei-layout-sandwich {
     height: @bandSize;
     background-color: @hardGuys;
     z-index: 2;
+    .transition(1s, ease-out);
   }
 
   mei-header { top: 0; border-bottom: 3px solid @theTurquoise; }
@@ -55,6 +56,11 @@ mei-layout-sandwich {
       right: 0.25em;
     }
   }
+
+  &.closed {
+    mei-header, mei-footer { height: 50%; }
+  }
+
   mei-footer { bottom: 0; border-top: 3px solid @theTurquoise; }
 }
 
