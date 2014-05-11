@@ -1,21 +1,100 @@
 @import 'common';
 
+@boardSize: 98%;
+@margin: 5%;
+@boardColor: lighten(@justHadToBreathe, 10%);
+@blackAlike: darken(@boardColor, 70%);
+@whiteAlike: lighten(@boardColor, 15%);
+
+
+mei-board-creation {
+  position: absolute;
+  display: block;
+  text-align: center;
+  z-index: 2;
+  top: 0;
+  left: 0;
+  width: 400px;
+  bottom: 0;
+  border-right: 6px solid @theTurquoise;
+  background-color: lighten(@hardGuys, 5%);
+
+  h2 {
+    position: relative;
+
+    .title(lighten(@theTurquoise, 10%), 0.8);
+    margin-top: 48px;
+  }
+
+  h3 {
+    position: relative;
+
+    .title(lighten(@theTurquoise, 10%), 0.6);
+    margin-top: 48px;
+  }
+
+  mei-goban-choice {
+    display: block;
+    overflow: hidden;
+    margin: 15% 0 25% 0;
+    height: 130px;
+
+    mei-goban {
+      position: relative;
+      display: inline-block;
+      width: 130px;
+      height: 130px;
+      margin-right: 2px;
+      &:last-child {
+        margin-right: 0; 
+      }
+    }
+
+  }
+
+  mei-stone-choice {
+    display: block;
+    overflow: hidden;
+    margin-top: 5%;
+    height: 60px;
+
+    mei-stone {
+      position: relative;
+      &.black, &.white {
+        display: inline-block;
+      }
+      width: 50px;
+      height: 50px;
+      margin-right: 10px;
+      &:last-child {
+        margin-right: 0; 
+      }
+    }
+  }
+
+  button {
+    position: absolute;
+    bottom: 15px;
+    right: 15px;
+    background-color: @theTurquoise;
+    .title(@whiteAlike, 0.5);
+    height: 50px;
+    width: 100px;
+    border: none;
+  }
+
+}
+
+
 mei-goban {
   position: absolute;
-
-  @boardSize: 98%;
-  @margin: 5%;
-  @color: lighten(@justHadToBreathe, 10%);
-  @blackAlike: darken(@color, 70%);
-  @whiteAlike: lighten(@color, 15%);
-
   mei-board {
     position: absolute;
     top: 0;
     left: 0;
     width: @boardSize;
     height: @boardSize;
-    background-color: lighten(@color, 5%);
+    background-color: lighten(@boardColor, 5%);
   }
 
   mei-board-top-edge {
@@ -24,7 +103,7 @@ mei-goban {
     left: 0;
     width: @boardSize;
     height: 1px;
-    background-color: lighten(@color, 6%);
+    background-color: lighten(@boardColor, 6%);
   }
 
   mei-board-left-edge {
@@ -52,7 +131,7 @@ mei-goban {
     left: (100% - @boardSize) / 2;
     height: 100% - @boardSize;
     width: @boardSize;
-    background-color: darken(@color, 60%);
+    background-color: darken(@boardColor, 60%);
     .skew(45deg, 0deg);
   }
 
@@ -113,7 +192,7 @@ mei-goban {
             margin: -4px 0 0 -4px; 
             border-radius: 50%;
           }
-
+          
           mei-stone {
             position: absolute;
             display: none;
@@ -121,53 +200,8 @@ mei-goban {
             height: 98%;
             left: 1%;
             top: 1%;
-
-            
-            .stone(@color, @shadow, @light) {
-              display: block;
-              overflow: hidden;
-              background: @color;
-              border-radius: 50%;
-              box-shadow: 2px 2px 2px black;
-
-              .shadow, .light {
-                position: absolute;
-                display: block;
-                width: 100%;
-                height: 100%;
-                border-radius: 50%;
-                box-shadow: 2px 2px 2px white inset;
-              }
-
-              .shadow {
-                background-color: black;
-                top: 0;
-                left: 0;
-                opacity: @shadow;
-              }
-
-              .light {
-                background-color: white;
-                top: -20%;
-                left: -20%;
-                opacity: @light;
-              }
-            }
-
-
-            &.black {
-              .stone(@blackAlike, 0.3, 0.1);
-              
-              .shadow {
-                background-color: @blackAlike;
-                top: 0;
-                left: 0;
-                box-shadow: 1px 1px 1px white inset;
-              }
-
-            }
-            &.white {.stone(@whiteAlike, 0.3, 0.4);}
           }
+
         }
       }
 
@@ -178,4 +212,54 @@ mei-goban {
   &.size-19 { .sized-goban(19); }
   &.size-13 { .sized-goban(13); }
   &.size-9 { .sized-goban(9); }
+}
+
+
+
+mei-stone {
+  
+  .stone(@boardColor, @shadow, @light) {
+    display: block;
+    overflow: hidden;
+    background: @boardColor;
+    border-radius: 50%;
+    box-shadow: 2px 2px 2px black;
+
+    .shadow, .light {
+      position: absolute;
+      display: block;
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      box-shadow: 2px 2px 2px white inset;
+    }
+
+    .shadow {
+      background-color: black;
+      top: 0;
+      left: 0;
+      opacity: @shadow;
+    }
+
+    .light {
+      background-color: white;
+      top: -20%;
+      left: -20%;
+      opacity: @light;
+    }
+  }
+
+
+  &.black {
+    .stone(@blackAlike, 0.3, 0.1);
+    
+    .shadow {
+      background-color: @blackAlike;
+      top: 0;
+      left: 0;
+      box-shadow: 1px 1px 1px white inset;
+    }
+
+  }
+  &.white {.stone(@whiteAlike, 0.3, 0.4);}
 }
