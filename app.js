@@ -12,6 +12,7 @@ var _ = require('underscore');
 var conf = require('./lib/conf');
 var server = http.createServer(app);
 var io = require('./lib/io/server')(server);
+var GameStore = require('./lib/store/game');
 
 
 /*
@@ -41,12 +42,13 @@ app.use(browserifyExpress({
  * Register routes
  */
 
-app.gameRequest = function (req, res) {
-  res.render('game');
-};
-
-app.get('/game/:id', app.gameRequest);
-app.get('/g/:id', app.gameRequest);
+app.get('/:path(game|g)/:id', function (req, res) {
+  GameStore.fetch(req.params.id, function (err, game) {
+    res.render('game', {
+      game: JSON.stringify(!!game ? game.serialize() : null)
+    });
+  });
+});
 
 /* 404 fallback */
 
