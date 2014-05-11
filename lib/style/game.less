@@ -82,19 +82,18 @@ mei-goban {
 
           mei-vertical-line {
             position: absolute;
-            width: 2%;
-            min-width: 1px;
+            width: 2px;
             height: 100%;
             left: 50%;
-            margin-left: -1%;
+            margin-left: -1px;
             top: 0;
           }
 
           mei-horizontal-line {
             position: absolute;
-            height: 2%;
+            height: 2px;
             min-height: 1px;
-            margin-top: -1%;
+            margin-top: -1px;
             width: 100%;
             top: 49%;
             left: 0;
@@ -110,10 +109,12 @@ mei-goban {
           mei-hoshi {
             position: absolute;
             display: block;
-            top: 35%;
-            left: 35%;
-            width: 30%;
-            height: 30%;
+            top: 50%;
+            left: 50%;
+            width: 12px;
+            height: 12px;
+            margin-left: -6px;
+            margin-top: -6px;
             border-radius: 50%;
           }
           
@@ -129,6 +130,20 @@ mei-goban {
         }
       }
 
+    }
+
+  }
+
+  &.small {
+    mei-board mei-intersections mei-row mei-intersection {
+      mei-vertical-line { width: 1px; }
+      mei-horizontal-line { height: 1px; }
+      mei-hoshi {
+        width: 4px;
+        height: 4px;
+        margin-left: -3px;
+        margin-top: -3px;
+      }
     }
 
   }
@@ -199,7 +214,7 @@ mei-board-creation {
   width: 400px;
   bottom: 0;
   border-right: 6px solid @theTurquoise;
-  background-color: lighten(@hardGuys, 5%);
+  background-color: lighten(@hardGuys, 2%);
   .transition(1s, ease-out);
 
   &.closed {
@@ -209,16 +224,16 @@ mei-board-creation {
   h2 {
     position: absolute;
     top: 15px;
-    left: 15px;
+    left: 0;
 
-    .title(lighten(@theTurquoise, 10%), 0.8);
+    .title(@houseIGrewUpIn, 0.8);
     margin-top: 48px;
   }
 
   h3 {
     position: relative;
 
-    .title(lighten(@theTurquoise, 10%), 0.6);
+    .title(@justHadToBreathe, 0.6);
     margin-top: 48px;
   }
 
@@ -243,14 +258,6 @@ mei-board-creation {
       &.selected {opacity: 1;}
     }
 
-  }
-
-  mei-hoshi {
-    width: 4px !important;
-    height: 4px !important;
-    top: 50% !important;
-    left: 50% !important;
-    margin: -2px 0 0 -2px;
   }
 
   mei-color-choice {
@@ -281,8 +288,8 @@ mei-board-creation {
     position: absolute;
     bottom: 15px;
     right: 15px;
-    background-color: @theTurquoise;
-    .title(@whiteAlike, 0.5);
+    background-color: @houseIGrewUpIn;
+    .title(@blackAlike, 0.5);
     height: 50px;
     width: 100px;
     border: none;
