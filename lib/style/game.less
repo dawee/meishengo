@@ -42,12 +42,16 @@ mei-board-creation {
     mei-goban {
       position: relative;
       display: inline-block;
+      opacity: 0.5;
+      .transition-duration(0.3s);
       width: 130px;
       height: 130px;
       margin-right: 2px;
       &:last-child {
         margin-right: 0; 
       }
+
+      &.selected {opacity: 1;}
     }
 
   }
