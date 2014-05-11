@@ -202,7 +202,9 @@ mei-board-creation {
   background-color: lighten(@hardGuys, 5%);
 
   h2 {
-    position: relative;
+    position: absolute;
+    top: 15px;
+    left: 15px;
 
     .title(lighten(@theTurquoise, 10%), 0.8);
     margin-top: 48px;
@@ -218,7 +220,7 @@ mei-board-creation {
   mei-goban-choice {
     display: block;
     overflow: hidden;
-    margin: 15% 0 25% 0;
+    margin: 10em 0 25% 0;
     height: 130px;
 
     mei-goban {
@@ -254,6 +256,8 @@ mei-board-creation {
 
     mei-stone {
       position: relative;
+      .transition-duration(0.3s);
+
       &.black, &.white {
         display: inline-block;
       }
