@@ -76,4 +76,18 @@ describe('Game', function () {
 
   });
 
+  describe('set()', function () {
+    
+    it('should generate a goban event', function (done) {
+      var game = new Game(fixtures.s19bCenter);
+      
+      game.gbn().on('change', function () {
+        done();
+      });
+
+      game.set(_.extend({}, fixtures.s19bCenter, {size: 13}));
+    });
+
+  });
+
 });
