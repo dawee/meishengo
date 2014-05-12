@@ -79,13 +79,35 @@ describe('Game', function () {
   describe('set()', function () {
     
     it('should generate a goban event', function (done) {
-      var game = new Game(fixtures.s19bCenter);
+      var game1 = new Game(fixtures.s19bCenter);
+      var game2 = new Game(fixtures.s19bCenter);
       
-      game.gbn().on('change', function () {
+      game1.putStone({row: 18, col: 18, color: 'black'});
+
+      game2.gbn().once('change', function () {
         done();
       });
 
-      game.set(_.extend({}, fixtures.s19bCenter, {size: 13}));
+      game2.set(game1.serialize());
+
+    });
+
+
+    it('should be usable for updating the whole data', function () {
+      var game1 = new Game(fixtures.s19bCenter);
+      var game2 = new Game(fixtures.s19bCenter);
+      
+      var lastGbn = game2.gbn();
+      game2.gbn().thisisme = true;
+
+      game1.putStone({row: 18, col: 18, color: 'black'});
+
+      game2.set(game1.serialize());
+
+      assert.equal(18, game2.get('goban').get('groups').last().get('stones').last().get('row'));
+      assert.equal(18, game2.get('goban').get('groups').last().get('stones').last().get('col'));
+      assert.equal('black', game2.get('goban').get('groups').last().get('stones').last().get('color'));
+      assert.equal(true, game2.gbn().thisisme);
     });
 
   });
