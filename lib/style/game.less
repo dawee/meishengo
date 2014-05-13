@@ -1,10 +1,30 @@
-@import 'common';
+@import 'elements';
+@import 'reset';
+@import 'layout';
+@import 'theme';
+@import 'overlay';
+
 
 @boardSize: 98%;
 @margin: 5%;
 @boardColor: lighten(@justHadToBreathe, 10%);
 @blackAlike: darken(@boardColor, 70%);
 @whiteAlike: lighten(@boardColor, 15%);
+
+body {
+  background: radial-gradient(ellipse at center, mix(@hardGuys, white, 10%) 0%, mix(@hardGuys, white, 15%) 100%);
+}
+
+h1 {
+  margin: 0;
+  padding: 0;
+  .title(@hardGuys);
+
+  .go {
+    color: @theTurquoise;
+  }
+}
+
 
 mei-content-game {
   display: block;
