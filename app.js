@@ -2,13 +2,10 @@
  * Module dependencies
  */
 
+var _ = require('underscore');
 var express = require('express');
 var app = express();
 var http = require('http');
-var sio = require('socket.io');
-var expressLess = require('express-less');
-var browserifyExpress = require('browserify-express');
-var _ = require('underscore');
 var conf = require('./lib/conf');
 var server = http.createServer(app);
 var io = require('./lib/io/server')(server);
@@ -28,14 +25,7 @@ app.set('view engine', 'jade');
  */
 
 app.use('/assets', express.static(__dirname + '/lib/asset'));
-app.use('/components', express.static(__dirname + '/bower_components'));
-app.use('/less', expressLess(__dirname + '/lib/style', {compress: !conf.get('debug')}));
-app.use(browserifyExpress({
-    entry: __dirname + '/lib/boot/game.js',
-    watch: __dirname + '/lib',
-    mount: '/boot.game.js',
-    minify: !conf.get('debug')
-}));
+app.use('/build', express.static(__dirname + '/build'));
 
 
 /*
@@ -43,12 +33,7 @@ app.use(browserifyExpress({
  */
 
 
-/*
- * Game
- *
- * /game/:id
- * /g/:id
- */
+/* Game route */
 
 app.get('/:path(game|g)/:id', function (req, res) {
   GameStore.fetch(req.params.id, function (err, game) {

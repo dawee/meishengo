@@ -3,11 +3,10 @@ html
     title= "Meishengo"
     meta(content='go, go game, shuban, goban', name='keywords')
     meta(content='Meishengo is an HTML5 go game app', name='description')
-    link(rel='icon', type='image/png', href='/img/logo.png') 
+    link(rel='icon', type='image/png', href='/assets/logo.png')
     script(src="/socket.io/socket.io.js")
-    script(src="/components/zepto/zepto.min.js")
-    script(src="/boot.game.js")
-    link(rel="stylesheet" type="text/css" href="/less/game.css")
+    script(src="/build/game.js")
+    link(rel="stylesheet" type="text/css" href="/build/game.css")
   body
     mei-layout-sandwich
       mei-header
