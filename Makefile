@@ -1,9 +1,14 @@
 bin := ./node_modules/.bin
 
-all: js css
+all: build
+
+run: build
+	@node app.js
 
 prepare-build:
 	@mkdir -p build
+
+build: js css
 
 js: prepare-build
 	@${bin}/browserify -t aliasify lib/boot/game.js -o build/game.js
@@ -15,4 +20,4 @@ test:
 	@${bin}/mocha -b -R spec
 
 
-.PHONY: test all
+.PHONY: build test all
