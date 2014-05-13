@@ -47,6 +47,17 @@ describe('GameStore', function () {
     });
   });
 
+  it('should not alter booleans', function (done) {
+    GameStore.fetch('my-game', function (err, game) {
+      if (err) throw err;
+      assert.equal(false, game.get('blackPresent'));
+
+      game.destroy();
+      done();
+    });
+
+  });
+
 
   it('should delete an existing game from Redis', function (done) {
     var game = GameStore.create({id: 'my-game'});
