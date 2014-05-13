@@ -38,6 +38,7 @@ app.use('/build', express.static(__dirname + '/build'));
 app.get('/:path(game|g)/:id', function (req, res) {
   GameStore.fetch(req.params.id, function (err, game) {
     res.render('game', {
+      port: conf.get('port'),
       id: req.params.id,
       game: JSON.stringify(!!game ? game.serialize() : null)
     });
