@@ -25,7 +25,7 @@ app.set('view engine', 'jade');
  */
 
 app.use('/assets', express.static(__dirname + '/lib/asset'));
-app.use('/build', express.static(__dirname + '/build'));
+app.use('/mei', express.static(__dirname + '/build'));
 
 
 /*
@@ -36,8 +36,12 @@ app.use('/build', express.static(__dirname + '/build'));
 /* Game route */
 
 app.get('/:path(game|g)/:id', function (req, res) {
+  var debug = conf.get('debug');
+
   GameStore.fetch(req.params.id, function (err, game) {
     res.render('game', {
+      js: debug ? '/mei/game.min.js' : '/mei/game.js',
+      css: debug ? '/mei/game.min.css' : '/mei/game.css',
       port: conf.get('port'),
       id: req.params.id,
       game: JSON.stringify(!!game ? game.serialize() : null)

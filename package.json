@@ -8,23 +8,6 @@
   ],
   "author": "David Corticchiato",
   "license": "BSD",
-  "dependencies": {
-    "async": "^0.2.10",
-    "backbone": "^1.1.2",
-    "browserify": "^3.32.1",
-    "browserify-express": "~0.1.4",
-    "crypto": "0.0.3",
-    "express": "^3.4.8",
-    "express-less": "0.0.2",
-    "flat": "^1.2.1",
-    "jade": "^1.3.0",
-    "nconf": "^0.6.9",
-    "redis": "^0.10.1",
-    "socket.io": "^0.9.16",
-    "spin.js": "^2.0.1",
-    "underscore": "^1.6.0",
-    "zepto-browserify": "~1.1.3-0"
-  },
   "subdomain": "meishengo",
   "scripts": {
     "start": "node app.js",
@@ -37,12 +20,26 @@
     "mocha": "^1.18.2",
     "less": "~1.7.0",
     "browserify": "~3.46.1",
-    "aliasify": "~1.4.0"
+    "async": "^0.2.10",
+    "backbone": "^1.1.2",
+    "crypto": "0.0.3",
+    "express": "^3.4.8",
+    "flat": "^1.2.1",
+    "jade": "^1.3.0",
+    "nconf": "^0.6.9",
+    "redis": "^0.10.1",
+    "socket.io": "^0.9.16",
+    "spin.js": "^2.0.1",
+    "underscore": "^1.6.0",
+    "yuicompressor": "~2.4.8",
+    "clean-css": "~2.1.8",
+    "aliasify": "~1.4.0",
+    "zepto-browserify": "~1.1.3-0"
   },
-  "main": "app.js",
   "aliasify": {
     "aliases": {
       "zepto": "zepto-browserify"
     }
-  }
+  },
+  "main": "app.js"
 }
