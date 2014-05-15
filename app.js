@@ -35,15 +35,16 @@ app.use('/mei', express.static(__dirname + '/build'));
 
 /* Game route */
 
-app.get('/:path(game|g)/:id', function (req, res) {
+app.get(/^\/(game|g)\/([a-z0-9\-]{3,15}[a-z0-9]{1})$/, function (req, res) {
   var debug = conf.get('debug');
+  var id = req.params[1];
 
-  GameStore.fetch(req.params.id, function (err, game) {
+  GameStore.fetch(id, function (err, game) {
     res.render('game', {
       js: debug ? '/mei/game.min.js' : '/mei/game.js',
       css: debug ? '/mei/game.min.css' : '/mei/game.css',
       port: conf.get('port'),
-      id: req.params.id,
+      id: id,
       game: JSON.stringify(!!game ? game.serialize() : null)
     });
   });
