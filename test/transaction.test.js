@@ -144,6 +144,7 @@ describe('Transaction', function () {
       transaction.removeDeadGroups();
       assert.equal(1, transaction.get('groups').size());
       assert.equal('black', transaction.get('groups').at(0).get('stones').at(0).get('color'));
+      assert.equal(2, transaction.get('deads').size());
     });
 
     it('should not remove any group', function () {

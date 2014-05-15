@@ -62,12 +62,10 @@ describe('Goban', function () {
 
     it('should keep only 7 groups', function () {
       var Transaction = require('../lib/model/transaction');
-      Transaction.debug = true;
       var goban = new Goban(fixtures.s19SimpleCapture.goban);
 
 
       assert.equal(true, goban.putStone({row: 13, col: 17, color: 'black'}));
-      Transaction.debug = false;
       assert.equal(7, goban.get('groups').size());
     });
   });

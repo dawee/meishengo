@@ -4,7 +4,8 @@ var unflatten = require('flat').unflatten;
 var Game = require('../lib/model/game');
 var syncRedis = require('../lib/sync/redis');
 var fixtures = {
-  's19bCenter': require('./fixtures/game-19x19-center-black-group')
+  's19bCenter': require('./fixtures/game-19x19-center-black-group'),
+  's19SimpleCapture': require('./fixtures/game-19x19-simple-capture')
 };
 
 describe('Game', function () {
@@ -36,6 +37,17 @@ describe('Game', function () {
 
       assert.equal(false, game.putStone({row: 0, col: 0, color: 'white'}));
     });
+
+    it('should count one prisoners for black player', function () {
+      var game = new Game(fixtures.s19SimpleCapture);
+
+      game.set('turn', 'black');
+
+      assert.equal(true, game.putStone({row: 13, col: 17, color: 'black'}));
+      assert.equal(1, game.get('black').get('prisoners'));
+      assert.equal(0, game.get('white').get('prisoners'));
+    });
+
 
   });
 
