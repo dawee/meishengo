@@ -1,6 +1,9 @@
 var assert = require('assert');
 var _ = require('underscore');
 var Goban = require('../lib/model/goban');
+var fixtures = {
+  's19SimpleCapture': require('./fixtures/game-19x19-simple-capture')
+};
 
 describe('Goban', function () {
 
@@ -55,6 +58,17 @@ describe('Goban', function () {
 
       assert.equal(true, goban.putStone({row: 0, col: 1, color: 'white'}));
       assert.equal(false, goban.putStone({row: 0, col: 1, color: 'white'}));
+    });
+
+    it('should keep only 7 groups', function () {
+      var Transaction = require('../lib/model/transaction');
+      Transaction.debug = true;
+      var goban = new Goban(fixtures.s19SimpleCapture.goban);
+
+
+      assert.equal(true, goban.putStone({row: 13, col: 17, color: 'black'}));
+      Transaction.debug = false;
+      assert.equal(7, goban.get('groups').size());
     });
   });
 });
