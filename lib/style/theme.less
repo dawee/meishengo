@@ -1,6 +1,7 @@
 @import url(http://fonts.googleapis.com/css?family=Carrois+Gothic+SC);
 @import url(http://fonts.googleapis.com/css?family=Open+Sans);
 
+/* Base */
 
 @retroMemories: #A39081;
 @theTurquoise: #4D6160;
@@ -8,6 +9,13 @@
 @hardGuys: #292522;
 @justHadToBreathe: #D6A692;
 
+/* Special */
+
+@boardColor: lighten(@justHadToBreathe, 10%);
+@blackAlike: darken(@boardColor, 70%);
+@whiteAlike: lighten(@boardColor, 15%);
+@boardSize: 98%;
+@margin: 5%;
 
 .title(@color, @ratio:1) {
   font-family: 'Carrois Gothic SC', sans-serif;  
@@ -22,4 +30,8 @@
   font-size: 0.9em;
   line-height: 0.2em;
   color: @color;
+}
+
+body {
+  background: radial-gradient(ellipse at center, mix(@hardGuys, white, 10%) 0%, mix(@hardGuys, white, 15%) 100%);
 }

@@ -1,0 +1,92 @@
+mei-board-creation {
+  position: absolute;
+  display: block;
+  text-align: center;
+  z-index: 2;
+  top: 0;
+  left: 0;
+  width: 400px;
+  bottom: 0;
+  border-right: 6px solid @theTurquoise;
+  background-color: lighten(@hardGuys, 2%);
+  .transition(1s, ease-out);
+
+  &.closed {
+    left: -500px;
+  }
+
+  h2 {
+    position: absolute;
+    top: 15px;
+    left: 0;
+
+    .title(@houseIGrewUpIn, 0.8);
+    margin-top: 48px;
+  }
+
+  h3 {
+    position: relative;
+
+    .title(@justHadToBreathe, 0.6);
+    margin-top: 48px;
+  }
+
+  mei-goban-choice {
+    display: block;
+    overflow: hidden;
+    margin: 10em 0 25% 0;
+    height: 130px;
+
+    mei-goban {
+      position: relative;
+      display: inline-block;
+      opacity: 0.5;
+      .transition-duration(0.3s);
+      width: 130px;
+      height: 130px;
+      margin-right: 2px;
+      &:last-child {
+        margin-right: 0; 
+      }
+
+      &.selected {opacity: 1;}
+    }
+
+  }
+
+  mei-color-choice {
+    display: block;
+    overflow: hidden;
+    margin-top: 5%;
+    height: 60px;
+
+    mei-stone {
+      position: relative;
+      .transition-duration(0.3s);
+
+      &.black, &.white {
+        display: inline-block;
+      }
+      opacity: 0.3;
+      width: 50px;
+      height: 50px;
+      margin-right: 10px;
+      &:last-child {
+        margin-right: 0; 
+      }
+      &.selected { opacity: 1; }
+    }
+  }
+
+  button {
+    position: absolute;
+    bottom: 15px;
+    right: 15px;
+    background-color: @houseIGrewUpIn;
+    .title(@blackAlike, 0.5);
+    height: 50px;
+    width: 100px;
+    border: none;
+  }
+
+}
