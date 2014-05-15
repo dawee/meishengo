@@ -12,7 +12,7 @@ build: js css
 
 js: prepare-build
 	@${bin}/browserify -t aliasify lib/boot/game.js -o build/game.js
-	@${bin}/yuicompressor build/game.js > build/game.min.js
+	@${bin}/uglifyjs build/game.js > build/game.min.js
 
 css: prepare-build
 	@${bin}/lessc lib/style/game.less build/game.css
