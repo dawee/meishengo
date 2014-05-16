@@ -41,6 +41,7 @@ app.get(/^\/(game|g)\/([a-z0-9\-]{3,15}[a-z0-9]{1})$/, function (req, res) {
 
   GameStore.fetch(id, function (err, game) {
     res.render('game', {
+      title: conf.get('title'),
       js: debug ? '/mei/game.js' : '/mei/game.min.js', 
       css: debug ? '/mei/game.css' : '/mei/game.min.css',
       port: conf.get('port'),

@@ -48,6 +48,14 @@ describe('Goban', function () {
       assert.equal(1, goban.get('groups').size());
     });
 
+    it('should put a "latest" flag', function () {
+      var goban = new Goban({size: 19});
+      var stone = {row: 0, col: 0, color: 'black'};
+
+      assert.equal(true, goban.putStone(stone));
+      assert.equal(true, goban.queryStone(stone).get('latest'));
+    });
+
     it('should not create the second group', function () {
       var goban = new Goban({
         size: 19,
