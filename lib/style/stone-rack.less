@@ -16,18 +16,36 @@ mei-stone-rack {
       width: 100% * @compactRatio;
       mei-stone {
         top: 100% * @stoneMarginRatio * @compactRatio;
-        width: 8% * @stoneSizeRatio * @compactRatio;
-        height: 100% * @stoneSizeRatio * @compactRatio;
+      
+        .generate-compact-slots(@n, @i: 0) when (@i < @n) {
+          &.roll-slot-@{i} {
+            left: (@i * 8% * @stoneSizeRatio * 0.3);
+          }
+          .generate-compact-slots(@n, (@i + 1));
+        }
+
+        .generate-compact-slots(10);
+
       }
     }
 
 
     mei-stone {
-      display: inline-block;
-      position: relative;
+      display: block;
+      position: absolute;
       top: 100% * @stoneMarginRatio;
       width: 8% * @stoneSizeRatio;
       height: 100% * @stoneSizeRatio;
+
+
+      .generate-roll-slots(@n, @i: 0) when (@i < @n) {
+        &.roll-slot-@{i} {
+          left: (@i * 8% * @stoneSizeRatio);
+        }
+        .generate-roll-slots(@n, (@i + 1));
+      }
+
+      .generate-roll-slots(10);
     }
   }
 }
