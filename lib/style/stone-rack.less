@@ -1,4 +1,33 @@
+@stoneSizeRatio: 0.7;
+@stoneMarginRatio: (1 - @stoneSizeRatio) / 2;
+@compactRatio: 0.2;
+
 mei-stone-rack {
   display: block;
   position: absolute;
+
+  mei-stone-roll {
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+
+    .transition(1s, ease-in);
+    &.compact { 
+      width: 100% * @compactRatio;
+      mei-stone {
+        top: 100% * @stoneMarginRatio * @compactRatio;
+        width: 8% * @stoneSizeRatio * @compactRatio;
+        height: 100% * @stoneSizeRatio * @compactRatio;
+      }
+    }
+
+
+    mei-stone {
+      display: inline-block;
+      position: relative;
+      top: 100% * @stoneMarginRatio;
+      width: 8% * @stoneSizeRatio;
+      height: 100% * @stoneSizeRatio;
+    }
+  }
 }
