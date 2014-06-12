@@ -48,7 +48,7 @@ mei-stone-rack {
 
       .generate-roll-slots(@n, @i: 0) when (@i < @n) {
         &.roll-slot-@{i} {
-          left: (@i * 8% * @stoneSizeRatio);
+          left: (@i * 10% * @stoneSizeRatio);
         }
         .generate-roll-slots(@n, (@i + 1));
       }
