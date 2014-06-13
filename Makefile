@@ -1,4 +1,5 @@
-bin := ./node_modules/.bin
+sources = $$(find ./lib -name '*.js')
+bin := $$(npm bin)
 ctime := $$(date +%H:%M:%S)
 
 all: build
@@ -26,5 +27,9 @@ css:
 test:
 	@${bin}/mocha -b -R spec
 
+lint:
+	@${bin}/jshint ${sources}
+
+validate: lint test
 
 .PHONY: build test all
