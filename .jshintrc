@@ -1,3 +1,6 @@
 {
-  "supernew": true
+  "strict": true,
+  "indent": 2,
+  "node": true,
+  "predef": ["window", "io"]
 }
