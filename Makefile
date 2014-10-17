@@ -5,7 +5,7 @@ ctime := $$(date +%H:%M:%S)
 all: build
 
 run: prepare-build css-dev js-dev
-	@title="Mei ${ctime}" node app.js
+	@title="Mei ${ctime}" debug=true node app.js
 
 prepare-build:
 	@mkdir -p build
@@ -21,7 +21,7 @@ js: js-dev
 css-dev:
 	@${bin}/lessc lib/style/game.less build/game.css
 
-css:
+css: css-dev
 	@${bin}/cleancss -o build/game.min.css build/game.css
 
 test:
