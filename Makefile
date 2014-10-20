@@ -30,6 +30,10 @@ test:
 lint:
 	@${bin}/jshint ${sources}
 
+clean:
+	@rm -rf build
+
 validate: lint test
 
-.PHONY: build test all
+
+.PHONY: build test
