@@ -42,5 +42,8 @@
       "zepto": "zepto-browserify"
     }
   },
-  "main": "app.js"
+  "main": "app.js",
+  "dependencies": {
+    "shortid": "^2.0.1"
+  }
 }

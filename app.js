@@ -3,14 +3,22 @@
  */
 
 var _ = require('underscore');
-var express = require('express');
-var app = express();
-var http = require('http');
 var conf = require('./lib/conf');
-var server = http.createServer(app);
-var io = require('./lib/io/server')(server);
+var express = require('express');
+var http = require('http');
+var socketio = require('./lib/io/server');
+var shortid = require('shortid');
 var GameStore = require('./lib/store/game');
 
+
+/*
+ * Local referencies
+ */
+
+var app = express();
+var debug = conf.get('debug');
+var server = http.createServer(app);
+var io = socketio(server);
 
 /*
  * Specialize express
@@ -35,18 +43,40 @@ app.use('/mei', express.static(__dirname + '/build'));
 /* Landing route */
 
 app.get(/^\/?$/, function (req, res) {
-  var debug = conf.get('debug');
-
   res.render('landing', {
+    title: conf.get('title'),
     css: debug ? '/mei/landing.css' : '/mei/landing.min.css',
     js: debug ? '/mei/landing.js' : '/mei/landing.min.js', 
   });
 });
 
+/* New game route */
+
+app.get(/^\/?new\-game\/?/, function (req, res) {
+
+  var tryouts = 0;
+  var gameId = null;
+
+  function badSpecials(id) {
+    var match = id.match(/[\-_]{1}/);
+    var tooMuch = !!match && match.length > 1;
+    var beginWith = !!(id.match(/^.?[\-_]{1}/))
+    var endWith = !!(id.match(/[\-_]{1}.?$/))
+
+    return tooMuch || beginWith || endWith;
+  }
+
+  while(tryouts < 10 && (gameId === null || badSpecials(gameId))) {
+    gameId = shortid.generate();
+    tryouts++;
+  }
+
+  res.redirect('/game/' + gameId);
+});
+
 /* Game route */
 
-app.get(/^\/(game|g)\/([a-z0-9\-]{3,15}[a-z0-9]{1})$/, function (req, res) {
-  var debug = conf.get('debug');
+app.get(/^\/(game|g)\/([\w\-]{3,15})$/, function (req, res) {
   var id = req.params[1];
 
   GameStore.fetch(id, function (err, game) {
