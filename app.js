@@ -32,6 +32,16 @@ app.use('/mei', express.static(__dirname + '/build'));
  * Register routes
  */
 
+/* Landing route */
+
+app.get(/^\/?$/, function (req, res) {
+  var debug = conf.get('debug');
+
+  res.render('landing', {
+    css: debug ? '/mei/landing.css' : '/mei/landing.min.css',
+    js: debug ? '/mei/landing.js' : '/mei/landing.min.js', 
+  });
+});
 
 /* Game route */
 

@@ -14,7 +14,11 @@ mei-layout-sandwich {
     .transition(1s, ease-out);
   }
 
-  mei-header { top: 0; border-bottom: 3px solid @theTurquoise; }
+  mei-header {
+    top: 0;
+    border-bottom: 3px solid @theTurquoise;
+  }
+
   mei-content { 
     top: @bandSize;
     bottom: @bandSize;
@@ -25,7 +29,43 @@ mei-layout-sandwich {
     }
   }
 
-  &.closed { mei-header, mei-footer { height: 50%; } }
+  &.closed {
+    mei-header, mei-footer { height: 50%; }
+  }
 
-  mei-footer { bottom: 0; border-top: 3px solid @theTurquoise; }
+  mei-footer {
+    bottom: 0;
+    border-top: 3px solid @theTurquoise;
+  }
+}
+
+mei-layout-split {
+  > * {
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: 50%;
+  }
+
+  mei-top {
+    top: 0;
+
+    h1 {
+      position: absolute;
+      bottom: 0.5em;
+      left: 0.1em;
+
+      transition: bottom 1s ease-out, opacity 2s ease-out;
+
+      &.hidden {
+        bottom: -1em;
+        opacity: 0;
+      }
+    }
+  }
+
+  mei-bottom {
+    bottom: 0;
+    background-color: @hardGuys;
+  }
 }
