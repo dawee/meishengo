@@ -1,0 +1,18 @@
+html
+  head
+    title= title
+    meta(content='go, go game, shuban, goban', name='keywords')
+    meta(content='Meishengo is an HTML5 go game app', name='description')
+    link(rel='icon', type='image/png', href='/assets/logo.png')
+    link(rel="stylesheet" type="text/css" href= css)
+    script(src=js)
+  body
+    mei-layout-split
+      mei-top
+        h1.hidden
+          span="MEISHEN"
+          span(class="go")="GO"
+      mei-bottom
+    script.
+        boot();
+

@@ -17,25 +17,25 @@
     "node": "0.10.x"
   },
   "devDependencies": {
-    "mocha": "^1.18.2",
-    "less": "~1.7.0",
-    "browserify": "~3.46.1",
+    "aliasify": "~1.4.0",
     "async": "^0.2.10",
     "backbone": "^1.1.2",
+    "browserify": "~3.46.1",
+    "clean-css": "~2.1.8",
     "crypto": "0.0.3",
     "express": "^3.4.8",
     "flat": "^1.2.1",
     "jade": "^1.3.0",
+    "jshint": "~2.5.1",
+    "less": "~1.7.0",
+    "mocha": "^1.18.2",
     "nconf": "^0.6.9",
     "redis": "^0.10.1",
     "socket.io": "^0.9.16",
     "spin.js": "^2.0.1",
-    "underscore": "^1.6.0",
-    "clean-css": "~2.1.8",
-    "aliasify": "~1.4.0",
-    "zepto-browserify": "~1.1.3-0",
     "uglify-js": "~2.4.13",
-    "jshint": "~2.5.1"
+    "underscore": "^1.6.0",
+    "zepto-browserify": "~1.1.3-0"
   },
   "aliasify": {
     "aliases": {
