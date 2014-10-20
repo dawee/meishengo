@@ -67,5 +67,31 @@ mei-layout-split {
   mei-bottom {
     bottom: 0;
     background-color: @hardGuys;
+
+    a {
+      opacity: 0.5;
+
+      .transition(0.3s);
+
+      &:hover {
+        opacity: 1;
+      }
+
+      h2 {
+        position: absolute;
+        top: 1em;
+        right: 1.5em;
+
+        transition: right 1s ease-out, opacity 2s ease-out;
+        transition-delay: 1s;
+
+        &.hidden {
+          right: 0;
+          opacity: 0;
+        }
+
+      }      
+    }
+
   }
 }
