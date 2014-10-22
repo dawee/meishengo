@@ -1,6 +1,6 @@
 /* Game layout */
 
-mei-layout-sandwich {
+.mei-layout-sandwich {
   @bandSize: 48px;
 
   > * {
@@ -9,19 +9,19 @@ mei-layout-sandwich {
     right: 0;
   }
 
-  mei-header, mei-footer { 
+  .mei-header, .mei-footer { 
     height: @bandSize;
     background-color: @hardGuys;
     z-index: 2;
     .transition(1s, ease-out);
   }
 
-  mei-header {
+  .mei-header {
     top: 0;
     border-bottom: 3px solid @theTurquoise;
   }
 
-  mei-content { 
+  .mei-content { 
     top: @bandSize;
     bottom: @bandSize;
     h1 {
@@ -32,10 +32,10 @@ mei-layout-sandwich {
   }
 
   &.closed {
-    mei-header, mei-footer { height: 50%; }
+    .mei-header, .mei-footer { height: 50%; }
   }
 
-  mei-footer {
+  .mei-footer {
     bottom: 0;
     border-top: 3px solid @theTurquoise;
   }
@@ -43,7 +43,7 @@ mei-layout-sandwich {
 
 /* Landing layout */
 
-mei-layout-split {
+.mei-layout-split {
   > * {
     position: absolute;
     left: 0;
@@ -51,7 +51,7 @@ mei-layout-split {
     height: 50%;
   }
 
-  mei-top {
+  .mei-top {
     top: 0;
 
     h1 {
@@ -70,7 +70,7 @@ mei-layout-split {
     }
   }
 
-  mei-bottom {
+  .mei-bottom {
     bottom: 0;
     background-color: @hardGuys;
     border-top: 3px solid @theTurquoise;
