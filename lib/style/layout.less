@@ -5,11 +5,12 @@
 
   > * {
     position: absolute;
+    display: block;
     left: 0;
     right: 0;
   }
 
-  .mei-header, .mei-footer { 
+  .mei-header, .mei-footer {
     height: @bandSize;
     background-color: @hardGuys;
     z-index: 2;
@@ -19,7 +20,7 @@
 
   .mei-header {
     top: 0;
-    border-bottom: 3px solid @theTurquoise;
+    border-bottom: 3px solid @boardColor;
   }
 
   .mei-content { 
@@ -33,12 +34,19 @@
   }
 
   &.closed {
-    .mei-header, .mei-footer { height: 50%; }
+    .mei-header {
+      height: 50%;
+    }
+
+    .mei-footer {
+      height: 50%;
+      padding-top: 150px;
+    }
   }
 
   .mei-footer {
     bottom: 0;
-    border-top: 3px solid @theTurquoise;
+    border-top: 3px solid @boardColor;
   }
 }
 
