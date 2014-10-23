@@ -7,7 +7,7 @@ var conf = require('./lib/conf');
 var express = require('express');
 var http = require('http');
 var socketio = require('./lib/io/server');
-var shortid = require('shortid');
+var hat = require('hat');
 var GameStore = require('./lib/store/game');
 
 
@@ -53,30 +53,12 @@ app.get(/^\/?$/, function (req, res) {
 /* New game route */
 
 app.get(/^\/?new\-game\/?/, function (req, res) {
-
-  var tryouts = 0;
-  var gameId = null;
-
-  function badSpecials(id) {
-    var match = id.match(/[\-_]{1}/);
-    var tooMuch = !!match && match.length > 1;
-    var beginWith = !!(id.match(/^.?[\-_]{1}/))
-    var endWith = !!(id.match(/[\-_]{1}.?$/))
-
-    return tooMuch || beginWith || endWith;
-  }
-
-  while(tryouts < 10 && (gameId === null || badSpecials(gameId))) {
-    gameId = shortid.generate();
-    tryouts++;
-  }
-
-  res.redirect('/game/' + gameId);
+  res.redirect('/game/' + hat(64, 16));
 });
 
 /* Game route */
 
-app.get(/^\/(game|g)\/([\w\-]{3,15})$/, function (req, res) {
+app.get(/^\/(game|g)\/([\w\-]{3,16})$/, function (req, res) {
   var id = req.params[1];
 
   GameStore.fetch(id, function (err, game) {

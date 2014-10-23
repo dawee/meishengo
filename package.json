@@ -44,6 +44,6 @@
   },
   "main": "app.js",
   "dependencies": {
-    "shortid": "^2.0.1"
+    "hat": "0.0.3"
   }
 }
