@@ -1,7 +1,6 @@
 .mei-goban {
-  
   position: absolute;
-  
+
   .mei-board {
     position: absolute;
     top: 0;
@@ -11,31 +10,13 @@
     background-color: lighten(@boardColor, 5%);
   }
 
-  .mei-board-top-edge {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: @boardSize;
-    height: 1px;
-    background-color: lighten(@boardColor, 6%);
-  }
-
-  .mei-board-left-edge {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 1px;
-    height: @boardSize;
-    background-color: @whiteAlike;
-  }
-
   .mei-board-right-edge {
     position: absolute;
     right: 0;
     top: (100% - @boardSize) / 2;
     width: 100% - @boardSize;
     height: @boardSize;
-    background-color: @blackAlike;
+    background-color: darken(@boardColor, 55%);
     .skew(0deg, 45deg);
   }
 
@@ -45,7 +26,7 @@
     left: (100% - @boardSize) / 2;
     height: 100% - @boardSize;
     width: @boardSize;
-    background-color: darken(@boardColor, 60%);
+    background-color: darken(@boardColor, 50%);
     .skew(45deg, 0deg);
   }
 
