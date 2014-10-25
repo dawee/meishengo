@@ -14,7 +14,9 @@
 @boardColor: lighten(@justHadToBreathe, 10%);
 @blackAlike: darken(@boardColor, 70%);
 @whiteAlike: lighten(@boardColor, 15%);
-@separatorColor: @justHadToBreathe;
+@separatorColor: @theTurquoise;
+@bodyBackground: mix(@hardGuys, white, 10%);
+@gobanLineColor: mix(@hardGuys, @bodyBackground, 50%);
 @boardSize: 99%;
 @margin: 5%;
 
@@ -50,10 +52,10 @@ a {
 h2 {
   margin: 0;
   padding: 0;
-  .text(mix(@hardGuys, white, 15%), 2);
+  .text(@bodyBackground, 2);
 }
 
 
 body {
-  background: radial-gradient(ellipse at center, mix(@hardGuys, white, 10%) 0%, mix(@hardGuys, white, 15%) 100%);
+  background: @bodyBackground;
 }

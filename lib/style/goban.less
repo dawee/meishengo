@@ -7,27 +7,6 @@
     left: 0;
     width: @boardSize;
     height: @boardSize;
-    background-color: lighten(@boardColor, 5%);
-  }
-
-  .mei-board-right-edge {
-    position: absolute;
-    right: 0;
-    top: (100% - @boardSize) / 2;
-    width: 100% - @boardSize;
-    height: @boardSize;
-    background-color: darken(@boardColor, 55%);
-    .skew(0deg, 45deg);
-  }
-
-  .mei-board-bottom-edge {
-    position: absolute;
-    bottom: 0;
-    left: (100% - @boardSize) / 2;
-    height: 100% - @boardSize;
-    width: @boardSize;
-    background-color: darken(@boardColor, 50%);
-    .skew(45deg, 0deg);
   }
 
   .sized-goban (@size) {
@@ -50,7 +29,7 @@
           height: 100%;
 
           .draw {
-            background-color: @blackAlike;
+            background-color: @gobanLineColor;
           }
 
           .mei-vertical-line {
