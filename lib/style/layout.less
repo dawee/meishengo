@@ -35,11 +35,18 @@
   .mei-content { 
     top: @bandSize;
     bottom: @bandSize;
+    background-color: @bodyBackground;
+
     h1 {
       position: absolute;
       bottom: 0.5em;
       right: 0.25em;
     }
+  }
+
+  &.pushed {
+    .transition(1s, ease-out);
+    left: 400px;
   }
 
   &.closed {
