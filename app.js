@@ -24,7 +24,7 @@ var io = socketio(server);
  * Specialize express
  */
 
-app.set('views', __dirname + '/lib/page');
+app.set('views', __dirname + '/lib/template');
 app.set('view engine', 'jade');
 
 
