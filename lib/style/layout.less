@@ -10,7 +10,7 @@
 }
 
 .mei-layout-sandwich {
-  @bandSize: 48px;
+  .transition(1s, ease-out);
 
   > * {
     position: absolute;
@@ -45,7 +45,6 @@
   }
 
   &.pushed {
-    .transition(1s, ease-out);
     right: @sideFormSize;
   }
 
