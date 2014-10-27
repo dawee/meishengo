@@ -39,14 +39,14 @@
 
     h1 {
       position: absolute;
-      bottom: 0.5em;
-      right: 0.25em;
+      bottom: 3px;
+      right: 3px;
     }
   }
 
   &.pushed {
     .transition(1s, ease-out);
-    left: 400px;
+    right: @sideFormSize;
   }
 
   &.closed {
@@ -81,8 +81,8 @@
 
     h1 {
       position: absolute;
-      bottom: 0.5em;
-      left: 0.1em;
+      bottom: 3px;
+      left: 3px;
 
       .title(@hardGuys, 3);
 
@@ -111,7 +111,7 @@
 
       h2 {
         position: absolute;
-        top: 1em;
+        top: 3px;
         right: 1.5em;
 
         transition: right 1s ease-out, opacity 2s ease-out;
