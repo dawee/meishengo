@@ -1,12 +1,14 @@
 div.mei-form-join
   ul.mei-choice
-    li.mei-option(value="black")
-      span="Join as "
-      span.enlight="black"
-      span=" player"
-    li.mei-option(value="white")
-      span="Join as "
-      span.enlight="white"
-      span=" player"
-    li.mei-option(value="spectate")
+    if black
+      li.mei-option(mei-value="black")
+        span="Join as "
+        span.enlight="black"
+        span=" player"
+    if white
+      li.mei-option(mei-value="white")
+        span="Join as "
+        span.enlight="white"
+        span=" player"
+    li.mei-option(mei-value="spectate")
       span="Remain a spectator"
