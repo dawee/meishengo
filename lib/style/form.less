@@ -34,7 +34,22 @@
     width: 100%;
   }
 
-  .input-group {
+  .mei-choice {
+    margin: 1em 0 0.5em 10%;
+    text-align: left;
+    width: 80%;
+
+    .mei-option {
+      margin: 1em 0 0.5em 0;
+      width: 100%;
+      height: 3em;
+      background-color: @hardGuys;
+      .user-select(none);
+      .text(@bodyBackground, 1.5);
+    }    
+  }
+
+  .mei-input-group {
     position: relative;
     opacity: 0.5;
     margin: 0.5em auto 0.25em auto;
