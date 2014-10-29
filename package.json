@@ -1,6 +1,6 @@
 {
   "name": "meishengo",
-  "version": "0.0.17",
+  "version": "0.0.18",
   "description": "HTML5 Go game client",
   "domains": [
     "meishengo.org",
