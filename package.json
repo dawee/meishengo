@@ -42,10 +42,12 @@
     "jshint": "~2.5.1",
     "localforage": "^1.1.1",
     "mocha": "^1.18.2",
+    "moment": "^2.8.3",
     "nconf": "^0.6.9",
     "redis": "^0.10.1",
     "socket.io": "^0.9.16",
     "spin.js": "^2.0.1",
-    "underscore": "^1.6.0"
+    "underscore": "^1.6.0",
+    "winston": "^0.8.1"
   }
 }
