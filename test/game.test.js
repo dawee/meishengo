@@ -12,42 +12,15 @@ describe('Game', function () {
 
   describe('putStone()', function () {
 
-    it('should accept a first black stone', function () {
-      var game = new Game({goban: {size: 19}});
+    it('should accept a first black stone');
 
-      assert.equal(true, game.putStone({row: 0, col: 0, color: 'black'}));
-    });
+    it('should refuse a second black stone');
 
-    it('should refuse a second black stone', function () {
-      var game = new Game({goban: {size: 19}});
+    it('should accept a second white stone');
 
-      assert.equal(true, game.putStone({row: 0, col: 0, color: 'black'}));
-      assert.equal(false, game.putStone({row: 1, col: 1, color: 'black'}));
-    });
+    it('should refuse a first white stone');
 
-    it('should accept a second white stone', function () {
-      var game = new Game({goban: {size: 19}});
-
-      assert.equal(true, game.putStone({row: 0, col: 0, color: 'black'}));
-      assert.equal(true, game.putStone({row: 1, col: 1, color: 'white'}));
-    });
-
-    it('should refuse a first white stone', function () {
-      var game = new Game({goban: {size: 19}});
-
-      assert.equal(false, game.putStone({row: 0, col: 0, color: 'white'}));
-    });
-
-    it('should count one prisoners for black player', function () {
-      var game = new Game(fixtures.s19SimpleCapture);
-
-      game.set('turn', 'black');
-
-      assert.equal(true, game.putStone({row: 13, col: 17, color: 'black'}));
-      assert.equal(1, game.get('black').get('prisoners'));
-      assert.equal(0, game.get('white').get('prisoners'));
-    });
-
+    it('should count one prisoners for black player');
 
   });
 
@@ -94,7 +67,7 @@ describe('Game', function () {
       var game1 = new Game(fixtures.s19bCenter);
       var game2 = new Game(fixtures.s19bCenter);
       
-      game1.putStone({row: 18, col: 18, color: 'black'});
+      game1.gbn().get('groups').at(0).get('stones').add({row: 18, col: 18, color: 'black'});
 
       game2.gbn().once('change', function () {
         done();
@@ -112,7 +85,7 @@ describe('Game', function () {
       var lastGbn = game2.gbn();
       game2.gbn().thisisme = true;
 
-      game1.putStone({row: 18, col: 18, color: 'black'});
+      game1.gbn().get('groups').at(0).get('stones').add({row: 18, col: 18, color: 'black'});
 
       game2.set(game1.serialize());
 

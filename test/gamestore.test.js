@@ -15,8 +15,8 @@ describe('GameStore', function () {
 
     game.save(null, {
       success: function () {
-        GameStore.exists('my-game', function (err, exists) {
-          assert.equal(true, exists);
+        GameStore.fetch('my-game', function (err, model) {
+          assert.equal(true, !!model);
           done();
         });
       },
@@ -27,8 +27,8 @@ describe('GameStore', function () {
   });
 
   it('should not find this game' , function (done) {
-    GameStore.exists('i-dont-exist', function (err, exists) {
-      assert.equal(false, exists);
+    GameStore.fetch('i-dont-exist', function (err, model) {
+      assert.equal(false, !!model);
       done();
     });
   });
