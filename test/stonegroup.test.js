@@ -96,7 +96,7 @@ describe('StoneGroup', function () {
 
   });
 
-  describe('liberties()', function () {
+/*  describe('liberties()', function () {
 
     it('should returns 8 if in center and no stones near', function () {
       var group = new StoneGroup([
@@ -140,6 +140,6 @@ describe('StoneGroup', function () {
       assert.equal(12, _.size(group.liberties([{row: 9, col: 9, color: 'white'}], 19)));
     });
 
-  });
+  });*/
 
 });
