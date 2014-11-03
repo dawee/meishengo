@@ -142,4 +142,62 @@ describe('StoneGroup', function () {
 
   });
 
+  describe('touches()', function () {
+
+    it('should return true if the stone is at the top', function () {
+      var group = new StoneGroup([
+        {row: 8, col: 8, color: 'black'},
+        {row: 8, col: 9, color: 'black'},
+        {row: 8, col: 10, color: 'black'}
+      ]);
+
+      assert.equal(true, group.touches({row: 7, col: 9, color: 'white'}));
+      assert.equal(true, group.touches({row: 7, col: 9, color: 'black'}));
+    });
+
+    it('should return true if the stone is at the right', function () {
+      var group = new StoneGroup([
+        {row: 8, col: 8, color: 'black'},
+        {row: 8, col: 9, color: 'black'},
+        {row: 8, col: 10, color: 'black'}
+      ]);
+
+      assert.equal(true, group.touches({row: 8, col: 11, color: 'white'}));
+      assert.equal(true, group.touches({row: 8, col: 11, color: 'black'}));
+    });
+
+    it('should return true if the stone is at the bottom', function () {
+      var group = new StoneGroup([
+        {row: 8, col: 8, color: 'black'},
+        {row: 8, col: 9, color: 'black'},
+        {row: 8, col: 10, color: 'black'}
+      ]);
+
+      assert.equal(true, group.touches({row: 9, col: 9, color: 'white'}));
+      assert.equal(true, group.touches({row: 9, col: 9, color: 'black'}));
+    });
+
+    it('should return true if the stone is at the left', function () {
+      var group = new StoneGroup([
+        {row: 8, col: 8, color: 'black'},
+        {row: 8, col: 9, color: 'black'},
+        {row: 8, col: 10, color: 'black'}
+      ]);
+
+      assert.equal(true, group.touches({row: 8, col: 7, color: 'white'}));
+      assert.equal(true, group.touches({row: 8, col: 7, color: 'black'}));
+    });
+
+
+    it('should return false if the stone does not touch', function () {
+      var group = new StoneGroup([
+        {row: 8, col: 8, color: 'black'},
+        {row: 8, col: 9, color: 'black'},
+        {row: 8, col: 10, color: 'black'}
+      ]);
+
+      assert.equal(false, group.touches({row: 8, col: 12, color: 'white'}));
+      assert.equal(false, group.touches({row: 8, col: 12, color: 'black'}));
+    });
+  });
 });
