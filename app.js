@@ -6,6 +6,7 @@ var _ = require('underscore');
 var conf = require('./lib/conf');
 var express = require('express');
 var http = require('http');
+var logger = require('./lib/logger');
 var socketio = require('./lib/io/server');
 var hat = require('hat');
 var GameCache = require('./lib/cache/game');
@@ -68,7 +69,8 @@ app.get(/^\/(game|g)\/([\w\-]{3,16})$/, function (req, res) {
       css: debug ? '/mei/game.css' : '/mei/game.min.css',
       port: conf.get('port'),
       id: id,
-      game: JSON.stringify(!!game ? game.serialize() : null)
+      game: JSON.stringify(!!game ? game.serialize() : null),
+      debug: conf.get('debug')
     });
   });
 });
@@ -77,5 +79,5 @@ app.get(/^\/(game|g)\/([\w\-]{3,16})$/, function (req, res) {
  * Start server
  */
 
-console.log('Meishengo started on port ' + conf.get('port'));
+logger.debug('Meishengo started on port ' + conf.get('port'));
 server.listen(conf.get('port'));
