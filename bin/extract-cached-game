@@ -1,0 +1,20 @@
+#!/usr/bin/env node
+
+var _ = require('underscore');
+var fs = require('fs');
+var GameCache = require('../lib/cache/game');
+
+/* Extract argv */
+
+var argv = process.argv.slice(2);
+
+
+/* Fetch and save game */
+
+GameCache.fetch(argv[0], function (err, game) {
+  if (err) throw err;
+
+  var data = _.pick(game.serialize(), 'goban');
+
+  fs.writeFileSync(argv[1], JSON.stringify(data, null, '  '));
+});
