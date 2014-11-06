@@ -79,5 +79,7 @@ app.get(/^\/(game|g)\/([\w\-]{3,16})$/, function (req, res) {
  * Start server
  */
 
-logger.debug('Meishengo started on port ' + conf.get('port'));
+io.set('logger', logger);
 server.listen(conf.get('port'));
+
+logger.debug('Meishengo started on port ' + conf.get('port'));
