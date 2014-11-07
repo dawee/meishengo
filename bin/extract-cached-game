@@ -15,6 +15,5 @@ GameCache.fetch(argv[0], function (err, game) {
   if (err) throw err;
 
   var data = _.pick(game.serialize(), 'goban');
-
-  fs.writeFileSync(argv[1], JSON.stringify(data, null, '  '));
+  process.stdout.write(JSON.stringify(data, null, '  ') + '\n');
 });
