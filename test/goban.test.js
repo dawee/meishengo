@@ -22,9 +22,14 @@ describe('Goban', function () {
     });
 
     it('should refuse a stone if position taken', function () {
-      var goban = new Goban({size: 19, groups: [
-        [{row: 0, col: 0, color: 'black'}]
-      ]});
+      var goban = new Goban({
+        size: 19,
+        groups: {
+          stones: [
+            {row: 0, col: 0, color: 'black'}
+          ]
+        }
+      });
 
       assert.equal(false, goban.canPutStone({row: 0, col: 0, color: 'black'}));
       assert.equal(false, goban.canPutStone({row: 0, col: 0, color: 'white'}));

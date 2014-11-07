@@ -23,7 +23,7 @@ describe('StoneGroup', function () {
       var stone2 = new Stone({col: 1, row: 2, color: 'black'});
       var stone3 = new Stone({col: 1, row: 3, color: 'black'});
       var stone4 = new Stone({col: 1, row: 4, color: 'black'});
-      var group = new StoneGroup([stone1, stone2, stone3]);
+      var group = new StoneGroup({stones: [stone1, stone2, stone3]});
 
       assert.equal(false, group.contains(stone4));
     });
@@ -37,7 +37,7 @@ describe('StoneGroup', function () {
       var stone2 = new Stone({col: 1, row: 2, color: 'black'});
       var stone3 = new Stone({col: 1, row: 3, color: 'black'});
       var stone4 = new Stone({col: 1, row: 4, color: 'black'});
-      var group = new StoneGroup([stone1, stone2, stone3]);
+      var group = new StoneGroup({stones: [stone1, stone2, stone3]});
 
 
       assert.equal(true, group.attach(stone4));
@@ -48,7 +48,7 @@ describe('StoneGroup', function () {
       var stone2 = new Stone({col: 1, row: 2, color: 'black'});
       var stone3 = new Stone({col: 1, row: 3, color: 'black'});
       var farStone = new Stone({col: 1, row: 5, color: 'black'});
-      var group = new StoneGroup([stone1, stone2, stone3]);
+      var group = new StoneGroup({stones: [stone1, stone2, stone3]});
 
       assert.equal(false, group.attach(farStone));
     });
@@ -58,7 +58,7 @@ describe('StoneGroup', function () {
       var stone2 = new Stone({col: 1, row: 2, color: 'black'});
       var stone3 = new Stone({col: 1, row: 3, color: 'black'});
       var stone4 = new Stone({col: 2, row: 3, color: 'black'});
-      var group = new StoneGroup([stone1]);
+      var group = new StoneGroup({stones: [stone1]});
 
       assert.equal(true, group.attach(stone2));
       assert.equal(true, group.attach(stone3));
@@ -68,7 +68,7 @@ describe('StoneGroup', function () {
     it('should not accept a replacing', function () {
       var stone1 = new Stone({col: 1, row: 1, color: 'black'});
       var stone2 = new Stone({col: 1, row: 2, color: 'black'});
-      var group = new StoneGroup([stone1, stone2]);
+      var group = new StoneGroup({stones: [stone1, stone2]});
 
       assert.equal(false, group.attach(stone1));
     });
@@ -99,18 +99,18 @@ describe('StoneGroup', function () {
   describe('liberties()', function () {
 
     it('should returns 8 if in center and no stones near', function () {
-      var group = new StoneGroup([
+      var group = new StoneGroup({stones: [
         {row: 8, col: 8, color: 'black'},
         {row: 8, col: 9, color: 'black'},
         {row: 8, col: 10, color: 'black'}
-      ]);
+      ]});
 
       assert.equal(8, group.liberties([], 19).size());
     });
 
 
     it('should returns 13 in the one-eye square case', function () {
-      var group = new StoneGroup([
+      var group = new StoneGroup({stones: [
         {row: 8, col: 8, color: 'black'},
         {row: 8, col: 9, color: 'black'},
         {row: 8, col: 10, color: 'black'},
@@ -119,14 +119,14 @@ describe('StoneGroup', function () {
         {row: 10, col: 9, color: 'black'},
         {row: 10, col: 8, color: 'black'},
         {row: 9, col: 8, color: 'black'}
-      ]);
+      ]});
 
       assert.equal(13, group.liberties([], 19).size());
     });
 
 
     it('should returns 12 in the one-eye square case with a stone in the middle', function () {
-      var group = new StoneGroup([
+      var group = new StoneGroup({stones: [
         {row: 8, col: 8, color: 'black'},
         {row: 8, col: 9, color: 'black'},
         {row: 8, col: 10, color: 'black'},
@@ -135,7 +135,7 @@ describe('StoneGroup', function () {
         {row: 10, col: 9, color: 'black'},
         {row: 10, col: 8, color: 'black'},
         {row: 9, col: 8, color: 'black'}
-      ]);
+      ]});
 
       assert.equal(12, group.liberties([{row: 9, col: 9, color: 'white'}], 19).size());
     });
@@ -145,44 +145,44 @@ describe('StoneGroup', function () {
   describe('touches()', function () {
 
     it('should return true if the stone is at the top', function () {
-      var group = new StoneGroup([
+      var group = new StoneGroup({stones: [
         {row: 8, col: 8, color: 'black'},
         {row: 8, col: 9, color: 'black'},
         {row: 8, col: 10, color: 'black'}
-      ]);
+      ]});
 
       assert.equal(true, group.touches({row: 7, col: 9, color: 'white'}));
       assert.equal(true, group.touches({row: 7, col: 9, color: 'black'}));
     });
 
     it('should return true if the stone is at the right', function () {
-      var group = new StoneGroup([
+      var group = new StoneGroup({stones: [
         {row: 8, col: 8, color: 'black'},
         {row: 8, col: 9, color: 'black'},
         {row: 8, col: 10, color: 'black'}
-      ]);
+      ]});
 
       assert.equal(true, group.touches({row: 8, col: 11, color: 'white'}));
       assert.equal(true, group.touches({row: 8, col: 11, color: 'black'}));
     });
 
     it('should return true if the stone is at the bottom', function () {
-      var group = new StoneGroup([
+      var group = new StoneGroup({stones: [
         {row: 8, col: 8, color: 'black'},
         {row: 8, col: 9, color: 'black'},
         {row: 8, col: 10, color: 'black'}
-      ]);
+      ]});
 
       assert.equal(true, group.touches({row: 9, col: 9, color: 'white'}));
       assert.equal(true, group.touches({row: 9, col: 9, color: 'black'}));
     });
 
     it('should return true if the stone is at the left', function () {
-      var group = new StoneGroup([
+      var group = new StoneGroup({stones: [
         {row: 8, col: 8, color: 'black'},
         {row: 8, col: 9, color: 'black'},
         {row: 8, col: 10, color: 'black'}
-      ]);
+      ]});
 
       assert.equal(true, group.touches({row: 8, col: 7, color: 'white'}));
       assert.equal(true, group.touches({row: 8, col: 7, color: 'black'}));
@@ -190,11 +190,11 @@ describe('StoneGroup', function () {
 
 
     it('should return false if the stone does not touch', function () {
-      var group = new StoneGroup([
+      var group = new StoneGroup({stones: [
         {row: 8, col: 8, color: 'black'},
         {row: 8, col: 9, color: 'black'},
         {row: 8, col: 10, color: 'black'}
-      ]);
+      ]});
 
       assert.equal(false, group.touches({row: 8, col: 12, color: 'white'}));
       assert.equal(false, group.touches({row: 8, col: 12, color: 'black'}));
