@@ -7,7 +7,7 @@
     "www.meishengo.org"
   ],
   "author": "David Corticchiato",
-  "license": "BSD",
+  "license": "MIT",
   "subdomain": "meishengo",
   "scripts": {
     "start": "node app.js",
