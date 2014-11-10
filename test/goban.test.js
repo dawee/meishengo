@@ -1,6 +1,7 @@
 var assert = require('assert');
 var _ = require('underscore');
 var Goban = require('../lib/model/goban');
+var Stone = require('../lib/model/stone');
 var fixtures = {
   's19SimpleCapture': require('./fixtures/game-19x19-simple-capture')
 };
@@ -75,17 +76,23 @@ describe('Goban', function () {
 
     it('should capture the first black stone', function () {
       var goban = new Goban({size: 19});
+      var firstStone = new Stone({row: 15, col: 15, color: 'black'})
 
-      goban.putStone({row: 15, col: 15, color: 'black'});
+      goban.putStone(firstStone);
+
       goban.putStone({row: 15, col: 14, color: 'white'});
       goban.putStone({row: 15, col: 3, color: 'black'});
       goban.putStone({row: 14, col: 15, color: 'white'});
       goban.putStone({row: 14, col: 3, color: 'black'});
       goban.putStone({row: 15, col: 16, color: 'white'});
       goban.putStone({row: 13, col: 3, color: 'black'});
-      goban.putStone({row: 16, col: 15, color: 'white'});
 
-      assert.equal(5, goban.get('groups').size())
+
+      assert.equal(true, goban.hasStone(firstStone));
+
+      goban.putStone({row: 16, col: 15, color: 'white'});
+      assert.equal(5, goban.get('groups').size());
+      assert.equal(false, goban.hasStone(firstStone));
     });
   });
 });

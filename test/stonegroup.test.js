@@ -5,6 +5,25 @@ var Stone = require('../lib/model/stone');
 
 describe('StoneGroup', function () {
 
+  describe('color()', function () {
+
+    it('should be black', function () {
+      var group = new StoneGroup({stones: [
+        {col: 1, row: 2, color: 'black'}
+      ]});
+
+      assert.equal('black', group.color());
+    });
+
+    it('should be white', function () {
+      var group = new StoneGroup({stones: [
+        {col: 1, row: 2, color: 'white'}
+      ]});
+
+      assert.equal('white', group.color());
+    });
+  });
+
   describe('contains()', function () {
 
     it('should recognize a stone it owns', function () {
@@ -73,6 +92,14 @@ describe('StoneGroup', function () {
       assert.equal(false, group.attach(stone1));
     });
 
+    it('should not accept a stone from opposite color', function () {
+      var stone1 = new Stone({col: 1, row: 1, color: 'black'});
+      var stone2 = new Stone({col: 1, row: 2, color: 'black'});
+      var group = new StoneGroup({stones: [stone1]});
+
+      assert.equal(false, group.attach(stone2.oppositeStone()));
+      assert.equal(1, group.size());
+    });
   });
 
   describe('eat()', function () {
