@@ -29,7 +29,7 @@ css: css-dev
 	@${bin}/cleancss -o build/landing.min.css build/landing.css
 
 test:
-	@${bin}/mocha -R nyan
+	@${bin}/mocha --recursive -R nyan
 
 lint:
 	@${bin}/jshint ${sources}
