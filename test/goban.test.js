@@ -72,5 +72,20 @@ describe('Goban', function () {
       assert.equal(true, goban.putStone({row: 13, col: 17, color: 'black'}));
       assert.equal(7, goban.get('groups').size());
     });
+
+    it('should capture the first black stone', function () {
+      var goban = new Goban({size: 19});
+
+      goban.putStone({row: 15, col: 15, color: 'black'});
+      goban.putStone({row: 15, col: 14, color: 'white'});
+      goban.putStone({row: 15, col: 3, color: 'black'});
+      goban.putStone({row: 14, col: 15, color: 'white'});
+      goban.putStone({row: 14, col: 3, color: 'black'});
+      goban.putStone({row: 15, col: 16, color: 'white'});
+      goban.putStone({row: 13, col: 3, color: 'black'});
+      goban.putStone({row: 16, col: 15, color: 'white'});
+
+      assert.equal(5, goban.get('groups').size())
+    });
   });
 });

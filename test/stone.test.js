@@ -123,4 +123,59 @@ describe('Stone', function () {
 
   });
 
+  describe('Collection', function () {
+
+    describe('has()', function () {
+
+      it('should return true when stone is included', function () {
+        var col1 = new Stone.Collection([
+          {row: 0, col: 0, color: 'black'},
+          {row: 1, col: 0, color: 'black'},
+        ]);
+
+        assert.equal(true, col1.has({row: 0, col: 0, color: 'black'}));
+        assert.equal(false, col1.has({row: 0, col: 0, color: 'white'}));
+      });
+
+    });
+
+    describe('hasPos()', function () {
+
+      it('should return true when opposite stone is included', function () {
+        var col1 = new Stone.Collection([
+          {row: 0, col: 0, color: 'black'},
+          {row: 1, col: 0, color: 'black'},
+        ]);
+
+        assert.equal(true, col1.hasPos({row: 0, col: 0, color: 'black'}));
+        assert.equal(true, col1.hasPos({row: 0, col: 0, color: 'white'}));
+      });
+
+    });
+
+    describe('merge()', function () {
+
+      it('should be able to add another collection', function () {
+        var col1 = new Stone.Collection([
+          {row: 0, col: 0, color: 'black'},
+          {row: 1, col: 0, color: 'black'},
+        ]);
+
+
+        var col2 = new Stone.Collection([
+          {row: 18, col: 0, color: 'black'},
+          {row: 19, col: 0, color: 'black'},
+        ]);
+
+        col1.merge(col2);
+
+        assert.equal(4, col1.size());
+        assert.equal(true, col2.has({row: 18, col: 0, color: 'black'}));
+        assert.equal(true, col2.has({row: 18, col: 0, color: 'black'}));
+      });
+
+    });
+
+  });
+
 });
