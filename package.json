@@ -1,6 +1,6 @@
 {
   "name": "meishengo",
-  "version": "0.0.20",
+  "version": "0.0.21",
   "description": "HTML5 Go game client",
   "domains": [
     "meishengo.org",
@@ -37,7 +37,7 @@
     "jbone": "^1.0.20",
     "jshint": "~2.5.1",
     "localforage": "^1.1.1",
-    "mei-goban": "^0.1.2",
+    "mei-goban": "^0.1.4",
     "mocha": "^1.18.2",
     "moment": "^2.8.3",
     "nconf": "^0.6.9",
