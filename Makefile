@@ -13,8 +13,8 @@ prepare-build:
 build: js css
 
 js-dev: prepare-build
-	@${bin}/browserify -t aliasify -t jadeify lib/boot/game.js -o build/game.js
-	@${bin}/browserify -t aliasify -t jadeify lib/boot/landing.js -o build/landing.js
+	@${bin}/browserify -t jadeify lib/boot/game.js -o build/game.js
+	@${bin}/browserify -t jadeify lib/boot/landing.js -o build/landing.js
 
 js: js-dev
 	@${bin}/uglifyjs build/game.js > build/game.min.js
