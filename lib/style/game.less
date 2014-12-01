@@ -17,3 +17,22 @@
     height: 100%;
   }
 }
+
+.mei-footer > input.prompt {
+  position: absolute;
+  top: 5px;
+  bottom: 5px;
+  width: 15em;
+  left: 100vh;
+  opacity: 0.3;
+  background-color: @whiteAlike;
+  transition: opacity 0.3s;
+
+  &:hover, &:focus {
+    opacity: 0.8;
+  }
+
+  &.hidden {
+    display: none;
+  }
+}
