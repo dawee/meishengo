@@ -1,2 +1,8 @@
-span.login= login
-span.content= content
+if (type == 'system')
+  each line in content
+    div.line-block
+      div.login= login
+      div.content= line
+else
+  div.login= login
+  div.content= content

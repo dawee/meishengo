@@ -17,12 +17,24 @@
       .text(@blackAlike);
 
       .login {
+        display: inline-block;
         font-weight: bold;
       }
 
       .content {
+        display: inline-block;
         margin-left: 1em;
         opacity: 0.8;
+      }
+
+      &.system {
+        margin-bottom: 2em;
+
+        .content {
+          margin-left: 0em;
+          opacity: 0.6;
+        }
+
       }
     }
   }
