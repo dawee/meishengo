@@ -4,4 +4,27 @@
   bottom: 3em;
   right: 15em;
   left: 100vh;
+  overflow: hidden;
+
+  .wrapper {
+    position: absolute;
+    height: auto;
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+    .message {
+      .text(@blackAlike);
+
+      .login {
+        font-weight: bold;
+      }
+
+      .content {
+        margin-left: 1em;
+        opacity: 0.8;
+      }
+    }
+  }
+
 }
