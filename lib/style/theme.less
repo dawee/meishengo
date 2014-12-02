@@ -1,5 +1,6 @@
 @import url(http://fonts.googleapis.com/css?family=Carrois+Gothic+SC);
 @import url(http://fonts.googleapis.com/css?family=Oswald);
+@import url(http://fonts.googleapis.com/css?family=Nobile);
 
 /* Base */
 
@@ -30,9 +31,15 @@
   text-transform: uppercase;
 }
 
-.text(@color, @ratio:1) {
+.label(@color, @ratio:1) {
   font-family: 'Oswald', sans-serif;
   font-size: 0.9em * @ratio;
+  color: @color;
+}
+
+.text(@color, @ratio:1) {
+  font-family: 'Nobile', sans-serif;
+  font-size: 0.8em * @ratio;
   color: @color;
 }
 
@@ -53,7 +60,7 @@ a {
 h2 {
   margin: 0;
   padding: 0;
-  .text(@bodyBackground, 2);
+  .label(@bodyBackground, 2);
 }
 
 
