@@ -5,6 +5,7 @@
 @import 'overlay';
 @import 'board-creation';
 @import 'form';
+@import 'chatbox';
 
 
 .mei-content-game {
@@ -14,5 +15,28 @@
 
   .mei-goban {
     height: 100%;
+  }
+}
+
+.mei-footer > input.prompt {
+  position: absolute;
+  top: 50%;
+  height: 2em;
+  margin-top: -1em;
+  width: 20em;
+  left: 100vh;
+  opacity: 0.3;
+  background-color: @whiteAlike;
+  transition: opacity 0.3s, width 0.5s ease-in;
+
+  .text(@blackAlike);
+
+  &:hover, &:focus {
+    opacity: 0.8;
+    width: 30em;
+  }
+
+  &.hidden {
+    display: none;
   }
 }
