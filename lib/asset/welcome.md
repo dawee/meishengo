@@ -1,0 +1,6 @@
+Welcome {{{nickname}}},
+
+You can invite people to join this room, for playing with you or for watching, by sharing this link:
+
+
+[{{{gameLink}}}]({{{gameLink}}})

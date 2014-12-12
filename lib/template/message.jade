@@ -1,14 +1,6 @@
-mixin content(content)
-  if (typeof content == 'string')
-    span.content= content
-  else if (content.type == 'link')
-    a(href=content.link)
-      span.content= content.link
-
 if (type == 'system')
-  each line in content
-    div.line-block
-      +content(line)
+  span.content
 else
   span.login= login
-  +content(content)
+  span.content
+
