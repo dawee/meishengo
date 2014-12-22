@@ -1,5 +1,5 @@
 var assert = require('assert');
-var Mei = require('../lib/model/mei');
+var Mei = require('../lib/mei');
 
 
 describe('Mei', function () {
