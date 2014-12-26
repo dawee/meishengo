@@ -37,7 +37,7 @@
     "jbone": "^1.0.20",
     "jshint": "~2.5.1",
     "localforage": "^1.1.1",
-    "mei-goban": "^0.1.4",
+    "mei-goban": "^0.1.6",
     "mocha": "^1.18.2",
     "moment": "^2.8.3",
     "mustache": "^0.8.2",
