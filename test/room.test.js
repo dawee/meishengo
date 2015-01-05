@@ -9,7 +9,7 @@ describe('Room', function () {
       var room = new Room();
 
       room.putMessage('sai', 'arigato');
-      assert.equal('sai', room.history().at(0).author());
+      assert.equal('sai', room.history().at(0).nickname());
       assert.equal('arigato', room.history().at(0).content());
     });
 
