@@ -40,7 +40,7 @@ describe('GameCache', function () {
 
     game.fetch({
       success: function () {
-        assert.equal(8, game.gbn().get('groups').at(0).get('stones').size());
+        assert.equal(8, game.goban().get('groups').at(0).get('stones').size());
         done();
       },
       error: function (model, err) {
